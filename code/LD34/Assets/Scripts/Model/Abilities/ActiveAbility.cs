@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 
 public class ActiveAbility : Ability {
-    public override void Execute()
-    {
-        throw new NotImplementedException();
+
+    public virtual void ExecuteOnOpponent(Gladiator gladiator) {
+
+    }
+    public virtual void ExecuteOnAlly(Gladiator gladiator) {
+
     }
 }
 
