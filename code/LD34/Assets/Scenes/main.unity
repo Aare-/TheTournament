@@ -289,6 +289,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1776873882}
   - 114: {fileID: 1776873883}
+  - 95: {fileID: 1776873884}
   m_Layer: 0
   m_Name: game
   m_TagString: Untagged
@@ -329,6 +330,23 @@ MonoBehaviour:
   StartingAdrenaline: 50
   AdrenalineBoostPerLevel: 10
   BaseAttackQueueLength: 0
+--- !u!95 &1776873884
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1776873881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07bc0cbaf9f960140bae5158422dc83d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1910671682
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,8 +445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d911cac4bdb6e5842837eb1d93d6dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PPUScale: 1
-  PPU: 32
 --- !u!1001 &2006973340
 Prefab:
   m_ObjectHideFlags: 0
