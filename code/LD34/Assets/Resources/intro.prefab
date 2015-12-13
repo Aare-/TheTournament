@@ -181,7 +181,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '@Spisaczek'
+  m_Text: '@DaniellSoltys'
 --- !u!114 &11431168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,7 +329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '@Spisaczek'
+  m_Text: Kuba
 --- !u!114 &11490676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,7 +361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '@Spisaczek'
+  m_Text: Kuba
 --- !u!114 &11496230
 MonoBehaviour:
   m_ObjectHideFlags: 1
