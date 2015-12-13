@@ -201,7 +201,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 325.799988, y: 100}
+  m_CellSize: {x: 366.170013, y: 70.8000031}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -295,7 +295,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '@Spisaczek'
+  m_Text: '@KamilPoreba
+
+'
 --- !u!114 &11478718
 MonoBehaviour:
   m_ObjectHideFlags: 1
