@@ -116,9 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827fb8342ee8b43438f17438cc918765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowReleased: {fileID: 0}
-  arrowPressed: {fileID: 0}
-  defaultPosition: {x: 0, y: 0, z: 0}
+  sprites: []
   id: -1
 --- !u!114 &11471990
 MonoBehaviour:
@@ -131,9 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827fb8342ee8b43438f17438cc918765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowReleased: {fileID: 0}
-  arrowPressed: {fileID: 0}
-  defaultPosition: {x: 0, y: 0, z: 0}
+  sprites: []
   id: 1
 --- !u!222 &22264986
 CanvasRenderer:

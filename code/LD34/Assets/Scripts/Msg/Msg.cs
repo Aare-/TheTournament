@@ -162,5 +162,24 @@ public class Msg {
         }
         #endregion
     }
-    
+
+    public class ChangeArrowSprite : TinyMessenger.ITinyMessage
+    {
+
+        public int ArrowID;
+        public int IconID;
+
+        #region Implementation
+        public ChangeArrowSprite(int arrowID, int iconID)
+        {
+            ArrowID = arrowID;
+            IconID = iconID;
+        }
+
+        public object Sender
+        {
+            get { return null; }
+        }
+        #endregion
+    }
 }
