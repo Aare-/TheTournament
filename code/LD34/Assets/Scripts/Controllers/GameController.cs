@@ -7,7 +7,7 @@ public partial class GameController : Singleton<GameController> {
 
     public int GetNewId() {
         return ++_LastGenId;
-    }
+    }    
 
 	void Start () {
 	
