@@ -20,7 +20,9 @@ public class Arrow : MonoBehaviour {
     {
         if (m.ArrowID == id)
         {
-            iTween.MoveBy(gameObject, new Vector3(0, -0.1f, 0), 0.5f);
+            gameObject.transform.position = _defaultPosition;
+            iTween.Stop(gameObject, "MoveBy");
+            iTween.MoveBy(gameObject, new Vector3(0, -0.1f, 0), 0.1f);
         }
     }
 
@@ -28,7 +30,8 @@ public class Arrow : MonoBehaviour {
     {
         if (m.ArrowID == id)
         {
-            iTween.MoveTo(gameObject, _defaultPosition, 0.5f);
+            iTween.Stop(gameObject, "MoveBy");
+            iTween.MoveTo(gameObject, _defaultPosition, 0.1f);
         }
     }
 
