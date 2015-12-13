@@ -111,10 +111,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 683930369}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -11, y: -.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &683930366
@@ -185,8 +185,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1776873882}
-  - {fileID: 512149167}
   - {fileID: 2006973341}
+  - {fileID: 512149167}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c2119d922367c5c40805e875d0a1e31d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -277,6 +277,7 @@ MonoBehaviour:
   StartingAdrenaline: 50
   AdrenalineBoostPerLevel: 10
   BaseAttackQueueLength: 0
+  PrefabsContainer: {fileID: 1776873881}
 --- !u!95 &1776873884
 Animator:
   serializedVersion: 3
@@ -429,7 +430,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408156, guid: 831e44c9540f97d4b9fd8fe281d93c89, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22408156, guid: 831e44c9540f97d4b9fd8fe281d93c89, type: 2}
       propertyPath: m_AnchoredPosition.x
