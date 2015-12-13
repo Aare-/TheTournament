@@ -30,7 +30,7 @@ class PrefabBehaviour : StateMachineBehaviour {
         DestroyPrefabs();
     }
 
-    void InitPrefabs() {
+    protected virtual void InitPrefabs() {
         Debug.Log("Initing Prefabs: ");
         _InstantiatedPrefabs = new List<GameObject>();
         foreach (string s in PrefabsToLoad) {
@@ -40,7 +40,7 @@ class PrefabBehaviour : StateMachineBehaviour {
             _InstantiatedPrefabs.Add(o);
         }
     }
-    void DestroyPrefabs() {
+    protected virtual void DestroyPrefabs() {
         Debug.Log("Destroying prefabs");
         foreach (GameObject o in _InstantiatedPrefabs) {
             GameController.Instance.DestroyResource(o);
