@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class MenuScreenControler : MonoBehaviour {
     
     public RectTransform rectGate;
+    public GameObject stamp;
     public Animator anim;
 
     void Update()
@@ -27,6 +28,12 @@ public class MenuScreenControler : MonoBehaviour {
         {
             anim.SetBool("open_half", false);
         }
+
+    }
+
+    public void ShowStamp()
+    {
+        stamp.SetActive(true);
     }
 
 }
