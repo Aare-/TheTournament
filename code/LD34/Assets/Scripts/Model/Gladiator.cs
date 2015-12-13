@@ -15,6 +15,7 @@ public class Gladiator {
     private int _Shields;
     private float _BaseAdrenaline;
     private float _Adrenaline;
+    private Ability.AbilityColor _LastActiveColor;
     List<ActiveAbility> _ActiveAbilities;
     List<PassiveAbility> _PassiveAbilities;
     List<ActiveAbility> _AttackQueue;
@@ -76,6 +77,13 @@ public class Gladiator {
         get { return _AttackQueue; }
         private set { }
     }
+    public Ability.AbilityColor LastActiveColor {
+        get { 
+            if (_IsFighting) return _LastActiveColor;
+            return Ability.AbilityColor.Neutral;
+        }
+        set { }
+    }
     int AttackQueueLength {
         get {
             int value = GameController.Instance.BaseAttackQueueLength;
@@ -98,6 +106,7 @@ public class Gladiator {
         TinyTokenManager.Instance.Register<Msg.StartFight>("GLADIATOR_" + _Id + "_START_FIGHT", OnStartFight);
         TinyTokenManager.Instance.Register<Msg.StartFightRound>("GLADIATOR_" + _Id + "_FIGHT_ROUND_STARTED", OnFightRoundStarted);
         TinyTokenManager.Instance.Register<Msg.PerformAttack>("GLADIATOR_" + _Id + "_PERFORM_ATTACK", OnPerformAttack);
+        TinyTokenManager.Instance.Register<Msg.PrepareToPerformAttack>("GLADIATOR_" + _Id + "_PREPARE_TO_PERFORM_ATTACK", OnPrepareToPerformAttack);
         TinyTokenManager.Instance.Register<Msg.PerformActiveAbility>("GLADIATOR_" + _Id + "_ABILITY", OnPerformAbility);
         TinyTokenManager.Instance.Register<Msg.GladiatorDefeated>("GLADIATOR_" + _Id + "_GLADIATOR_DEFEATED", OnGladiatorDefeated);        
         TinyTokenManager.Instance.Register<Msg.GladiatorKilled>("GLADIATOR_" + _Id + "_ON_KILLED", OnKilled);        
@@ -115,6 +124,11 @@ public class Gladiator {
     void OnFightRoundStarted(Msg.StartFightRound m) {
         if (m.GladiatorId == _Id) {
             GetNewAttackQueue();
+        }
+    }
+    void OnPrepareToPerformAttack(Msg.PrepareToPerformAttack m) {
+        if (_IsFighting && _AttackQueue.Count > 0) {            
+            _LastActiveColor = _AttackQueue[0].Color;            
         }
     }
     void OnPerformAttack(Msg.PerformAttack m) {
@@ -146,6 +160,7 @@ public class Gladiator {
             TinyTokenManager.Instance.Unregister<Msg.GladiatorDefeated>("GLADIATOR_" + _Id + "_GLADIATOR_DEFEATED");
             TinyTokenManager.Instance.Unregister<Msg.PerformActiveAbility>("GLADIATOR_" + _Id + "_ABILITY");
             TinyTokenManager.Instance.Unregister<Msg.PerformAttack>("GLADIATOR_" + _Id + "_PERFORM_ATTACK");
+            TinyTokenManager.Instance.Unregister<Msg.PrepareToPerformAttack>("GLADIATOR_" + _Id + "_PREPARE_TO_PERFORM_ATTACK");
         }
     }
     #endregion
@@ -160,13 +175,11 @@ public class Gladiator {
         return AttackQueue;
     }
     public void LearnNewAbility(Ability a) {
-        if ((a is ActiveAbility)) {
-            _ActiveAbilities.Add((ActiveAbility)a);
-        }
-        if ((a is PassiveAbility)) {
+        if ((a is ActiveAbility))
+            _ActiveAbilities.Add((ActiveAbility)a);        
+        if ((a is PassiveAbility))
             _PassiveAbilities.Add((PassiveAbility)a);
-        }
-
-
+        
+        
     }
 }

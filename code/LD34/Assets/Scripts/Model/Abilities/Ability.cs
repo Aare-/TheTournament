@@ -15,6 +15,9 @@ public abstract class Ability {
     public virtual AbilityColor Color {
         get { return AbilityColor.Neutral; }
     }
+    public virtual int Level {
+        get { return 1; }
+    }
     #endregion
 
     #region Util functions

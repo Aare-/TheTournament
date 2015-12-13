@@ -54,7 +54,19 @@ public class Msg {
             }
         }
         #endregion
-    }    
+    }        
+    public class PrepareToPerformAttack : TinyMessenger.ITinyMessage {
+
+        #region Implementation
+        public PrepareToPerformAttack() {            
+        }
+        public object Sender {
+            get {
+                return null;
+            }
+        }
+        #endregion
+    }
     public class PerformAttack : TinyMessenger.ITinyMessage {
 
         #region Implementation
