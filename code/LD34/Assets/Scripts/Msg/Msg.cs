@@ -126,5 +126,41 @@ public class Msg {
         }
         #endregion
     }
+
+    public class ArrowClicked : TinyMessenger.ITinyMessage
+    {
+
+        public int ArrowID;
+        
+        #region Implementation
+        public ArrowClicked(int arrowID)
+        {
+            ArrowID = arrowID;
+        }
+
+        public object Sender
+        {
+            get { return null; }
+        }
+        #endregion
+    }
+
+    public class ArrowReleased : TinyMessenger.ITinyMessage
+    {
+
+        public int ArrowID;
+
+        #region Implementation
+        public ArrowReleased(int arrowID)
+        {
+            ArrowID = arrowID;
+        }
+
+        public object Sender
+        {
+            get { return null; }
+        }
+        #endregion
+    }
     
 }
