@@ -65,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -84,9 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!127 &5
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!1 &512149166
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +112,7 @@ RectTransform:
   m_Children:
   - {fileID: 814753796}
   m_Father: {fileID: 683930369}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -11, y: -.5}
@@ -188,8 +186,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1776873882}
-  - {fileID: 512149167}
   - {fileID: 2006973341}
+  - {fileID: 512149167}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -461,6 +459,7 @@ MonoBehaviour:
   StartingAdrenaline: 50
   AdrenalineBoostPerLevel: 10
   BaseAttackQueueLength: 0
+  PrefabsContainer: {fileID: 1776873881}
 --- !u!95 &1776873884
 Animator:
   serializedVersion: 3
@@ -547,6 +546,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -612,7 +612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408156, guid: 831e44c9540f97d4b9fd8fe281d93c89, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22408156, guid: 831e44c9540f97d4b9fd8fe281d93c89, type: 2}
       propertyPath: m_AnchoredPosition.x
