@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public abstract class Ability {
     public enum AbilityColor {
@@ -9,7 +9,32 @@ public abstract class Ability {
         Blue,
         Red,
         Green
-    }    
+    }
+
+    static Ability[][] Abilities = new Ability[][] { 
+        new Ability[] {},
+        new Ability[] {},
+        new Ability[] {}
+    };
+
+    public static Ability[] GetRandomAbilities(int count, int level, AbilityColor color) {
+        level--;        
+        if (level < 0 || level >= Abilities.Count())
+            throw new System.ArgumentOutOfRangeException("Level is out of range");
+        
+        List<Ability> candidates = new List<Ability>(Abilities[level]).Where((a) => a.Color == color).ToList();
+        if(candidates.Count() < count)
+            throw new System.ArgumentOutOfRangeException("Not enough elements at this level");
+        
+        Ability[] result = new Ability[count];
+
+        for (int i = 0; i < count; i++) {
+            result[i] = candidates[Random.Range(0, candidates.Count())];
+            candidates.Remove(result[i]);
+        }
+
+        return result;
+    }
 
     #region Properties
     public virtual AbilityColor Color {
@@ -18,9 +43,6 @@ public abstract class Ability {
     public virtual int Level {
         get { return 1; }
     }
-    #endregion
-
-    #region Util functions
     public bool IsSmirkingAgainst(Ability b) {
         if (Color == b.Color) return false;
         if (Color == AbilityColor.Neutral) return false;
@@ -32,4 +54,5 @@ public abstract class Ability {
         return false;
     }
     #endregion
+
 }

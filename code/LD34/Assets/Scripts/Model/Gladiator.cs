@@ -179,7 +179,55 @@ public class Gladiator {
             _ActiveAbilities.Add((ActiveAbility)a);        
         if ((a is PassiveAbility))
             _PassiveAbilities.Add((PassiveAbility)a);
-        
-        
+
+
+        List<Ability> _AllAbilities = new List<Ability>();
+        foreach (var b in _ActiveAbilities)
+            _AllAbilities.Add(b);
+        foreach (var p in _PassiveAbilities)
+            _AllAbilities.Add(p);
+
+        _AllAbilities.Sort(CompareByColorAndLevel);
+
+        int counter = 0;
+        int position = 0;
+        int lastLevel = _AllAbilities[0].Level;
+        Ability.AbilityColor lastColor = _AllAbilities[0].Color;
+        foreach(var b in _AllAbilities) {
+            if (b.Level != lastLevel || b.Color != lastColor)
+                counter = 0;
+            else
+                counter++;
+            if (counter >= 3) {
+                List<Ability> abilitiesToUpgrade = new List<Ability>();
+                for (int i = 0; i < 3; i++)
+                    abilitiesToUpgrade.Add(_AllAbilities[position - i]);
+
+                LevelUp(abilitiesToUpgrade);
+
+                break;
+            }
+
+            position++;
+        }
+    }
+    private void LevelUp(List<Ability> abilities) {
+        foreach (var a in abilities) {
+            if((a is ActiveAbility))
+                _ActiveAbilities.Remove((ActiveAbility)a);
+            else
+                _PassiveAbilities.Remove((PassiveAbility)a);
+        }
+
+        //TODO: show UI tha tallow to choose
+        Ability.GetRandomAbilities(3, abilities[0].Level, abilities[0].Color);
+
+        Level++;
+    }
+
+    private static int CompareByColorAndLevel(Ability x, Ability y) {
+        if (x.Color == y.Color)
+            return x.Level - y.Level;
+        return x.Color - y.Color;
     }
 }
