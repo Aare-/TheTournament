@@ -5,15 +5,8 @@ using UnityEngine.EventSystems;
 
 public class MenuScreenControler : MonoBehaviour {
     
-    public Button leftArrow;
-    public Button rightArrow;
     public RectTransform rectGate;
     public Animator anim;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
