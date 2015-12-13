@@ -1,37 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class GameController : MonoBehaviour {
+public partial class GameController : Singleton<GameController> {
+    private int _LastGenId = -1;
 
-    public Button arrowLeft;
-    public Button arrowRight;
-    public RectTransform rectGate;
+    public int GetNewId() {
+        return ++_LastGenId;
+    }
 
 	void Start () {
 	
-	}
-		
-	void Update () 
-    {
-	    if(Input.GetKey(KeyCode.LeftArrow)) 
-        {
-            OpenHalfGate();
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            OpenHalfGate();
-        }
-	}
-
-    public void OpenGate()
-    {
-
-    }
-
-    public void OpenHalfGate()
-    {
-
-    }
+	}		
+	void Update () {
+	
+	}    
 }
