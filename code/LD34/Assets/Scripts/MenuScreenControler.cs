@@ -17,18 +17,6 @@ public class MenuScreenControler : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            var pointer = new PointerEventData(EventSystem.current); // pointer event for Execute
-            ExecuteEvents.Execute(leftArrow.gameObject, pointer, ExecuteEvents.pointerEnterHandler);
-            Debug.Log("Dupa");
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rightArrow.Select();
-        }
-
         if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
         {
             anim.SetBool("open_all", true);
