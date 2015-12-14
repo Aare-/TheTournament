@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TinyMessenger;
@@ -6,10 +7,21 @@ using UnityEngine;
 
 public class Gladiator {
 
-    #region Data
-    public int _Id;
+    public enum GladiatorFlavour {
+        Dude,
+        Dudesse,
 
+        Red,
+        Blue,
+        Green,
+        Orange
+    }
+
+    #region Data
     private bool _IsFighting;
+    private int _Id;
+    private string _Name;
+    public GladiatorFlavour _Flavour;
     private int _Level;
     private float _BaseLife;
     private float _Life;
@@ -23,33 +35,47 @@ public class Gladiator {
     #endregion
 
     #region Properties
-    float BaseLife {
+    public float BaseLife {
         get {
             float value = GameController.Instance.StartingLife;
             value += System.Math.Max(0, (Level - 1)) * GameController.Instance.LifeBoostPerLevel;
 
-            foreach (var p in _PassiveAbilities)
-                value = p.ModifyBaseLife(value);
+            if(_PassiveAbilities != null)
+                foreach (var p in _PassiveAbilities)
+                    value = p.ModifyBaseLife(value);
 
             return value;
         }
         set { }
     }
-    float BaseAdrenaline {
+    public float BaseAdrenaline {
         get {
             float value = GameController.Instance.StartingAdrenaline;
             value += System.Math.Max(0, (Level - 1)) * GameController.Instance.AdrenalineBoostPerLevel;
 
-            foreach (var p in _PassiveAbilities)
-                value = p.ModifyBaseAdrenaline(value);
+            if (_PassiveAbilities != null)
+                foreach (var p in _PassiveAbilities)
+                    value = p.ModifyBaseAdrenaline(value);
 
             return value;
         }
         set { }
     }
+    public string Name {
+        get { return _Name; }
+        set {
+            _Name = value;
+        }
+    }
+    public GladiatorFlavour Flavour {
+        get { return _Flavour; }
+        set { _Flavour = value; }
+    }
     public int Level {
         get { return _Level; }
-        private set { }
+        set {
+            _Level = value;
+        }
     }
     public float Life {
         get { return _Life; }
@@ -171,7 +197,7 @@ public class Gladiator {
 
         int queueLength = AttackQueueLength;
         for (int i = 0; i < queueLength; i++)
-            AttackQueue.Add(_ActiveAbilities[Random.Range(0, _ActiveAbilities.Count)]);        
+            AttackQueue.Add(_ActiveAbilities[UnityEngine.Random.Range(0, _ActiveAbilities.Count)]);        
 
         return AttackQueue;
     }
