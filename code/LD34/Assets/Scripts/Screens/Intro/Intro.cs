@@ -17,7 +17,6 @@ public class Intro : MonoBehaviour {
 	void Start () {
         for (iterator = 0; iterator < twitters.Count; iterator++) {
 			StartCoroutine(writeText (twitters[iterator], labels [iterator]));
-			//writeText (twitters[iterator], labels [iterator]);
 		}
 	}
 

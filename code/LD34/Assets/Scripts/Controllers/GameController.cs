@@ -15,6 +15,7 @@ public partial class GameController : Singleton<GameController> {
     protected void Awake() {
         TinyTokenManager.Instance.Register<Msg.StartNewGame>(GetInstanceID() + "NEW_GAME", (m) => {            
             player = new Player();
+            Debug.Log("New player created!");
         });
     }
 	protected void Start () {

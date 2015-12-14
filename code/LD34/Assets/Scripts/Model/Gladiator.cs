@@ -6,9 +6,21 @@ using UnityEngine;
 
 public class Gladiator {
 
+    public enum GladiatorFlavour {
+        Dude,
+        Dudesse,
+
+        Red,
+        Blue,
+        Green,
+        Orange
+    }
+
     #region Data
     private bool _IsFighting;
     private int _Id;
+    private string _Name;
+    public GladiatorFlavour _Flavour;
     private int _Level;
     private float _BaseLife;
     private float _Life;
@@ -45,6 +57,16 @@ public class Gladiator {
             return value;
         }
         set { }
+    }
+    public string Name {
+        get { return _Name; }
+        set {
+            _Name = value;
+        }
+    }
+    public GladiatorFlavour Flavour {
+        get { return _Flavour; }
+        set { _Flavour = value; }
     }
     public int Level {
         get { return _Level; }
