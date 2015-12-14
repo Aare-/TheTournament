@@ -12,7 +12,7 @@ public class Player {
         GladiatorAllyFactory allyFactory = new GladiatorAllyFactory();
         allyFactory.SetPowerLevel(0);
 
-        for(int i = 0; i < GameController.Instance.PartySize)
+        for (int i = 0; i < GameController.Instance.PartySize; i++)
             _Party[i] = allyFactory.Generate();        
     }
 

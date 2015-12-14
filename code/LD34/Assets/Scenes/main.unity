@@ -363,6 +363,8 @@ MonoBehaviour:
   LifeBoostPerLevel: 20
   StartingAdrenaline: 50
   AdrenalineBoostPerLevel: 10
+  PartySlotsSize: 4
+  PartySize: 4
   BaseAttackQueueLength: 0
   PrefabsContainer: {fileID: 1776873881}
   UIStateMachine: {fileID: 1776873884}
