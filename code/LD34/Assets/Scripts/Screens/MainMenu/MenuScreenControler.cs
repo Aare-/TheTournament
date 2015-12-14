@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TinyMessenger;
 
 public class MenuScreenControler : MonoBehaviour {
     
@@ -9,10 +10,13 @@ public class MenuScreenControler : MonoBehaviour {
     public GameObject stamp;
     public Animator anim;
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
-        {
+    public void OnDestroy() {
+        TinyMessengerHub.Instance.Publish<Msg.StartNewGame>(new Msg.StartNewGame());
+    }
+
+    void Update(){        
+
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)) {
             anim.SetBool("open_all", true);
         }
         else

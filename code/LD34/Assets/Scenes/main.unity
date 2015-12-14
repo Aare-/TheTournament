@@ -85,38 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &512149166
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 512149167}
-  m_Layer: 0
-  m_Name: ui
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &512149167
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 512149166}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 683930369}
-  m_RootOrder: 2
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11, y: -.5}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: .5, y: .5}
 --- !u!1001 &597035200
 Prefab:
   m_ObjectHideFlags: 0
@@ -154,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22486194, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22486194, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -195,10 +163,6 @@ Prefab:
     - target: {fileID: 22486194, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
       propertyPath: m_Pivot.y
       value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 152420, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
@@ -277,7 +241,6 @@ RectTransform:
   m_Children:
   - {fileID: 1776873882}
   - {fileID: 597035201}
-  - {fileID: 512149167}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -401,7 +364,6 @@ GameObject:
   - 92: {fileID: 1910671685}
   - 124: {fileID: 1910671684}
   - 81: {fileID: 1910671683}
-  - 114: {fileID: 1910671688}
   m_Layer: 0
   m_Name: main_camera
   m_TagString: MainCamera
@@ -476,14 +438,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1910671688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1910671682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d911cac4bdb6e5842837eb1d93d6dd74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
