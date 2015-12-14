@@ -9,11 +9,18 @@ public partial class GameController : Singleton<GameController> {
     private bool right;
     private bool isPressed = false;
 
+    private Player player;
+
     public int GetNewId() {
         return ++_LastGenId;
-    }    
+    }
 
-	void Start () {
+    protected void Awake() {
+        TinyTokenManager.Instance.Register<Msg.StartNewGame>(GetInstanceID() + "NEW_GAME", (m) => {            
+            player = new Player();
+        });
+    }
+	protected void Start () {
 	
 	}		
 	void Update () {

@@ -1,5 +1,5 @@
 
-LD34.png
+ld342.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -255,6 +255,13 @@ GreenShoot5
   orig: 64, 64
   offset: 0, 0
   index: -1
+L1UP1
+  rotate: false
+  xy: 67, 265
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
 Neutral1Idle1
   rotate: false
   xy: 67, 265
@@ -276,415 +283,534 @@ Neutral1Shoot1
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Idle2
+L1UP2
   rotate: false
   xy: 67, 199
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Idle3
+L1UP3
   rotate: false
   xy: 67, 133
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Idle4
+L1UP4
   rotate: false
   xy: 67, 67
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Idle5
+L1UP5
   rotate: false
   xy: 67, 1
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Meele2
+L1UP6
   rotate: false
   xy: 133, 336
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Meele3
+L1UP7
   rotate: false
   xy: 133, 270
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Meele4
+L1UP8
   rotate: false
   xy: 133, 204
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Meele5
+L1UP9
   rotate: false
   xy: 133, 138
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Shoot2
+L2UP1
+  rotate: false
+  xy: 133, 138
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+L2UP2
   rotate: false
   xy: 133, 72
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Shoot3
+L2UP3
   rotate: false
   xy: 133, 6
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Shoot4
+L2UP4
   rotate: false
   xy: 199, 335
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral1Shoot5
+L2UP5
   rotate: false
   xy: 199, 269
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Idle1
+L2UP6
   rotate: false
   xy: 265, 335
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Meele1
-  rotate: false
-  xy: 265, 335
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Neutral2Shoot1
-  rotate: false
-  xy: 265, 335
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Neutral2Idle2
+L2UP7
   rotate: false
   xy: 199, 203
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Idle3
+L2UP8
   rotate: false
   xy: 265, 269
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Idle4
+L2UP9
   rotate: false
   xy: 199, 137
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Idle5
-  rotate: false
-  xy: 199, 137
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Neutral2Meele2
+Neutral1Idle2
   rotate: false
   xy: 265, 203
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Meele3
+Neutral1Idle3
   rotate: false
   xy: 199, 71
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Meele4
+Neutral1Idle4
   rotate: false
   xy: 265, 137
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Meele5
+Neutral1Idle5
   rotate: false
   xy: 265, 71
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Shoot2
+Neutral1Meele2
   rotate: false
   xy: 199, 5
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Shoot3
+Neutral1Meele3
   rotate: false
   xy: 265, 5
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Shoot4
+Neutral1Meele4
   rotate: false
   xy: 325, 863
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral2Shoot5
+Neutral1Meele5
   rotate: false
   xy: 325, 797
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Idle1
+Neutral1Shoot2
   rotate: false
   xy: 325, 731
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Meele1
-  rotate: false
-  xy: 325, 731
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Neutral3Shoot1
-  rotate: false
-  xy: 325, 731
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Neutral3Idle2
+Neutral1Shoot3
   rotate: false
   xy: 325, 665
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Idle3
+Neutral1Shoot4
   rotate: false
   xy: 325, 599
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Idle4
+Neutral1Shoot5
   rotate: false
   xy: 325, 533
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Idle5
+Neutral2Idle1
   rotate: false
   xy: 325, 467
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Meele2
+Neutral2Meele1
+  rotate: false
+  xy: 325, 467
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Neutral2Shoot1
+  rotate: false
+  xy: 325, 467
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Neutral2Idle2
   rotate: false
   xy: 391, 868
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Meele3
+Neutral2Idle3
   rotate: false
   xy: 391, 802
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Meele4
+Neutral2Idle4
   rotate: false
   xy: 457, 868
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Meele5
+Neutral2Idle5
+  rotate: false
+  xy: 457, 868
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Neutral2Meele2
   rotate: false
   xy: 391, 736
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Shoot2
+Neutral2Meele3
   rotate: false
   xy: 457, 802
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Shoot3
+Neutral2Meele4
   rotate: false
   xy: 523, 868
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Shoot4
+Neutral2Meele5
   rotate: false
   xy: 391, 670
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-Neutral3Shoot5
+Neutral2Shoot2
   rotate: false
   xy: 457, 736
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedFallen
+Neutral2Shoot3
   rotate: false
   xy: 523, 802
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedIdle1
+Neutral2Shoot4
   rotate: false
   xy: 589, 868
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedMeele1
-  rotate: false
-  xy: 589, 868
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-RedShoot1
-  rotate: false
-  xy: 589, 868
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-RedIdle2
+Neutral2Shoot5
   rotate: false
   xy: 391, 604
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedIdle3
+Neutral3Idle1
   rotate: false
   xy: 457, 670
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedIdle4
+Neutral3Meele1
+  rotate: false
+  xy: 457, 670
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Neutral3Shoot1
+  rotate: false
+  xy: 457, 670
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Neutral3Idle2
   rotate: false
   xy: 523, 736
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedIdle5
+Neutral3Idle3
   rotate: false
   xy: 589, 802
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedMeele2
+Neutral3Idle4
   rotate: false
   xy: 655, 868
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedMeele3
+Neutral3Idle5
   rotate: false
   xy: 391, 538
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedMeele4
+Neutral3Meele2
   rotate: false
   xy: 457, 604
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedMeele5
+Neutral3Meele3
   rotate: false
   xy: 523, 670
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedShoot2
+Neutral3Meele4
   rotate: false
   xy: 589, 736
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedShoot3
+Neutral3Meele5
   rotate: false
   xy: 655, 802
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedShoot4
+Neutral3Shoot2
   rotate: false
   xy: 721, 868
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-RedShoot5
+Neutral3Shoot3
   rotate: false
   xy: 391, 472
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
+Neutral3Shoot4
+  rotate: false
+  xy: 457, 538
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Neutral3Shoot5
+  rotate: false
+  xy: 523, 604
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedFallen
+  rotate: false
+  xy: 589, 670
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedIdle1
+  rotate: false
+  xy: 655, 736
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedMeele1
+  rotate: false
+  xy: 655, 736
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedShoot1
+  rotate: false
+  xy: 655, 736
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedIdle2
+  rotate: false
+  xy: 721, 802
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedIdle3
+  rotate: false
+  xy: 787, 868
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedIdle4
+  rotate: false
+  xy: 457, 472
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedIdle5
+  rotate: false
+  xy: 523, 538
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedMeele2
+  rotate: false
+  xy: 589, 604
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedMeele3
+  rotate: false
+  xy: 655, 670
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedMeele4
+  rotate: false
+  xy: 721, 736
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedMeele5
+  rotate: false
+  xy: 787, 802
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedShoot2
+  rotate: false
+  xy: 853, 868
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedShoot3
+  rotate: false
+  xy: 523, 472
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedShoot4
+  rotate: false
+  xy: 589, 538
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RedShoot5
+  rotate: false
+  xy: 655, 604
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
 shadow
   rotate: false
-  xy: 787, 899
+  xy: 919, 899
   size: 73, 33
   orig: 73, 33
   offset: 0, 0

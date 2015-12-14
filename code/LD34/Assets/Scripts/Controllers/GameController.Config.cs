@@ -11,6 +11,9 @@ public partial class GameController : Singleton<GameController> {
     public float LifeBoostPerLevel = 20;
     public float StartingAdrenaline = 50;
     public float AdrenalineBoostPerLevel = 10;
+    [Header("Party Settings")]
+    public int PartySlotsSize = 4;
+    public int PartySize = 4;
     [Header("Fight Mode")]
     public int BaseAttackQueueLength;
 }
