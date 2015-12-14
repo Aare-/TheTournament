@@ -3,6 +3,7 @@ using System.Collections;
 using TinyMessenger;
 
 public partial class GameController : Singleton<GameController> {
+    
     private int _LastGenId = -1;
     private bool left;
     private bool right;
