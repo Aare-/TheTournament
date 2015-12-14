@@ -42,6 +42,8 @@ class PrefabBehaviour : StateMachineBehaviour {
     }
     protected virtual void DestroyPrefabs() {
         Debug.Log("Destroying prefabs");
+        GameController.Instance.ClearAllTriggers();
+
         foreach (GameObject o in _InstantiatedPrefabs) {
             GameController.Instance.DestroyResource(o);
         }
