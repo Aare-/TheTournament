@@ -16,7 +16,9 @@ public class Player {
              
             return null;    
         }
-        private set { }
+        set {
+            _FightingGladiatorId = value._Id;
+        }
     }
 
     public Player() {

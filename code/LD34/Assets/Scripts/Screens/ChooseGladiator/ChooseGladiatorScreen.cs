@@ -29,7 +29,17 @@ public class ChooseGladiatorScreen : MonoBehaviour {
         enemyInfo.SetGladiatorInfo(GameController.Instance.player.Opponent);
 
         NumberOfWins.text = "Fights won: " + GameController.Instance.player.NumberOfVictories;
+
+        TinyTokenManager.Instance.Register<Msg.SelectPerformed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_SELECT_PERFORMED",
+            (m) => {
+                Debug.Log("Starting game!");
+                TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player._Party[_currentIndex]._Id));
+                TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player.Opponent._Id));
+            });
 	}
+    void OnDestroy() {
+        TinyTokenManager.Instance.Unregister<Msg.SelectPerformed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_SELECT_PERFORMED");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,12 +57,16 @@ public class ChooseGladiatorScreen : MonoBehaviour {
         gladiatorSlots[_currentIndex].DeselectGladiator();
         _currentIndex = (_currentIndex + 1) % GameController.Instance.player.GetPartyLength();
         gladiatorSlots[_currentIndex].SelectGladiator();
+
+        //GameController.Instance.player.FightingGladiator = GameController.Instance.player._Party[_currentIndex];
     }
 
     private void SelectPreviousGladiator() {
         gladiatorSlots[_currentIndex].DeselectGladiator();
         _currentIndex = (_currentIndex + GameController.Instance.player.GetPartyLength() - 1) % GameController.Instance.player.GetPartyLength();
         gladiatorSlots[_currentIndex].SelectGladiator();
+
+        //GameController.Instance.player.FightingGladiator = GameController.Instance.player._Party[_currentIndex];
     }
 
     //Not finished! Waiting for working GladiatorFactory
