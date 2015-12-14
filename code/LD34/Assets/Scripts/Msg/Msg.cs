@@ -139,8 +139,7 @@ public class Msg {
         #endregion
     }
 
-    public class ArrowClicked : TinyMessenger.ITinyMessage
-    {
+    public class ArrowClicked : TinyMessenger.ITinyMessage {
 
         public int ArrowID;
         
@@ -157,8 +156,7 @@ public class Msg {
         #endregion
     }
 
-    public class ArrowReleased : TinyMessenger.ITinyMessage
-    {
+    public class ArrowReleased : TinyMessenger.ITinyMessage {
 
         public int ArrowID;
 
@@ -175,8 +173,7 @@ public class Msg {
         #endregion
     }
 
-    public class ChangeArrowSprite : TinyMessenger.ITinyMessage
-    {
+    public class ChangeArrowSprite : TinyMessenger.ITinyMessage {
 
         public int ArrowID;
         public int IconID;
@@ -190,6 +187,23 @@ public class Msg {
 
         public object Sender
         {
+            get { return null; }
+        }
+        #endregion
+    }
+
+    public class SetGladiatorState : TinyMessenger.ITinyMessage {
+
+        public int GladiatorId;
+        public GladiatorController.AnimationState NewState;
+
+        #region Implementation
+        public SetGladiatorState(int gladiatorId, GladiatorController.AnimationState newState) {
+            GladiatorId = gladiatorId;
+            NewState = newState;
+        }
+
+        public object Sender {
             get { return null; }
         }
         #endregion

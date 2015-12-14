@@ -64,6 +64,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - menu_screen
+--- !u!114 &11421094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - arenaScreen
 --- !u!114 &11436994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,6 +90,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - chooseGladiator
+--- !u!114 &11452044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - chooseTactics
 --- !u!114 &11477820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,7 +538,8 @@ AnimatorState:
   - {fileID: 110165184}
   - {fileID: 110106804}
   - {fileID: 110195522}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 11452044}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -785,7 +812,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: -120, y: 180, z: 0}
   m_ExitPosition: {x: -120, y: 228, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 110291880}
+  m_DefaultState: {fileID: 110231886}
 --- !u!1107 &110799590
 AnimatorStateMachine:
   serializedVersion: 5
@@ -816,7 +843,8 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 11421094}
   m_AnyStatePosition: {x: 120, y: -300, z: 0}
   m_EntryPosition: {x: 120, y: -252, z: 0}
   m_ExitPosition: {x: 120, y: -348, z: 0}
