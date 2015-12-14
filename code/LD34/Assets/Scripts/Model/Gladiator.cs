@@ -7,8 +7,9 @@ using UnityEngine;
 public class Gladiator {
 
     #region Data
+    public int _Id;
+
     private bool _IsFighting;
-    private int _Id;
     private int _Level;
     private float _BaseLife;
     private float _Life;

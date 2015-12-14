@@ -208,4 +208,25 @@ public class Msg {
         }
         #endregion
     }
+
+    public class ShowDamage : TinyMessenger.ITinyMessage
+    {
+        public int GladiatorID;
+        public float Damage;
+
+        #region Implementation
+        public ShowDamage(int gladiatorID, float damage)
+        {
+            GladiatorID = gladiatorID;
+            Damage = damage;
+        }
+
+        public object Sender
+        {
+            get { return null; }
+        }
+        #endregion
+    }
+
+
 }

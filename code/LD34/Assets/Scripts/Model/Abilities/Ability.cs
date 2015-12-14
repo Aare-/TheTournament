@@ -37,8 +37,21 @@ public abstract class Ability {
     }
 
     #region Properties
+    public virtual string Name
+    {
+        get { return "NoName Ability"; }
+        set { }
+    }
+
+    public virtual string Info
+    {
+        get { return "No Info";  }
+        set { }
+    }
+
     public virtual AbilityColor Color {
         get { return AbilityColor.Neutral; }
+        set { }
     }
     public virtual int Level {
         get { return 1; }
