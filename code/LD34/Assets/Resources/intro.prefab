@@ -238,7 +238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Code & Design
+  m_Text: Code
 --- !u!114 &11446582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,11 +258,11 @@ MonoBehaviour:
   - {fileID: 11490676}
   - {fileID: 11478718}
   twitters:
-  - '@KamilSpisak'
   - '@FilipLoster'
+  - '@KamilSpisak'
   - '@KamilPoreba'
   - '@DanielSltys'
-  - '@KubaNizinski'
+  - '@kuba_n91'
   - '@KubaPeksa'
   iterator: 0
   animationTime: .300000012
@@ -408,7 +408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Music Art
+  m_Text: Music and Sound Effects
 --- !u!114 &11496230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +440,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Code
+  m_Text: Code & Design
 --- !u!222 &22219586
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -650,7 +650,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: twitters.Array.data[4]
+      value: '@kuba_n91'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102736}
