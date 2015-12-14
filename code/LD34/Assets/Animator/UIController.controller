@@ -13,49 +13,49 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: left
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: right
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: reroll
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: game_over
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: tactics_rereolls
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: -1
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: fight_resolved
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: first_game
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_DefaultBool: 1
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -69,6 +69,19 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &11409792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2f5925c1254a41a53b31638d9eda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - fateOfTheLooser
 --- !u!114 &11414268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,32 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - menu_screen
---- !u!114 &11416462
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabsToLoad:
-  - fightMode
---- !u!114 &11420484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabsToLoad:
-  - fateOfTheLooser
 --- !u!114 &11436994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +108,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - chooseGladiator
+--- !u!114 &11447672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2f5925c1254a41a53b31638d9eda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - fightMode
 --- !u!114 &11474486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -778,7 +778,7 @@ AnimatorState:
   - {fileID: 110124768}
   - {fileID: 110196314}
   m_StateMachineBehaviours:
-  - {fileID: 11416462}
+  - {fileID: 11447672}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -878,7 +878,7 @@ AnimatorState:
   - {fileID: 110196476}
   - {fileID: 110187204}
   m_StateMachineBehaviours:
-  - {fileID: 11420484}
+  - {fileID: 11409792}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -961,7 +961,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: -120, y: 180, z: 0}
   m_ExitPosition: {x: -120, y: 228, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 110291880}
+  m_DefaultState: {fileID: 110253780}
 --- !u!1107 &110799590
 AnimatorStateMachine:
   serializedVersion: 5

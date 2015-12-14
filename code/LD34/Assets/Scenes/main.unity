@@ -443,7 +443,7 @@ MonoBehaviour:
   PartySlotsSize: 4
   PartySize: 4
   TacticRerolls: 3
-  BaseAttackQueueLength: 0
+  BaseAttackQueueLength: 6
   BlockInput: 0
   PrefabsContainer: {fileID: 1776873881}
   UIStateMachine: {fileID: 1776873884}

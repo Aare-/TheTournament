@@ -16,6 +16,18 @@ public class Msg {
         }
         #endregion
     }
+    public class GameOver : TinyMessenger.ITinyMessage {
+
+        #region Implementation
+        public GameOver() {
+        }
+        public object Sender {
+            get {
+                return null;
+            }
+        }
+        #endregion
+    }
     public class GenerateNewOpponent : TinyMessenger.ITinyMessage {
 
         #region Implementation
