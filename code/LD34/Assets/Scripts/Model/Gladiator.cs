@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TinyMessenger;
@@ -34,25 +35,27 @@ public class Gladiator {
     #endregion
 
     #region Properties
-    float BaseLife {
+    public float BaseLife {
         get {
             float value = GameController.Instance.StartingLife;
             value += System.Math.Max(0, (Level - 1)) * GameController.Instance.LifeBoostPerLevel;
 
-            foreach (var p in _PassiveAbilities)
-                value = p.ModifyBaseLife(value);
+            if(_PassiveAbilities != null)
+                foreach (var p in _PassiveAbilities)
+                    value = p.ModifyBaseLife(value);
 
             return value;
         }
         set { }
     }
-    float BaseAdrenaline {
+    public float BaseAdrenaline {
         get {
             float value = GameController.Instance.StartingAdrenaline;
             value += System.Math.Max(0, (Level - 1)) * GameController.Instance.AdrenalineBoostPerLevel;
 
-            foreach (var p in _PassiveAbilities)
-                value = p.ModifyBaseAdrenaline(value);
+            if (_PassiveAbilities != null)
+                foreach (var p in _PassiveAbilities)
+                    value = p.ModifyBaseAdrenaline(value);
 
             return value;
         }
@@ -192,7 +195,7 @@ public class Gladiator {
 
         int queueLength = AttackQueueLength;
         for (int i = 0; i < queueLength; i++)
-            AttackQueue.Add(_ActiveAbilities[Random.Range(0, _ActiveAbilities.Count)]);        
+            AttackQueue.Add(_ActiveAbilities[UnityEngine.Random.Range(0, _ActiveAbilities.Count)]);        
 
         return AttackQueue;
     }

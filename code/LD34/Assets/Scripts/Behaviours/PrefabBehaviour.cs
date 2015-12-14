@@ -11,14 +11,14 @@ public class PrefabBehaviour : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
-        Debug.Log("ENTER!");
+        //Debug.Log("ENTER!");
         GameController.Instance.BlockInput++;
         InitPrefabs();
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateExit(animator, stateInfo, layerIndex);
 
-        Debug.Log("EXIT!");
+        //Debug.Log("EXIT!");
         GameController.Instance.BlockInput--;
         DestroyPrefabs();
     }  

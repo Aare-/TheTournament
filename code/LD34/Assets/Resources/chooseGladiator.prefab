@@ -658,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50178669c3a9d6499637542a63e8be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumberOfWins: {fileID: 11485252}
   myGladiatorInfo: {fileID: 11433288}
   enemyInfo: {fileID: 11428882}
   gladiatorSlots:
@@ -678,7 +679,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelectedOnStart: 1
   selectBackground: {fileID: 160282}
-  gladiatorID: 0
   AvatarHolder: {fileID: 119634}
   name: {fileID: 11412310}
 --- !u!114 &11412310
@@ -898,8 +898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d190e1bea95a874cacaba37f9e7ca47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatar: {fileID: 0}
-  name: {fileID: 11497490}
+  AvatarContainer: {fileID: 111246}
+  Name: {fileID: 11497490}
 --- !u!114 &11433288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a4d90e8f1cb5c45abe361d36d8e04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatar: {fileID: 0}
+  AvatarContainer: {fileID: 172138}
   name: {fileID: 11422020}
   level: {fileID: 11443320}
   adrenaline: {fileID: 11485912}
@@ -1016,7 +1016,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelectedOnStart: 0
   selectBackground: {fileID: 176740}
-  gladiatorID: 0
   AvatarHolder: {fileID: 145228}
   name: {fileID: 11495522}
 --- !u!114 &11440178
@@ -1032,7 +1031,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelectedOnStart: 0
   selectBackground: {fileID: 155054}
-  gladiatorID: 0
   AvatarHolder: {fileID: 132808}
   name: {fileID: 11417150}
 --- !u!114 &11441970
@@ -1285,7 +1283,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelectedOnStart: 0
   selectBackground: {fileID: 142466}
-  gladiatorID: 0
   AvatarHolder: {fileID: 126234}
   name: {fileID: 11433940}
 --- !u!114 &11478790

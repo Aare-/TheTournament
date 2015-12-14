@@ -13,7 +13,7 @@ public class GladiatorOpponentFactory : GladiatorFactory {
     };    
 
     public override Gladiator Generate() {
-        Gladiator gladiator = new Gladiator();
+        Gladiator gladiator = base.Generate();
 
         gladiator.Flavour = _Flavours[UnityEngine.Random.Range(0, _Flavours.Count())];
 

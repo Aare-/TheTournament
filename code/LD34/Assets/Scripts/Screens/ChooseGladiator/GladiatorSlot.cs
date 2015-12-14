@@ -31,4 +31,17 @@ public class GladiatorSlot : MonoBehaviour {
         selectBackground.SetActive(false);
     }
 
+    public void FillWithGladiatorDetails(Gladiator g) {
+        if (g == null) {
+            name.text = "";
+            selectBackground.SetActive(false);
+            foreach (Transform child in AvatarHolder.transform) {
+                GameObject.Destroy(child.gameObject);
+            }
+        } else {
+            name.text = g.Name;
+
+        }
+    }
+
 }

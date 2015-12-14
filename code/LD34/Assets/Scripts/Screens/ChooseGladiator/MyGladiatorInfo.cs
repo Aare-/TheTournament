@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class MyGladiatorInfo : MonoBehaviour {
 
-    public Image avatar;
+    public GameObject AvatarContainer;
     public Text name;
     public Text level;
     public Text adrenaline;
@@ -19,4 +19,11 @@ public class MyGladiatorInfo : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void FillWithGladiatorDetails(Gladiator g) {
+        name.text = g.Name;
+        level.text = "LVL: " + g.Level;
+        adrenaline.text = "ADR: " + g.BaseAdrenaline;
+        health.text = "HP: " + g.BaseLife;
+    }
 }

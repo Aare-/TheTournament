@@ -16,6 +16,18 @@ public class Msg {
         }
         #endregion
     }
+    public class GenerateNewOpponent : TinyMessenger.ITinyMessage {
+
+        #region Implementation
+        public GenerateNewOpponent() {
+        }
+        public object Sender {
+            get {
+                return null;
+            }
+        }
+        #endregion
+    }
     /* 
      * This event is called twice, once for each gladiator
      */

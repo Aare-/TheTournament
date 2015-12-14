@@ -10,8 +10,11 @@ public class MenuScreenControler : MonoBehaviour {
     public GameObject stamp;
     public Animator anim;
 
-    public void OnDestroy() {
-        TinyMessengerHub.Instance.Publish<Msg.StartNewGame>(new Msg.StartNewGame());
+    public void OnStart() {
+        GameController.Instance.player = null;
+    }
+
+    public void OnDestroy() {        
     }
 
     void Update(){        
@@ -35,8 +38,7 @@ public class MenuScreenControler : MonoBehaviour {
 
     }
 
-    public void ShowStamp()
-    {
+    public void ShowStamp() {
         stamp.SetActive(true);
     }
 

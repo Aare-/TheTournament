@@ -7,15 +7,20 @@ public partial class GameController : Singleton<GameController> {
     private int _LastGenId = -1;
 
     public Player player;
+    GladiatorOpponentFactory _OpponentFactory;
 
     public int GetNewId() {
         return ++_LastGenId;
     }
 
-    protected void Awake() {
+    protected void Awake() {        
+        _OpponentFactory = new GladiatorOpponentFactory();
+
         TinyTokenManager.Instance.Register<Msg.StartNewGame>(GetInstanceID() + "NEW_GAME", (m) => {            
-            player = new Player();
-            Debug.Log("New player created!");
+            player = new Player();            
+        });
+        TinyTokenManager.Instance.Register<Msg.GenerateNewOpponent>(GetInstanceID() + "_NEW_OPPONENT", (m) => {
+            player.NextOpponent = _OpponentFactory.Generate();
         });
     }
 	protected void Start () {

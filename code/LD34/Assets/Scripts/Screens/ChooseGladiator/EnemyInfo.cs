@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class EnemyInfo : MonoBehaviour {
 
-    public Image avatar;
-    public Text name;
+    public GameObject AvatarContainer;
+    public Text Name;
 
 	// Use this for initialization
 	void Start () {
@@ -16,4 +16,8 @@ public class EnemyInfo : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void SetGladiatorInfo(Gladiator info) {
+        Name.text = info.Name;
+    }
 }
