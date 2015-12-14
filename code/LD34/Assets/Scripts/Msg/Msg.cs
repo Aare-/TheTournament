@@ -4,6 +4,18 @@ using System.Linq;
 using System.Text;
 
 public class Msg {
+    public class StartNewGame : TinyMessenger.ITinyMessage {        
+
+        #region Implementation
+        public StartNewGame() {            
+        }
+        public object Sender {
+            get {
+                return null;
+            }
+        }
+        #endregion
+    }
     /* 
      * This event is called twice, once for each gladiator
      */

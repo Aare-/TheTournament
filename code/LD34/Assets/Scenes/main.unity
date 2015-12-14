@@ -196,6 +196,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 152420, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
   m_IsPrefabParent: 0
@@ -255,7 +259,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1910671686}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
