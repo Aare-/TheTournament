@@ -13,12 +13,13 @@ public class Help : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		history = historyLabel.text;
 		StartCoroutine(writeText (history, historyLabel));
 	}
 	
 	void Update () {
 		if (animationProcess <= 1.0) {
-			animationProcess += 0.003f ;
+			animationProcess += 0.001f ;
 		}
 	}
 	
