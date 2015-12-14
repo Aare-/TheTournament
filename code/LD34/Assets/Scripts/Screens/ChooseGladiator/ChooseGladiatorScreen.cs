@@ -19,12 +19,12 @@ public class ChooseGladiatorScreen : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             SelectNextGladiator();
-            //UpdateMyGladiator(_currentIndex);
+            UpdateMyGladiator(_currentIndex);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             SelectPreviousGladiator();
-            //UpdateMyGladiator(_currentIndex);
+            UpdateMyGladiator(_currentIndex);
         }
 	}
 
@@ -42,14 +42,15 @@ public class ChooseGladiatorScreen : MonoBehaviour {
         gladiatorSlots[_currentIndex].SelectGladiator();
     }
 
+    //Not finished! Waiting for working GladiatorFactory
     private void UpdateMyGladiator(int index)
     {
-        Gladiator glad = player._Party[index];
-        myGladiatorInfo.health.text = glad.Life.ToString();
-        myGladiatorInfo.level.text = glad.Level.ToString();
+        //Gladiator glad = player._Party[index];
+        //myGladiatorInfo.health.text = glad.Life.ToString();
+        //myGladiatorInfo.level.text = glad.Level.ToString();
         
-        //TODO
-        myGladiatorInfo.name.text = "Janusz";
+        //TODO Move name generating to Gladiator Class (or Factory, maybe?)
+        myGladiatorInfo.name.text = new NameGenerator().GenerateName();
         //myGladiatorInfo.avatar = null; 
     }
 
