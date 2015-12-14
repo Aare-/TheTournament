@@ -14,7 +14,8 @@ public class MenuScreenControler : MonoBehaviour {
         TinyMessengerHub.Instance.Publish<Msg.StartNewGame>(new Msg.StartNewGame());
     }
 
-    void Update(){
+    void Update(){        
+
         if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)) {
             anim.SetBool("open_all", true);
         }
