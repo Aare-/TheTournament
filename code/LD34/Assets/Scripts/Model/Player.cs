@@ -6,9 +6,8 @@ using System.Text;
 public class Player {
     public int NumberOfVictories;
     public List<Gladiator> _Party;
-    int _FightingGladiatorId;
+    int _FightingGladiatorId;    
     public Gladiator Opponent;
-    public Gladiator NextOpponent;
     public Gladiator FightingGladiator {
         get {
             foreach (Gladiator p in _Party) 

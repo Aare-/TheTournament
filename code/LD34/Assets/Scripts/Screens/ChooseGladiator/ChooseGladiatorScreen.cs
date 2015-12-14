@@ -26,7 +26,7 @@ public class ChooseGladiatorScreen : MonoBehaviour {
         #endregion
 
         UpdateMyGladiator(0);
-        enemyInfo.SetGladiatorInfo(GameController.Instance.player.NextOpponent);
+        enemyInfo.SetGladiatorInfo(GameController.Instance.player.Opponent);
 
         NumberOfWins.text = "Fights won: " + GameController.Instance.player.NumberOfVictories;
 	}

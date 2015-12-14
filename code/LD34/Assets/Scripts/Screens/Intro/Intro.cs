@@ -8,24 +8,27 @@ using System;
 public class Intro : MonoBehaviour {
 
 	public List<Text> labels;
-	public List<string> twitters;
-	public int iterator = 0;
+	public List<string> twitters;	
 	public float animationTime;
 	private float animationProcess = 2.0f;
 
 	// Use this for initialization
 	void Start () {
+        /*
         for (iterator = 0; iterator < twitters.Count; iterator++) {
 			StartCoroutine(writeText (twitters[iterator], labels [iterator]));
-		}
+		}*/
 	}
 
 	void Update () {
+        /*
 		if (animationProcess <= 1.0) {
 			animationProcess += 0.1f ;
 		}
+         * */
 	}
 
+    /*
 	IEnumerator writeText(string tweeter, Text label) {
 		yield return new WaitForSeconds (3.0f);
 		animationProcess = 0.0f;
@@ -55,5 +58,6 @@ public class Intro : MonoBehaviour {
 			}
 
 		} 
-	}	
+	}
+	*/
 }

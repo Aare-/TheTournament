@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 class ArenaManager : MonoBehaviour {
 
@@ -11,7 +12,8 @@ class ArenaManager : MonoBehaviour {
     public GladiatorHolder OpponenetGladiatorHolder;
 
     public void Awake() {
-
+        AllyGladiatorHolder.LoadGladiator(GameController.Instance.player.FightingGladiator);
+        OpponenetGladiatorHolder.LoadGladiator(GameController.Instance.player.Opponent);
     }
     public void OnStart() {
 

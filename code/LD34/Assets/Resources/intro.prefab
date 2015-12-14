@@ -262,9 +262,8 @@ MonoBehaviour:
   - '@KamilSpisak'
   - '@KamilPoreba'
   - '@DanielSltys'
-  - '@kuba_n91'
+  - '@KubaNizynski '
   - '@KubaPeksa'
-  iterator: 0
   animationTime: .300000012
 --- !u!114 &11458526
 MonoBehaviour:
@@ -311,7 +310,6 @@ MonoBehaviour:
   - {fileID: 11490676}
   - {fileID: 11478718}
   twitters: []
-  iterator: 0
   animationTime: 0
 --- !u!114 &11474306
 MonoBehaviour:
