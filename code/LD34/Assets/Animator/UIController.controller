@@ -64,6 +64,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - menu_screen
+--- !u!114 &11416462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - fightMode
+--- !u!114 &11420484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - fateOfTheLooser
 --- !u!114 &11421094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -639,7 +665,8 @@ AnimatorState:
   - {fileID: 110197506}
   - {fileID: 110124768}
   - {fileID: 110196314}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 11416462}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -738,7 +765,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 110196476}
   - {fileID: 110187204}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 11420484}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -812,7 +840,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: -120, y: 180, z: 0}
   m_ExitPosition: {x: -120, y: 228, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 110231886}
+  m_DefaultState: {fileID: 110291880}
 --- !u!1107 &110799590
 AnimatorStateMachine:
   serializedVersion: 5
