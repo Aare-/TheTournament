@@ -13,7 +13,12 @@ public class GladiatorAllyFactory : GladiatorFactory {
     public override Gladiator Generate() {
         Gladiator gladiator = base.Generate();
         
-        gladiator.Flavour = _Flavours[UnityEngine.Random.Range(0, _Flavours.Count())];        
+        gladiator.Flavour = _Flavours[UnityEngine.Random.Range(0, _Flavours.Count())];
+
+        gladiator.ActiveAbilities.Clear();
+
+        gladiator.PassiveAbilities.Clear();
+
 
         return gladiator;
     }    

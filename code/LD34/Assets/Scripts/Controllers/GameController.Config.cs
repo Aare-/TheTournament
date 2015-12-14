@@ -11,6 +11,7 @@ public partial class GameController : Singleton<GameController> {
     public float LifeBoostPerLevel = 20;
     public float StartingAdrenaline = 50;
     public float AdrenalineBoostPerLevel = 10;
+    public List<AbilityColorColorContainer> AbilitiesColors;
 
     [Header("Gladiator Flavours")]
     public List<GladiatorFlavourContainer> _Prefab4GladiatorFlavour;
@@ -29,6 +30,12 @@ public partial class GameController : Singleton<GameController> {
         public int Level;
     }
 
+    [Serializable]
+    public class AbilityColorColorContainer {
+        public Ability.AbilityColor AbilityColor;
+        public Color Color;
+    }
+
     public GameObject GetPrefabForGladiator(Gladiator gladiator) {
         Gladiator.GladiatorFlavour flavour = gladiator.Flavour;
         int level = gladiator.Level;        
@@ -43,6 +50,15 @@ public partial class GameController : Singleton<GameController> {
             }        
 
         return null;
+    }
+   
+     public Color GetColorForAbilityColor(Ability.AbilityColor color) {
+         foreach (AbilityColorColorContainer c in AbilitiesColors) {
+             if (color == c.AbilityColor)
+                 return c.Color;
+         }
+
+         return Color.white;
     }
 }
 

@@ -17,6 +17,17 @@ public class GladiatorOpponentFactory : GladiatorFactory {
 
         gladiator.Flavour = _Flavours[UnityEngine.Random.Range(0, _Flavours.Count())];
 
+        #region Generating active abilities
+        gladiator.ActiveAbilities.Clear();
+
+
+        #endregion
+
+        #region Generating passive abilities
+        gladiator.PassiveAbilities.Clear();
+
+        #endregion
+
         return gladiator;
     }
 }
