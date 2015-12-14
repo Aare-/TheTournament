@@ -408,6 +408,16 @@ MonoBehaviour:
   LifeBoostPerLevel: 20
   StartingAdrenaline: 50
   AdrenalineBoostPerLevel: 10
+  AdrenalineBoostPerNeutralAbility: 5
+  AbilitiesColors:
+  - AbilityColor: 0
+    Color: {r: .345588207, g: .345588207, b: .345588207, a: 1}
+  - AbilityColor: 1
+    Color: {r: .0305471253, g: .168535993, b: .83088237, a: 1}
+  - AbilityColor: 2
+    Color: {r: 1, g: 0, b: 0, a: 1}
+  - AbilityColor: 3
+    Color: {r: .0304259267, g: .882352948, b: 0, a: 1}
   _Prefab4GladiatorFlavour:
   - Prefab: {fileID: 192458, guid: 13f3e4a161fbb334ca44bd687fcf7f7d, type: 2}
     Flavour: 0

@@ -12,7 +12,7 @@ public abstract class Ability {
     }
 
     static Ability[][] Abilities = new Ability[][] { 
-        new Ability[] {},
+        new Ability[] {new Charge(), new AdrenalineRush()},
         new Ability[] {},
         new Ability[] {}
     };

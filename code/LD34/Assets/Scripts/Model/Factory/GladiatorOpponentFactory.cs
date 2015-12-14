@@ -15,16 +15,19 @@ public class GladiatorOpponentFactory : GladiatorFactory {
     public override Gladiator Generate() {
         Gladiator gladiator = base.Generate();
 
-        gladiator.Flavour = _Flavours[UnityEngine.Random.Range(0, _Flavours.Count())];
+        gladiator.Flavour = _Flavours[UnityEngine.Random.Range(0, _Flavours.Count())];        
 
         #region Generating active abilities
         gladiator.ActiveAbilities.Clear();
 
+        gladiator.ActiveAbilities.Add(new Charge());
 
         #endregion
 
         #region Generating passive abilities
         gladiator.PassiveAbilities.Clear();
+
+        gladiator.PassiveAbilities.Add(new AdrenalineRush());
 
         #endregion
 

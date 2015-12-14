@@ -19,7 +19,7 @@ public class Gladiator {
 
     #region Data
     private bool _IsFighting;
-    private int _Id;
+    public int _Id;
     private string _Name;
     public GladiatorFlavour _Flavour;
     private int _Level;

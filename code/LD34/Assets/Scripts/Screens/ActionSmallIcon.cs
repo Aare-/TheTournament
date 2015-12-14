@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-class ActionSmallIcon : MonoBehaviour {
+public class ActionSmallIcon : MonoBehaviour {
     public Image image;
 
     public void Awake() {

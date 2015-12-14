@@ -898,7 +898,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d190e1bea95a874cacaba37f9e7ca47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AbilityIconPrefab: {fileID: 11499498, guid: ded13a9df8f591f448117fc0b53b77ea, type: 2}
+  AbilityPrefabContainer: {fileID: 118426, guid: 42aed3a215f6d764ca4a6fee82d3f014,
+    type: 2}
   AvatarContainer: {fileID: 111246}
+  AbilitiesList: {fileID: 166446}
   Name: {fileID: 11497490}
 --- !u!114 &11433288
 MonoBehaviour:
