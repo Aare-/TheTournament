@@ -76,6 +76,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22404642}
+  - 114: {fileID: 11468420}
   m_Layer: 0
   m_Name: gladiator_slot_four
   m_TagString: Untagged
@@ -91,6 +92,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22494476}
+  - 114: {fileID: 11431072}
   m_Layer: 0
   m_Name: gladiator_slot_three
   m_TagString: Untagged
@@ -157,6 +159,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22467242}
+  - 114: {fileID: 11495230}
   m_Layer: 0
   m_Name: gladiator_slot_one
   m_TagString: Untagged
@@ -172,6 +175,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22405180}
+  - 114: {fileID: 11481442}
   m_Layer: 0
   m_Name: enemy_info
   m_TagString: Untagged
@@ -238,6 +242,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22497748}
+  - 114: {fileID: 11499756}
   m_Layer: 0
   m_Name: gladiator_slot_two
   m_TagString: Untagged
@@ -734,6 +739,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22476620}
+  - 114: {fileID: 11489856}
   m_Layer: 0
   m_Name: chooseGladiator
   m_TagString: Untagged
@@ -834,6 +840,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22448958}
+  - 114: {fileID: 11446074}
   m_Layer: 0
   m_Name: my_info
   m_TagString: Untagged
@@ -1094,6 +1101,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11431072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5728a66d5a545544b9addcad607bfd51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectedOnStart: 0
+  selectBackground: {fileID: 135732}
+  gladiatorID: 2
+  avatar: {fileID: 11498740}
+  name: {fileID: 11434470}
 --- !u!114 &11434470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1236,6 +1259,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11446074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a4d90e8f1cb5c45abe361d36d8e04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 0}
+  name: {fileID: 11415884}
+  level: {fileID: 11490010}
+  adrenaline: {fileID: 11470934}
+  health: {fileID: 11493456}
 --- !u!114 &11447578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1650,6 +1689,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11468420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5728a66d5a545544b9addcad607bfd51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectedOnStart: 0
+  selectBackground: {fileID: 159436}
+  gladiatorID: 3
+  avatar: {fileID: 11486754}
+  name: {fileID: 11499906}
 --- !u!114 &11470116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1786,6 +1841,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11481442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d190e1bea95a874cacaba37f9e7ca47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 11461296}
+  name: {fileID: 11459874}
 --- !u!114 &11484176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1906,6 +1974,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11489856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50178669c3a9d6499637542a63e8be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myGladiatorInfo: {fileID: 11446074}
+  enemyInfo: {fileID: 11481442}
+  gladiatorSlots:
+  - {fileID: 11495230}
+  - {fileID: 11499756}
+  - {fileID: 11431072}
+  - {fileID: 11468420}
 --- !u!114 &11490010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1997,6 +2083,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11495230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5728a66d5a545544b9addcad607bfd51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectedOnStart: 0
+  selectBackground: {fileID: 132054}
+  gladiatorID: 0
+  avatar: {fileID: 11485298}
+  name: {fileID: 11463056}
 --- !u!114 &11498240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2051,6 +2153,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11499756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5728a66d5a545544b9addcad607bfd51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectedOnStart: 0
+  selectBackground: {fileID: 148156}
+  gladiatorID: 1
+  avatar: {fileID: 11454104}
+  name: {fileID: 11447578}
 --- !u!114 &11499906
 MonoBehaviour:
   m_ObjectHideFlags: 1
