@@ -16,6 +16,18 @@ public class Msg {
         }
         #endregion
     }
+    public class GameOver : TinyMessenger.ITinyMessage {
+
+        #region Implementation
+        public GameOver() {
+        }
+        public object Sender {
+            get {
+                return null;
+            }
+        }
+        #endregion
+    }
     public class GenerateNewOpponent : TinyMessenger.ITinyMessage {
 
         #region Implementation
@@ -240,5 +252,40 @@ public class Msg {
         #endregion
     }
 
+    public class SelectPerformed : TinyMessenger.ITinyMessage {
+
+        #region Implementation
+        public SelectPerformed() {            
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
+
+    public class LeftPressed : TinyMessenger.ITinyMessage {
+
+        #region Implementation
+        public LeftPressed() {
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
+
+    public class RightPressed : TinyMessenger.ITinyMessage {
+
+        #region Implementation
+        public RightPressed() {
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
 
 }

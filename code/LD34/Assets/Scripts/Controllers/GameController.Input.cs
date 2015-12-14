@@ -42,6 +42,7 @@ public partial class GameController : Singleton<GameController> {
         if (left && right) {
             if (!isPressed) {
                 isPressed = true;
+                TinyMessengerHub.Instance.Publish<Msg.SelectPerformed>(new Msg.SelectPerformed());
                 GameController.Instance.EnableTrigger(GameController.TRIGGER_SELECT);
             }
         } else {

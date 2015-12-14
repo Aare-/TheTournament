@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class TacticsRerollsBehaviour : PrefabBehaviour {
+public class TacticsRerollsBehaviour : PrefabBehaviourFront {
     protected override void InitPrefabs() {
         base.InitPrefabs();
         
@@ -12,11 +12,7 @@ public class TacticsRerollsBehaviour : PrefabBehaviour {
             GameController.Instance.SetStateInt(GameController.REROLLS_COUNT, GameController.Instance.TacticRerolls);
         }
 
-        GameController.Instance.SetStateInt(GameController.REROLLS_COUNT, GameController.Instance.GetStateInt(GameController.REROLLS_COUNT) - 1);
-
-        foreach (GameObject g in _InstantiatedPrefabs) {
-            g.transform.SetAsLastSibling();
-        }
+        GameController.Instance.SetStateInt(GameController.REROLLS_COUNT, GameController.Instance.GetStateInt(GameController.REROLLS_COUNT) - 1);        
     }
 
     protected override void DestroyPrefabs() {

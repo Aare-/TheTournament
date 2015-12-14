@@ -20,7 +20,7 @@ public partial class GameController : Singleton<GameController> {
             player = new Player();            
         });
         TinyTokenManager.Instance.Register<Msg.GenerateNewOpponent>(GetInstanceID() + "_NEW_OPPONENT", (m) => {
-            player.NextOpponent = _OpponentFactory.Generate();
+            player.Opponent = _OpponentFactory.Generate();
         });
     }
 	protected void Start () {

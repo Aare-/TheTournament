@@ -115,8 +115,8 @@ public class Gladiator {
         get {
             int value = GameController.Instance.BaseAttackQueueLength;
 
-            foreach (var p in _PassiveAbilities)
-                value = p.ModifyBaseAttackQueueLength(value);
+            //foreach (var p in _PassiveAbilities)
+              //  value = p.ModifyBaseAttackQueueLength(value);
 
             return value;
         }
@@ -193,13 +193,15 @@ public class Gladiator {
     #endregion
 
     public List<ActiveAbility> GetNewAttackQueue() {
-        AttackQueue.Clear();
+        if (_AttackQueue == null)
+            _AttackQueue = new List<ActiveAbility>();
+        _AttackQueue.Clear();
 
         int queueLength = AttackQueueLength;
         for (int i = 0; i < queueLength; i++)
-            AttackQueue.Add(_ActiveAbilities[UnityEngine.Random.Range(0, _ActiveAbilities.Count)]);        
+            _AttackQueue.Add(_ActiveAbilities[UnityEngine.Random.Range(0, _ActiveAbilities.Count)]);
 
-        return AttackQueue;
+        return _AttackQueue;
     }
     public void LearnNewAbility(Ability a) {
         if ((a is ActiveAbility))

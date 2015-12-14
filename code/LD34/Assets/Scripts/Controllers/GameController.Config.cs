@@ -22,7 +22,7 @@ public partial class GameController : Singleton<GameController> {
     public int PartySize = 4;    
     [Header("Fight Mode")]
     public int TacticRerolls = 3;
-    public int BaseAttackQueueLength;
+    public int BaseAttackQueueLength = 6;
 
     [Serializable]
     public class GladiatorFlavourContainer {
