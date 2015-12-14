@@ -29,7 +29,10 @@ public partial class GameController : Singleton<GameController> {
         public int Level;
     }
 
-    public GameObject GetPrefabForGladiatorFlavour(Gladiator.GladiatorFlavour flavour, int level) {
+    public GameObject GetPrefabForGladiator(Gladiator gladiator) {
+        Gladiator.GladiatorFlavour flavour = gladiator.Flavour;
+        int level = gladiator.Level;        
+
         foreach (var p in _Prefab4GladiatorFlavour)
             if (p.Flavour == flavour) {
                 if (p.Level == -1)

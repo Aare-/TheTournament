@@ -16,9 +16,14 @@ public class Player {
         GladiatorAllyFactory allyFactory = new GladiatorAllyFactory();
         allyFactory.SetPowerLevel(0);
 
-        for (int i = 0; i < 4; i++) //TODO: fix this to be set from inspector
-            _Party.Add(allyFactory.Generate());      
-       
+        //for (int i = 0; i < 4; i++) //TODO: fix this to be set from inspector
+        _Party.Add(allyFactory.Generate());
+        allyFactory.ForceLevel(2);
+        _Party.Add(allyFactory.Generate());
+        allyFactory.ForceLevel(3);
+        _Party.Add(allyFactory.Generate());
+        allyFactory.ForceLevel(-1);
+        _Party.Add(allyFactory.Generate());   
     }
 
     public void RemoveFromParty(Gladiator gladiator) {

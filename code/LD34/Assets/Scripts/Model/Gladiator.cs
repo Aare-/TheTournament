@@ -73,7 +73,9 @@ public class Gladiator {
     }
     public int Level {
         get { return _Level; }
-        private set { }
+        set {
+            _Level = value;
+        }
     }
     public float Life {
         get { return _Life; }

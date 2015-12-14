@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class MyGladiatorInfo : MonoBehaviour {
 
@@ -25,5 +26,14 @@ public class MyGladiatorInfo : MonoBehaviour {
         level.text = "LVL: " + g.Level;
         adrenaline.text = "ADR: " + g.BaseAdrenaline;
         health.text = "HP: " + g.BaseLife;
+
+        List<GameObject> children = new List<GameObject>();
+        foreach (Transform child in AvatarContainer.transform) children.Add(child.gameObject);
+        children.ForEach(child => Destroy(child));
+
+        GameObject o = (GameObject)Instantiate(GameController.Instance.GetPrefabForGladiator(g));
+        o.transform.SetParent(AvatarContainer.transform, false);
+        RectTransform r = o.GetComponent<RectTransform>();
+        o.transform.localPosition = new Vector3(-28, -32, 0);
     }
 }
