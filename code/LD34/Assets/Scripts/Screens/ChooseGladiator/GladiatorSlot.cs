@@ -5,16 +5,17 @@ using UnityEngine.UI;
 public class GladiatorSlot : MonoBehaviour {
 
     public bool isSelectedOnStart;
-    public GameObject selectBackground;
-    public int gladiatorID;
+    public GameObject selectBackground;    
 
-    public Image avatar;
+    public GameObject AvatarHolder;
     public Text name;
 
 	// Use this for initialization
 	void Start () {
         if (isSelectedOnStart)
             selectBackground.SetActive(true);
+        else
+            selectBackground.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -22,13 +23,11 @@ public class GladiatorSlot : MonoBehaviour {
 	
 	}
 
-    public void SelectGladiator()
-    {
+    public void SelectGladiator() {
         selectBackground.SetActive(true);
     }
 
-    public void DeselectGladiator()
-    {
+    public void DeselectGladiator() {
         selectBackground.SetActive(false);
     }
 

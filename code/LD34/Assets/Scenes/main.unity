@@ -332,7 +332,9 @@ MonoBehaviour:
   AdrenalineBoostPerLevel: 10
   PartySlotsSize: 4
   PartySize: 4
+  TacticRerolls: 3
   BaseAttackQueueLength: 0
+  BlockInput: 0
   PrefabsContainer: {fileID: 1776873881}
   UIStateMachine: {fileID: 1776873884}
 --- !u!95 &1776873884

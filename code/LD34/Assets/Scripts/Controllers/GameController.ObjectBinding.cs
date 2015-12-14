@@ -11,7 +11,8 @@ public partial class GameController : Singleton<GameController> {
     public GameObject InstantiateResource(string resourceId) {
         GameObject o = (GameObject)Instantiate(Resources.Load(resourceId));
         o.transform.SetParent(PrefabsContainer.transform, false);
-        o.transform.localPosition = Vector3.zero;        
+        o.transform.localPosition = Vector3.zero;
+        o.transform.SetAsFirstSibling();
 
         return o;
     }

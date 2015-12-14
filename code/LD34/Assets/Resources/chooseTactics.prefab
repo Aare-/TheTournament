@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f81b09ead0125747a500d60da468fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RerollsCounter: {fileID: 11409332}
 --- !u!114 &11409046
 MonoBehaviour:
   m_ObjectHideFlags: 1
