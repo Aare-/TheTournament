@@ -42,6 +42,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22440996}
+  - 114: {fileID: 11406460}
   m_Layer: 0
   m_Name: help
   m_TagString: Untagged
@@ -62,12 +63,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: d60b4d05c7689df47ab12277f3b005f8, type: 3}
     m_FontSize: 50
@@ -75,12 +70,30 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: IN A GALAXY FAR FAR AWAY...
+  m_Text: 
+--- !u!114 &11406460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9e5e43f14e2694392e83da70719002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  history: 'From now You are manager of cyber colloseum. Your mission is to eliminate
+    the most dangerous gladiators in space. The secret is in ancient knowledge: "Blue
+    kill Red and Red kill Green. Whatever happen here you must end with win. Use some
+    Red to fight with Blue or Green, now you win!". If yours gladiator will be ready
+    that will be growth in strength. Let''s start! '
+  historyLabel: {fileID: 11402482}
+  animationTime: .5
 --- !u!114 &11469552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,12 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -179,7 +186,31 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: history
+      value: 'From now You are manager of cyber colloseum. Your mission is to eliminate
+        the most dangerous gladiators in space. The secret is in ancient knowledge:
+        "Blue kill Red and Red kill Green. Whatever happen here you must end with
+        win. Use some Red to fight with Blue or Green, now you win!". If yours gladiator
+        will be ready that will be growth in strength. Let''s start! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: historyLabel
+      value: 
+      objectReference: {fileID: 11402482}
+    - target: {fileID: 0}
+      propertyPath: animationTime
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193574}
