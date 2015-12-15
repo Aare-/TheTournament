@@ -24,22 +24,24 @@ public class PrefabBehaviour : StateMachineBehaviour {
     }  
 
     protected virtual void InitPrefabs() {
-        GameController.Instance.ClearAllTriggers();
+        DestroyPrefabs();
 
         _InstantiatedPrefabs = new List<GameObject>();
         foreach (string s in PrefabsToLoad) {
 
             GameObject o = GameController.Instance.InstantiateResource(s);
-            _InstantiatedPrefabs.Add(o);
-        }
+            _InstantiatedPrefabs.Add(o);            
+        }        
     }
     protected virtual void DestroyPrefabs() {        
 
         GameController.Instance.ClearAllTriggers();
 
-        foreach (GameObject o in _InstantiatedPrefabs) {
-            GameController.Instance.DestroyResource(o);
+        if (_InstantiatedPrefabs != null) {
+            foreach (GameObject o in _InstantiatedPrefabs) {
+                GameObject.Destroy(o);
+            }
+            _InstantiatedPrefabs.Clear();
         }
-        _InstantiatedPrefabs.Clear();
     }
 }

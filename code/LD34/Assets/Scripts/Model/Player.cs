@@ -70,6 +70,8 @@ public class Player {
     }
 
     public void AddToParty(Gladiator gladiator) {
+        //TODO: fill this! - convert to party member
+
         if (!CanAddToParty()) return;
         int posToAddAt = 0;
         foreach (Gladiator g in _Party) {

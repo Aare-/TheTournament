@@ -212,25 +212,6 @@ public class Msg {
         #endregion
     }
 
-    public class ChangeArrowSprite : TinyMessenger.ITinyMessage {
-
-        public int ArrowID;
-        public int IconID;
-
-        #region Implementation
-        public ChangeArrowSprite(int arrowID, int iconID)
-        {
-            ArrowID = arrowID;
-            IconID = iconID;
-        }
-
-        public object Sender
-        {
-            get { return null; }
-        }
-        #endregion
-    }
-
     public class SetGladiatorState : TinyMessenger.ITinyMessage {
 
         public int GladiatorId;
@@ -352,4 +333,18 @@ public class Msg {
         #endregion
     }
 
+    public class HideArrowKeys : TinyMessenger.ITinyMessage {
+
+        public bool Hide;
+
+        #region Implementation
+        public HideArrowKeys(bool hide) {
+            Hide = hide;
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
 }

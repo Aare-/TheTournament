@@ -6,12 +6,12 @@ public partial class GameController : Singleton<GameController> {
 
     public int BlockInput = 0;
 
-    private bool left;
-    private bool right;
-    private bool isPressed = false;
+    public bool left;
+    public bool right;
+    public bool isPressed = false;
 
     void Update () {
-        if (BlockInput > 1) {          
+        if (BlockInput > 1) {            
             return;
         }
         

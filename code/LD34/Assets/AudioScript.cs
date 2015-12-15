@@ -45,8 +45,7 @@ public class AudioScript : MonoBehaviour
         }
     }
 
-    public void SetFightPlaylist()
-    {
+    public void SetFightPlaylist() {
         SetPlaylist(audiosFight);
     }
 
@@ -75,17 +74,18 @@ public class AudioScript : MonoBehaviour
         PlayNextClip();
     }
 
-    private void PlayNextClip()
-    {
+    private void PlayNextClip() {
         _nextClip = GetNextClip();
         StopAllCoroutines();
-        StartCoroutine(SmoothClipChange(_playingClip, _nextClip));
+        
+            StartCoroutine(SmoothClipChange(_playingClip, _nextClip));
+        
         _playingClip = _nextClip;
     }
 
     private AudioSource GetNextClip()
-    {
-        _musicIndex = (_musicIndex + 1)%_actualPlaylist.Length;
+    {        
+        _musicIndex = (_musicIndex + 1) % _actualPlaylist.Length;
         return _actualPlaylist[_musicIndex];
     }
 

@@ -5,7 +5,7 @@ public class FightMusicBehaviour : StateMachineBehaviour
 {
     public virtual void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
     {
-        Debug.Log("OnStateMachineEnter");
+        Debug.Log("OnStateMachineEnter");        
         FindObjectOfType<AudioScript>().SetFightPlaylist();
     }
 

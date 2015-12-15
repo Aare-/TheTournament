@@ -3,8 +3,8 @@ using System.Collections;
 using TinyMessenger;
 using UnityEngine.UI;
 
-public class ChooseGladiatorScreen : MonoBehaviour {
-
+public class ChooseGladiatorScreen : Fadeable {
+    [Header("Game Object bindings")]
     public Text NumberOfWins;
     public MyGladiatorInfo myGladiatorInfo;
     public EnemyInfo enemyInfo;
@@ -44,22 +44,27 @@ public class ChooseGladiatorScreen : MonoBehaviour {
         TinyTokenManager.Instance.Register<Msg.SelectPerformed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_SELECT_PERFORMED",
             (m) => {
                 Unsubscribe();
-                Debug.Log("Starting game!");
-                TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player._Party[_currentIndex]._Id));
-                TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player.Opponent._Id));
+                StartCoroutine(StartGameCoroutine());
+                
             });
+
+        StartFadeOut();
 	}
     void OnDestroy() {
         Unsubscribe();
     }
     void Unsubscribe() {
+        StartFadeIn();
         TinyTokenManager.Instance.Unregister<Msg.SelectPerformed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_SELECT_PERFORMED");
     }
-	
-	// Update is called once per frame
-	void Update () {
+    IEnumerator StartGameCoroutine() {
+        yield return new WaitForSeconds(0.7f);
+        
+        GameController.Instance.EnableTrigger("startFight");
+        TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player._Party[_currentIndex]._Id));
+        TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player.Opponent._Id));
+    }
 
-	}
 
     private void SelectNextGladiator() {
         gladiatorSlots[_currentIndex].DeselectGladiator();

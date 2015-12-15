@@ -19,6 +19,5 @@ public class RangedAttack : ActiveAbility {
             damageValue = Mathf.Floor(damageValue * 1.5f);
 
         TinyMessengerHub.Instance.Publish<Msg.DealDamage>(new Msg.DealDamage(gladiator._Id, damageValue));
-    }
-    
+    }    
 }

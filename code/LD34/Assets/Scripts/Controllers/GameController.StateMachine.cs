@@ -12,7 +12,8 @@ public partial class GameController : Singleton<GameController> {
     public const string TRIGGER_RIGHT = "right";
     public const string TRIGGER_FATE_SPARE = "FateSpare";    
     public const string TRIGGER_FATE_KILL = "FateKill";    
-    public const string FIGHT_RESOLVED = "fight_resolved"; 
+    public const string FIGHT_RESOLVED = "fight_resolved";
+    public const string FIRST_GAME = "first_game"; 
     #endregion
 
     [Header("State Machine")]
@@ -30,7 +31,10 @@ public partial class GameController : Singleton<GameController> {
     }
     public void SetStateInt(string stateName, int value) {
         UIStateMachine.SetInteger(stateName, value);
-    }    
+    }
+    public void SetStateBool(string stateName, bool value) {
+        UIStateMachine.SetBool(stateName, value);
+    }
     public void ClearAllTriggers() {
         left = false;
         right = false;

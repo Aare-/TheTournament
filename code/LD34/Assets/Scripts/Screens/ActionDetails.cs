@@ -18,7 +18,7 @@ public class ActionDetails : MonoBehaviour {
 
     public void SetAbility(Ability ability) {
         Icon.color = GameController.Instance.GetColorForAbilityColor(ability.Color);
-        Description.text = ability.Name;
+        Description.text = ability.Name+" (LVL: "+ability.Level+")";
     }
 }
 

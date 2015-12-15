@@ -219,10 +219,11 @@ public class Gladiator {
         if ((a is ActiveAbility))
             _ActiveAbilities.Add((ActiveAbility)a);        
         if ((a is PassiveAbility))
-            _PassiveAbilities.Add((PassiveAbility)a);
-
-
-        List<Ability> _AllAbilities = new List<Ability>();
+            _PassiveAbilities.Add((PassiveAbility)a);        
+    }
+    public void IsLevelUp() {
+        /*
+         List<Ability> _AllAbilities = new List<Ability>();
         foreach (var b in _ActiveAbilities)
             _AllAbilities.Add(b);
         foreach (var p in _PassiveAbilities)
@@ -251,6 +252,7 @@ public class Gladiator {
 
             position++;
         }
+         * */
     }
     private void LevelUp(List<Ability> abilities) {
         foreach (var a in abilities) {

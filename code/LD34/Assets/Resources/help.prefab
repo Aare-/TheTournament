@@ -17,23 +17,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &178066
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 22414718}
-  - 222: {fileID: 22233842}
-  - 114: {fileID: 11402482}
-  m_Layer: 0
-  m_Name: text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &193574
 GameObject:
   m_ObjectHideFlags: 0
@@ -50,12 +33,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11402482
+--- !u!1 &198576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22430444}
+  - 222: {fileID: 22207390}
+  - 114: {fileID: 11416234}
+  m_Layer: 0
+  m_Name: greetings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &11406460
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178066}
+  m_GameObject: {fileID: 193574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9e5e43f14e2694392e83da70719002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  history: 'From now You are manager of cyber colloseum. Your mission is to eliminate
+    the most dangerous gladiators in space. The secret is in ancient knowledge: "Blue
+    kill Red and Red kill Green. Whatever happen here you must end with win. Use some
+    Red to fight with Blue or Green, now you win!". If yours gladiator will be ready
+    that will be growth in strength. Let''s start! '
+  historyLabel: {fileID: 0}
+  animationTime: .5
+--- !u!114 &11416234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198576}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -76,30 +94,12 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
---- !u!114 &11406460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9e5e43f14e2694392e83da70719002, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  history: 'From now You are manager of cyber colloseum. Your mission is to eliminate
-    the most dangerous gladiators in space. The secret is in ancient knowledge: "Blue
-    kill Red and Red kill Green. Whatever happen here you must end with win. Use some
-    Red to fight with Blue or Green, now you win!". If yours gladiator will be ready
-    that will be growth in strength. Let''s start! '
-  historyLabel: {fileID: 11402482}
-  animationTime: .5
+  m_Text: Greetings Coloseum Manager X526B!
 --- !u!114 &11469552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,29 +133,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 124520}
---- !u!222 &22233842
+--- !u!222 &22207390
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178066}
---- !u!224 &22414718
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 22440996}
-  m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 52.7499962}
-  m_SizeDelta: {x: -80, y: -185.5}
-  m_Pivot: {x: .5, y: .5}
+  m_GameObject: {fileID: 198576}
 --- !u!224 &22427196
 RectTransform:
   m_ObjectHideFlags: 1
@@ -173,6 +156,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!224 &22430444
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22440996}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -80.6699982}
+  m_SizeDelta: {x: -80, y: 100}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22440996
 RectTransform:
   m_ObjectHideFlags: 1
@@ -184,7 +184,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22427196}
-  - {fileID: 22414718}
+  - {fileID: 22430444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -210,7 +210,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: historyLabel
       value: 
-      objectReference: {fileID: 11402482}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: animationTime
       value: .5

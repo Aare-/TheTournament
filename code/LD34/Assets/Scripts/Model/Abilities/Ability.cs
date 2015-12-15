@@ -107,12 +107,11 @@ public abstract class Ability {
         _Color = color;
         _State = state;
     }
-    public virtual string Info
-    {
+    public virtual string Info {
         get { return "No Info";  }
         set { }
     }
-    
+
     public bool IsSmirkingAgainst(AbilityColor b) {
         if (Color == b) return false;
         if (Color == AbilityColor.Neutral) return false;
