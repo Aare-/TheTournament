@@ -46,16 +46,22 @@ public class AudioScript : MonoBehaviour
 
     public void SetFightPlaylist()
     {
-        _musicIndex = 0;
-        _actualPlaylist = audiosFight;
-        PlayNextClip();
+        if (_actualPlaylist != audiosFight)
+        {
+            _musicIndex = 0;
+            _actualPlaylist = audiosFight;
+            PlayNextClip();
+        }
     }
 
     public void SetMenuPlaylist()
     {
-        _musicIndex = 0;
-        _actualPlaylist = audiosMenu;
-        PlayNextClip();
+        if (_actualPlaylist != audiosMenu)
+        {
+            _musicIndex = 0;
+            _actualPlaylist = audiosMenu;
+            PlayNextClip();
+        }
     }
 
     public void PlayPlaylist()
@@ -97,8 +103,8 @@ public class AudioScript : MonoBehaviour
             {
                 clip1.volume -= fadeStep;
                 clip2.volume += fadeStep;
-                Debug.Log(clip1.clip.name + " volume: " + clip1.volume);
-                Debug.Log(clip2.clip.name + " volume: " + clip2.volume);
+                //Debug.Log(clip1.clip.name + " volume: " + clip1.volume);
+                //Debug.Log(clip2.clip.name + " volume: " + clip2.volume);
                 yield return new WaitForSeconds(fadeDelayTime);
             }
             clip1.Stop();
@@ -112,7 +118,7 @@ public class AudioScript : MonoBehaviour
         while (audio.volume < 1.0f)
         {
             audio.volume += fadeStep;
-            Debug.Log(audio.clip.name + " volume: " + audio.volume);
+            //Debug.Log(audio.clip.name + " volume: " + audio.volume);
             yield return new WaitForSeconds(fadeDelayTime);
         }
     }
@@ -122,7 +128,7 @@ public class AudioScript : MonoBehaviour
         while (audio.volume > 0)
         {
             audio.volume -= fadeStep;
-            Debug.Log(audio.clip.name + " volume: " + audio.volume);
+            //Debug.Log(audio.clip.name + " volume: " + audio.volume);
             yield return new WaitForSeconds(fadeDelayTime);
         }
         audio.Stop();
