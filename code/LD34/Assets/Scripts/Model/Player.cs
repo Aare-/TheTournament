@@ -23,19 +23,16 @@ public class Player {
 
     public Player() {
         NumberOfVictories = 0;
-        _Party = new List<Gladiator>(0);
+        _Party = new List<Gladiator>();
 
         GladiatorAllyFactory allyFactory = new GladiatorAllyFactory();
         allyFactory.SetPowerLevel(0);
 
-        //for (int i = 0; i < 4; i++) //TODO: fix this to be set from inspector
-        _Party.Add(allyFactory.Generate());
-        allyFactory.ForceLevel(2);
-        _Party.Add(allyFactory.Generate());
-        allyFactory.ForceLevel(3);
-        _Party.Add(allyFactory.Generate());
-        allyFactory.ForceLevel(-1);
-        _Party.Add(allyFactory.Generate());
+        for (int i = 0; i < GameController.Instance.PartySlotsSize; i++)
+            _Party.Add(null);
+
+        for (int i = 0; i < GameController.Instance.StartPartySize; i++)
+            _Party[i] = allyFactory.Generate();            
 
         TinyTokenManager.Instance.Register<Msg.StartFight>("PLAYER_INSTANCE_START_FIGHT", (m) => {
             foreach (Gladiator g in _Party) {

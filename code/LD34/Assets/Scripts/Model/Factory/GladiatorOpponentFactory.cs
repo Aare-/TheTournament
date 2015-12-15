@@ -20,9 +20,9 @@ public class GladiatorOpponentFactory : GladiatorFactory {
         #region Generating active abilities
         gladiator.ActiveAbilities.Clear();
 
-        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(2, 1, Ability.AbilityColor.Neutral))
-            gladiator.ActiveAbilities.Add(a);    
-        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(2, 1, Ability.GetRandomColorNotNeutral())) {
+        //foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
+          //  gladiator.ActiveAbilities.Add(a);    
+        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral())) {
             gladiator.ActiveAbilities.Add(a);
         }        
 

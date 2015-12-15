@@ -19,7 +19,7 @@ public partial class GameController : Singleton<GameController> {
 
     [Header("Party Settings")]
     public int PartySlotsSize = 4;
-    public int PartySize = 4;    
+    public int StartPartySize = 3;    
     [Header("Fight Mode")]
     public int TacticRerolls = 3;
     public int BaseAttackQueueLength = 6;

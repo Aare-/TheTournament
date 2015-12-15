@@ -10,6 +10,8 @@ public partial class GameController : Singleton<GameController> {
     public const string TRIGGER_SELECT = "select_performed";    
     public const string TRIGGER_LEFT = "left";
     public const string TRIGGER_RIGHT = "right";
+    public const string TRIGGER_FATE_SPARE = "FateSpare";    
+    public const string TRIGGER_FATE_KILL = "FateKill";    
     public const string FIGHT_RESOLVED = "fight_resolved"; 
     #endregion
 
@@ -36,5 +38,7 @@ public partial class GameController : Singleton<GameController> {
         UIStateMachine.ResetTrigger(TRIGGER_SELECT);        
         UIStateMachine.ResetTrigger(TRIGGER_LEFT);
         UIStateMachine.ResetTrigger(TRIGGER_RIGHT);
+        UIStateMachine.ResetTrigger(TRIGGER_FATE_KILL);
+        UIStateMachine.ResetTrigger(TRIGGER_FATE_SPARE);
     }
 }

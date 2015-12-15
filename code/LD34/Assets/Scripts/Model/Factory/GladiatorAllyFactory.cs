@@ -24,10 +24,10 @@ public class GladiatorAllyFactory : GladiatorFactory {
         #region Generating active abilities
         gladiator.ActiveAbilities.Clear();
 
-        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
-            gladiator.ActiveAbilities.Add(a);                 
-        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral()))
-            gladiator.ActiveAbilities.Add(a);                   
+        //foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
+          //  gladiator.ActiveAbilities.Add(a);                 
+        //foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral()))
+            gladiator.ActiveAbilities.Add(new RangedAttack(1, "OVERKILL", Ability.AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 50, 60));                   
         #endregion
 
         #region Generating passive abilities
