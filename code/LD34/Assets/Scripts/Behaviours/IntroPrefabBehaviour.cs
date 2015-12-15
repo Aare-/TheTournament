@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class IntroPrefabBehaviour : PrefabBehaviour{
+class IntroPrefabBehaviour : PrefabBehaviour {
     public List<string> DisableOnEnter;
     GameObject controls;
 

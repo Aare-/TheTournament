@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22416578}
   - 114: {fileID: 11446582}
-  - 114: {fileID: 11460026}
   m_Layer: 0
   m_Name: intro
   m_TagString: Untagged
@@ -183,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Art & Design
+  m_Text: ART & DESIGN
 --- !u!114 &11431168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,7 +202,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 5535, y: 70.8000031}
+  m_CellSize: {x: 500, y: 70.8000031}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -238,7 +237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Code
+  m_Text: CODE
 --- !u!114 &11446582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,14 +256,27 @@ MonoBehaviour:
   - {fileID: 11400738}
   - {fileID: 11490676}
   - {fileID: 11478718}
+  roles:
+  - Design & Code
+  - Code
+  - Code Assistant
+  - Art & Design
+  - Music & Sound Effects
+  - UML Diagrams
   twitters:
   - '@FilipLoster'
   - '@KamilSpisak'
   - '@KamilPoreba'
   - '@DanielSltys'
-  - '@KubaNizynski '
+  - '@KubaNizynski'
   - '@KubaPeksa'
   animationTime: .300000012
+  FadeInTime: 1
+  RolesTime: 2
+  AnimateTime: .5
+  NamesTime: 3
+  CharacterChangeTime: .0199999996
+  FadeOutTime: 1
 --- !u!114 &11458526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,25 +304,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11460026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11386c8941cac542b74ec228eb01672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  labels:
-  - {fileID: 11496230}
-  - {fileID: 11442012}
-  - {fileID: 11400738}
-  - {fileID: 11490676}
-  - {fileID: 11478718}
-  twitters: []
-  animationTime: 0
 --- !u!114 &11474306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,7 +335,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Code Assistant
+  m_Text: CODE ASSISTANT
 --- !u!114 &11478718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,7 +367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Comuniity Manager
+  m_Text: UML DIAGRAMS
 --- !u!114 &11490676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,7 +399,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Music and Sound Effects
+  m_Text: MUSIC & SOUND EFFECTS
 --- !u!114 &11496230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,7 +431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Code & Design
+  m_Text: CODE & DESIGN
 --- !u!222 &22219586
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -652,6 +645,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: twitters.Array.data[4]
       value: '@kuba_n91'
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CharacterChangeTime
+      value: .0199999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: FadeInTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AnimateTime
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
