@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ActionDetailItem: {fileID: 11463346, guid: 42aed3a215f6d764ca4a6fee82d3f014, type: 2}
   RerollsCounter: {fileID: 11409332}
+  Description: {fileID: 11493036}
   ListOfSkills: {fileID: 11464072}
 --- !u!114 &11409046
 MonoBehaviour:
