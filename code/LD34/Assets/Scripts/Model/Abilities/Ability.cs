@@ -66,6 +66,12 @@ public abstract class Ability {
 
         return false;
     }
+    public virtual GladiatorController.AnimationState AttackState {
+        get {                            
+            return GladiatorController.AnimationState.Shoot;
+        }
+        private set { }
+    }
     #endregion
 
 }

@@ -43,6 +43,7 @@ GameObject:
   - 224: {fileID: 22483772}
   - 222: {fileID: 22212728}
   - 114: {fileID: 11410700}
+  - 114: {fileID: 11439298}
   m_Layer: 0
   m_Name: attackIcon
   m_TagString: Untagged
@@ -60,6 +61,7 @@ GameObject:
   - 224: {fileID: 22456960}
   - 222: {fileID: 22279804}
   - 114: {fileID: 11449364}
+  - 114: {fileID: 11402848}
   m_Layer: 0
   m_Name: attackIcon
   m_TagString: Untagged
@@ -75,6 +77,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22457098}
+  - 114: {fileID: 11429562}
   m_Layer: 0
   m_Name: fightMode
   m_TagString: Untagged
@@ -181,6 +184,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11402848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffc01aa0b1f56047bc03c36683347d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 11449364}
 --- !u!114 &11403332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,7 +259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: stab
+  m_Text: 
 --- !u!114 &11410700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,6 +333,19 @@ MonoBehaviour:
   m_Spacing: {x: 13.3999996, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &11429562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d2d76a8eee15f4aa27eb6f32f7e1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpponentAttacksManager: {fileID: 11438660}
+  AllyAttacksManager: {fileID: 11431374}
 --- !u!114 &11431374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,6 +357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a568ff0740d5ff640bbcedeefbcfd545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _QueuedActions: {fileID: 11499498, guid: ded13a9df8f591f448117fc0b53b77ea, type: 2}
+  AttackName: {fileID: 11407680}
+  AttackIcon: {fileID: 11402848}
+  AttackQueue: {fileID: 11426974}
 --- !u!114 &11432888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +399,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a568ff0740d5ff640bbcedeefbcfd545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _QueuedActions: {fileID: 11499498, guid: ded13a9df8f591f448117fc0b53b77ea, type: 2}
+  AttackName: {fileID: 11455990}
+  AttackIcon: {fileID: 11439298}
+  AttackQueue: {fileID: 11419146}
+--- !u!114 &11439298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffc01aa0b1f56047bc03c36683347d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 11410700}
 --- !u!114 &11449364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,7 +473,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: stab
+  m_Text: 
 --- !u!222 &22212728
 CanvasRenderer:
   m_ObjectHideFlags: 1

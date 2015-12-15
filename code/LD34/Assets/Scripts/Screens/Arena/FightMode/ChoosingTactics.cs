@@ -81,12 +81,14 @@ public class ChoosingTactics : MonoBehaviour {
             
             if (rerolled <= 0) {
                 Unsubscribe();
-                Description.text = "Starting fight...";
+                Description.text = "Starting Round...";
                 RerollsCounter.gameObject.SetActive(false);
 
                 yield return new WaitForSeconds(LaunchFightTime);
 
                 roolInProgress = false;
+
+                RandOpponentAttacks();
                 GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 0);
                 GameController.Instance.EnableTrigger(GameController.TRIGGER_SELECT);
             } else {
@@ -96,13 +98,17 @@ public class ChoosingTactics : MonoBehaviour {
     }
     IEnumerator LaunchFight() {
         Unsubscribe();
-        Description.text = "Starting fight...";
+        Description.text = "Starting Round...";
         RerollsCounter.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(LaunchFightTime);        
-        
+        yield return new WaitForSeconds(LaunchFightTime);
+
+        RandOpponentAttacks();
         GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 0);
         GameController.Instance.EnableTrigger(GameController.TRIGGER_SELECT);
+    }
+    void RandOpponentAttacks() {
+        GameController.Instance.player.Opponent.GetNewAttackQueue();
     }
     protected void OnDisable() {
 

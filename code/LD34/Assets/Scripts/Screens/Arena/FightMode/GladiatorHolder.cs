@@ -24,6 +24,7 @@ public class GladiatorHolder : MonoBehaviour {
 
         GladiatorController c = Instantiate(GameController.Instance.GetPrefabForGladiator(g)).GetComponent <GladiatorController>();
         c.gameObject.transform.position = new Vector3(0, 40, 0);
+        c.Id = g._Id;
         if (g._Id == GameController.Instance.player.Opponent._Id) {
             c.gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }

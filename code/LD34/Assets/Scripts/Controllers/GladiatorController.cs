@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Timers;
+using TinyMessenger;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,16 +50,31 @@ public class GladiatorController : MonoBehaviour {
         _SpriteImage = GetComponent<Image>();
         SwitchState(AnimationState.Idle);
     }
-    public void OnStart() {        
+    public void Start() {        
+        TinyTokenManager.Instance.Register<Msg.PerformActiveAbility>(            
+            "GLADIATOR_CONTROLLER_"+GetInstanceID() + "PERFORM_ACTIVE",
+            (m) => {
+                Debug.Log("Perform Ability: " + m.ExecutingGladiatorId + " : " + _Id);
+
+                if (_Id != -1 && _Id == m.ExecutingGladiatorId) {
+                    TinyMessengerHub.Instance.Publish<Msg.SetGladiatorState> (
+                        new Msg.SetGladiatorState(
+                            m.ExecutingGladiatorId, 
+                            m.Ability.AttackState));
+                }                    
+            });
         TinyTokenManager.Instance.Register<Msg.SetGladiatorState>(
             "GLADIATOR_CONTROLLER_" + GetInstanceID() + "_SET_GLADIATOR_STATE",
             (m) => {
-                if (_Id != -1 && _Id == m.GladiatorId)
-                    SwitchState(m.NewState);                
+                if (_Id != -1 && _Id == m.GladiatorId) {
+                    Debug.Log("Switch State! "+m.NewState);
+                    SwitchState(m.NewState);
+                }
             });
     }
     public void OnDestroy() {
         TinyTokenManager.Instance.Unregister<Msg.SetGladiatorState>("GLADIATOR_CONTROLLER_" + GetInstanceID() + "_SET_GLADIATOR_STATE");
+        TinyTokenManager.Instance.Unregister<Msg.PerformActiveAbility>("GLADIATOR_CONTROLLER_" + GetInstanceID() + "PERFORM_ACTIVE");
     }
     
     public void Update() {
