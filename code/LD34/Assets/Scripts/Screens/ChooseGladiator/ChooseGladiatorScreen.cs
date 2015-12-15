@@ -13,6 +13,7 @@ public class ChooseGladiatorScreen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {        
+
         if (GameController.Instance.player == null)
             TinyMessengerHub.Instance.Publish<Msg.StartNewGame>(new Msg.StartNewGame());
 
@@ -30,27 +31,34 @@ public class ChooseGladiatorScreen : MonoBehaviour {
 
         NumberOfWins.text = "Fights won: " + GameController.Instance.player.NumberOfVictories;
 
+        TinyTokenManager.Instance.Register<Msg.LeftPressed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_LEFT_PRESSED",
+            (m) => {                
+                SelectPreviousGladiator();
+                UpdateMyGladiator(_currentIndex);
+            });
+        TinyTokenManager.Instance.Register<Msg.RightPressed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_RIGHT_PRESSED",
+            (m) => {                
+                SelectNextGladiator();
+                UpdateMyGladiator(_currentIndex);
+            });
         TinyTokenManager.Instance.Register<Msg.SelectPerformed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_SELECT_PERFORMED",
             (m) => {
+                Unsubscribe();
                 Debug.Log("Starting game!");
                 TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player._Party[_currentIndex]._Id));
                 TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player.Opponent._Id));
             });
 	}
     void OnDestroy() {
+        Unsubscribe();
+    }
+    void Unsubscribe() {
         TinyTokenManager.Instance.Unregister<Msg.SelectPerformed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_SELECT_PERFORMED");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.RightArrow)) {
-            SelectNextGladiator();
-            UpdateMyGladiator(_currentIndex);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-            SelectPreviousGladiator();
-            UpdateMyGladiator(_currentIndex);
-        }
+
 	}
 
     private void SelectNextGladiator() {
