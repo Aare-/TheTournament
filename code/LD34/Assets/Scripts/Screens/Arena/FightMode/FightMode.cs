@@ -28,30 +28,38 @@ class FightMode : MonoBehaviour {
         TinyTokenManager.Instance.Register<Msg.LeftPressed>("FIGHT_MODE" + GetInstanceID() + "LEFT_PRESSED", (m) => {
             StartCoroutine(DoFightStep()); 
         });
+        TinyMessengerHub.Instance.Publish<Msg.HideOneArrowKey>(new Msg.HideOneArrowKey(-1, true));
     }
 
     IEnumerator  DoFightStep() {
         TinyMessengerHub.Instance.Publish<Msg.PrepareToPerformAttack>(new Msg.PrepareToPerformAttack());
-        TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());
-        yield return new WaitForSeconds(0.5f);
+        TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());        
 
         if (GameController.Instance.player.FightingGladiator.Life <= 0) {
-            Unregister();            
+            Unregister();
+
+            yield return new WaitForSeconds(0.2f);
 
             TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.FightingGladiator._Id));
             GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 1);
             
         } else if (GameController.Instance.player.Opponent.Life <= 0) {
-            Unregister();            
+            Unregister();
+
+            yield return new WaitForSeconds(0.2f);
 
             TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.Opponent._Id));
             GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 2);
 
             
         } else if (!OpponentAttacksManager.HasNextAttack() && !AllyAttacksManager.HasNextAttack()) {
-            Unregister();            
+            Unregister();
 
-            GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 3);            
+            yield return new WaitForSeconds(0.2f);
+            
+            GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 3);
+        } else {
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -61,5 +69,6 @@ class FightMode : MonoBehaviour {
     }
     public void OnDisable() {
         Unregister();
+        TinyMessengerHub.Instance.Publish<Msg.HideOneArrowKey>(new Msg.HideOneArrowKey(-1, false));
     }
 }

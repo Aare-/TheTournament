@@ -22,9 +22,10 @@ public class GladiatorOpponentFactory : GladiatorFactory {
 
         //foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
           //  gladiator.ActiveAbilities.Add(a);    
-        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral())) {
-            gladiator.ActiveAbilities.Add(a);
-        }        
+        //foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral())) {
+          //  gladiator.ActiveAbilities.Add(a);
+        //}
+        gladiator.ActiveAbilities.Add(new RangedAttack(1, "OVERKILL", Ability.AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 50, 60));                   
 
         #endregion
 

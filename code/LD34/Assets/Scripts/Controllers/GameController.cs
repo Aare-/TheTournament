@@ -9,17 +9,19 @@ public partial class GameController : Singleton<GameController> {
     public Player player;
     GladiatorOpponentFactory _OpponentFactory;
 
+    
+
     public int GetNewId() {
         return ++_LastGenId;
     }
 
     protected void Awake() {        
         _OpponentFactory = new GladiatorOpponentFactory();
-
-        TinyTokenManager.Instance.Register<Msg.StartNewGame>(GetInstanceID() + "NEW_GAME", (m) => {            
-            player = new Player();            
+        
+        TinyTokenManager.Instance.Register<Msg.GameOver>(GetInstanceID() + "qweqweWGAME_OVER", (m) => {
+            player = null;
         });
-        TinyTokenManager.Instance.Register<Msg.GenerateNewOpponent>(GetInstanceID() + "_NEW_OPPONENT", (m) => {
+        TinyTokenManager.Instance.Register<Msg.GenerateNewOpponent>(GetInstanceID() + "qwewqeW_NEW_OPPONENT", (m) => {
             player.Opponent = _OpponentFactory.Generate();
         });
     }

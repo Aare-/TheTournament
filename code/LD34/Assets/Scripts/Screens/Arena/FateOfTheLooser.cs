@@ -87,12 +87,9 @@ public class FateOfTheLooser : Fadeable {
     void Unregister() {
         TinyTokenManager.Instance.Unregister<Msg.LeftPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "LEFT");
         TinyTokenManager.Instance.Unregister<Msg.RightPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "RIGHT");
-        TinyTokenManager.Instance.Unregister<Msg.RightPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "SELECTED");        
+        TinyTokenManager.Instance.Unregister<Msg.SelectPerformed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "SELECTED");        
     }
-    void Crush() {
-        //CrusherLeft.gameObject.SetActive(true);
-        //CrusherRight.gameObject.SetActive(true);
-
+    void Crush() {        
         iTween.MoveBy(CrusherRight.gameObject, new Vector3(-2.82f, 0), 0.5f);
         iTween.MoveBy(CrusherLeft.gameObject, new Vector3(2.82f, 0), 0.5f);        
     }

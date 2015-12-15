@@ -19,11 +19,7 @@ public partial class GameController : Singleton<GameController> {
     [Header("State Machine")]
     public Animator UIStateMachine;
 
-    public void EnableTrigger(string triggerName) {
-        if (triggerName == TRIGGER_SELECT) {
-            TinyMessengerHub.Instance.Publish<Msg.SelectPerformed>(new Msg.SelectPerformed());
-        }        
-
+    public void EnableTrigger(string triggerName) {              
         UIStateMachine.SetTrigger(triggerName);
     }
     public int GetStateInt(string stateName) {

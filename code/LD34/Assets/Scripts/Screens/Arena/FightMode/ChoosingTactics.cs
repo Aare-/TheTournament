@@ -92,7 +92,7 @@ public class ChoosingTactics : MonoBehaviour {
                 roolInProgress = false;
                 
                 GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 0);
-                GameController.Instance.EnableTrigger(GameController.TRIGGER_SELECT);
+                GameController.Instance.EnableTrigger("TacticsChoosed");
             } else {
                 roolInProgress = false;
             }
@@ -107,7 +107,7 @@ public class ChoosingTactics : MonoBehaviour {
 
         
         GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 0);
-        GameController.Instance.EnableTrigger(GameController.TRIGGER_SELECT);
+        GameController.Instance.EnableTrigger("TacticsChoosed");
     }    
     protected void OnDisable() {
 

@@ -44,7 +44,7 @@ public class Player {
         });
         TinyTokenManager.Instance.Register<Msg.GameOver>("PLAYER_INSTANCE_GAME_OVER", (m) => {
             TinyTokenManager.Instance.Unregister<Msg.GameOver>("PLAYER_INSTANCE_GAME_OVER");
-            TinyTokenManager.Instance.Unregister<Msg.GameOver>("PLAYER_INSTANCE_START_FIGHT");
+            TinyTokenManager.Instance.Unregister<Msg.StartFight>("PLAYER_INSTANCE_START_FIGHT");
         });
     }
 

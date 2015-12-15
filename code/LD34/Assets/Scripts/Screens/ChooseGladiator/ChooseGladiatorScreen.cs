@@ -12,10 +12,7 @@ public class ChooseGladiatorScreen : Fadeable {
     private int _currentIndex = 0;    
 
 	// Use this for initialization
-	void Start () {        
-
-        if (GameController.Instance.player == null)
-            TinyMessengerHub.Instance.Publish<Msg.StartNewGame>(new Msg.StartNewGame());
+	void Start () {                
 
         TinyMessengerHub.Instance.Publish<Msg.GenerateNewOpponent>(new Msg.GenerateNewOpponent());
 
@@ -53,14 +50,14 @@ public class ChooseGladiatorScreen : Fadeable {
     void OnDestroy() {
         Unsubscribe();
     }
-    void Unsubscribe() {
-        StartFadeIn();
+    void Unsubscribe() {        
         TinyTokenManager.Instance.Unregister<Msg.SelectPerformed>("CHOOSE_GLADIATOR_SCREEN_" + GetInstanceID() + "_SELECT_PERFORMED");
     }
     IEnumerator StartGameCoroutine() {
-        yield return new WaitForSeconds(0.7f);
-        
-        GameController.Instance.EnableTrigger("startFight");
+        StartFadeIn();
+        yield return new WaitForSeconds(0.6f);
+
+        GameController.Instance.EnableTrigger("gladiatorChoosen");
         TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player._Party[_currentIndex]._Id));
         TinyMessengerHub.Instance.Publish<Msg.StartFight>(new Msg.StartFight(GameController.Instance.player.Opponent._Id));
     }

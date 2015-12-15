@@ -80,7 +80,31 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: New Trigger
+  - m_Name: gladiatorChoosen
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: TacticsChoosed
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: confirmedDefeat
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: startGame
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: tutFinished
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -111,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabsToLoad:
-  - killGladiator
+  - playerKilled
 --- !u!114 &11404038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,7 +323,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: select_performed
+    m_ConditionEvent: confirmedDefeat
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: game_over
@@ -326,10 +350,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: select_performed
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: fight_resolved
+    m_ConditionEvent: TacticsChoosed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110278120}
@@ -353,7 +374,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: select_performed
+    m_ConditionEvent: startGame
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: first_game
@@ -364,7 +385,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 1
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
@@ -404,7 +425,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: select_performed
+    m_ConditionEvent: startGame
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: first_game
@@ -415,11 +436,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 1
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: .899999976
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -479,7 +500,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: select_performed
+    m_ConditionEvent: confirmedDefeat
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: game_over
@@ -530,7 +551,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: startFight
+    m_ConditionEvent: gladiatorChoosen
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 110799590}
   m_DstState: {fileID: 0}
@@ -554,7 +575,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: select_performed
+    m_ConditionEvent: tutFinished
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 110764708}
   m_DstState: {fileID: 0}
@@ -919,7 +940,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: -120, y: 180, z: 0}
   m_ExitPosition: {x: -120, y: 228, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 110253780}
+  m_DefaultState: {fileID: 110291880}
 --- !u!1107 &110799590
 AnimatorStateMachine:
   serializedVersion: 5
@@ -939,7 +960,7 @@ AnimatorStateMachine:
     m_Position: {x: 576, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110295214}
-    m_Position: {x: 144, y: 240, z: 0}
+    m_Position: {x: 240, y: 60, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

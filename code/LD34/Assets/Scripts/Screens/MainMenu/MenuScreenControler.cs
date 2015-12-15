@@ -8,11 +8,12 @@ public class MenuScreenControler : Fadeable {
     
     public RectTransform rectGate;
     public GameObject stamp;    
-    public Animator anim;    
+    public Animator anim;
+    bool started = false;
 
-    void OnAwake() {
+    void Awake() {
     }
-    public void OnStart() {
+    public void Start() {
         GameController.Instance.player = null;
         StartFadeOut();
     }
@@ -26,7 +27,10 @@ public class MenuScreenControler : Fadeable {
         if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)) {
             anim.SetBool("open_all", true);
 
-            StartFadeIn();
+            if (!started) {
+                started = true;
+                StartCoroutine(StartGame());
+            }
         } else {
             anim.SetBool("open_all", false);
         }
@@ -42,4 +46,14 @@ public class MenuScreenControler : Fadeable {
         stamp.SetActive(true);
     }
 
+    IEnumerator StartGame() {                            
+        StartFadeIn();
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameController.Instance.player = new Player();
+        TinyMessengerHub.Instance.Publish<Msg.StartNewGame>(new Msg.StartNewGame());
+
+        GameController.Instance.EnableTrigger("startGame");
+    }
 }

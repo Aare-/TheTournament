@@ -333,6 +333,22 @@ public class Msg {
         #endregion
     }
 
+    public class HideOneArrowKey : TinyMessenger.ITinyMessage {
+        public int ID;
+        public bool Hide;
+
+        #region Implementation
+        public HideOneArrowKey(int id, bool hide) {
+            ID = id;
+            Hide = hide;
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
+
     public class HideArrowKeys : TinyMessenger.ITinyMessage {
 
         public bool Hide;

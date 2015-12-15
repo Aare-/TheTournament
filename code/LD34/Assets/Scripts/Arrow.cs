@@ -15,6 +15,11 @@ public class Arrow : MonoBehaviour {
             foreach (Image o in sprites)
                 o.color = new Color(1.0f, 1.0f, 1.0f, m.Hide ? 0.0f : 1.0f);
         });
+        TinyTokenManager.Instance.Register<Msg.HideOneArrowKey>("ARROW_ " + GetInstanceID() + "HIDE_ONE", (m) => {
+            if(m.ID == id)
+                foreach (Image o in sprites)
+                    o.color = new Color(1.0f, 1.0f, 1.0f, m.Hide ? 0.0f : 1.0f);
+        });        
         _defaultPosition = transform.position;
     }
 	
