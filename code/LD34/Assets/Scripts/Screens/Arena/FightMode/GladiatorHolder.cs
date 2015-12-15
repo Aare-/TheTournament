@@ -8,6 +8,7 @@ public class GladiatorHolder : MonoBehaviour {
     public GameObject _LoadCharacterToThis;
     public Image _Shadow;
     public GameObject _Damage;
+    public GameObject _Smirk;
 
     public ProgressBarr Health;
     public ProgressBarr Adrenaline;
@@ -23,7 +24,9 @@ public class GladiatorHolder : MonoBehaviour {
         TinyTokenManager.Instance.Unregister<Msg.GladiatorHealthChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "HEALTH_CHANGED");
         TinyTokenManager.Instance.Unregister<Msg.GladiatorAdrenalineChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "ADRENALINE_CHANGED");
         TinyTokenManager.Instance.Unregister<Msg.DealDamage>("GLADIATOR_HOLDER_" + GetInstanceID() + "DAMAGE_RECEIVED");
-        TinyTokenManager.Instance.Unregister<Msg.NotEnughAdrenaline>("GLADIATOR_HOLDER_" + GetInstanceID() + "NOT_ENOUGH_ADRENALINE");             
+        TinyTokenManager.Instance.Unregister<Msg.NotEnughAdrenaline>("GLADIATOR_HOLDER_" + GetInstanceID() + "NOT_ENOUGH_ADRENALINE");
+        TinyTokenManager.Instance.Unregister<Msg.AbilitySmirked>("GLADIATOR_HOLDER_" + GetInstanceID() + "SMIRKED");                     
+        TinyTokenManager.Instance.Unregister<Msg.PrepareToPerformAttack>("GLADIATOR_HOLDER_" + GetInstanceID() + "PREPARE_TO_ATTACK");                   
     }
 
     public void LoadGladiator(Gladiator g) {        
@@ -43,15 +46,13 @@ public class GladiatorHolder : MonoBehaviour {
         TinyTokenManager.Instance.Register<Msg.GladiatorHealthChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "HEALTH_CHANGED",
             (m) => {
                 if (m.GladiatorId == _GladiatorId) {
-                    Health.Percent = m.NewPercentValue;
-                    Debug.Log("New Health Percent: " + m.NewPercentValue + " 4: " + _GladiatorId);
+                    Health.Percent = m.NewPercentValue;                    
                 }
             });
         TinyTokenManager.Instance.Register<Msg.GladiatorAdrenalineChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "ADRENALINE_CHANGED",
             (m) => {
                 if (m.GladiatorId == _GladiatorId) {
-                    Adrenaline.Percent = m.NewPercentValue;                    
-                    Debug.Log("New Adrenaline Percent: " + m.NewPercentValue+" 4: "+_GladiatorId);
+                    Adrenaline.Percent = m.NewPercentValue;                                        
                 }
                 
             });
@@ -64,7 +65,6 @@ public class GladiatorHolder : MonoBehaviour {
 
                     t.color = new Color(1.0f, 1.0f, 0.4f, 1.0f);
 
-                    StartCoroutine(FadeOut(t));
                 }
 
             });
@@ -77,21 +77,30 @@ public class GladiatorHolder : MonoBehaviour {
 
                     t.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
 
-                    StartCoroutine(FadeOut(t));
                 }
 
             });
-    }
+        TinyTokenManager.Instance.Register<Msg.AbilitySmirked>("GLADIATOR_HOLDER_" + GetInstanceID() + "SMIRKED",
+            (m) => {
+                if (m.SmirkGladiatorTargetId  == _GladiatorId) {
+                    _Smirk.gameObject.SetActive(true);
+                    Text t = _Smirk.GetComponent<Text>();
+                    t.text = "WEAK!";
 
-    IEnumerator FadeOut(Text t) {
-        float timeLeft = 0.5f;
+                    t.color = GameController.Instance.GetColorForAbilityColor(
+                        _GladiatorId == GameController.Instance.player.FightingGladiator._Id ? 
+                            GameController.Instance.player.Opponent.LastActiveColor :
+                            GameController.Instance.player.FightingGladiator.LastActiveColor
+                        );
 
-        while (timeLeft > 0) {
-            yield return new WaitForEndOfFrame();
-            timeLeft -= Time.deltaTime;
+                }
 
-            float percent = Mathf.Clamp01(timeLeft / 0.5f);
-            t.color = new Color(t.color.r, t.color.g, t.color.b, percent);
-        }
+            });
+        TinyTokenManager.Instance.Register<Msg.AbilitySmirked>("GLADIATOR_HOLDER_" + GetInstanceID() + "PREPARE_TO_ATTACK",
+            (m) => {
+                _Smirk.gameObject.SetActive(false);
+                _Damage.gameObject.SetActive(false);
+            });
+        
     }
 }

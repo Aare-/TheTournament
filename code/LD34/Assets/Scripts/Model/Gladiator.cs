@@ -168,8 +168,8 @@ public class Gladiator {
     void OnPerformAttack(Msg.PerformAttack m) {
         if (_IsFighting) {
             if (AttackQueue.Count > 0) {
-                ActiveAbility a = AttackQueue[0];
-                AttackQueue.RemoveAt(0);
+                ActiveAbility a = _AttackQueue[0];
+                _AttackQueue.RemoveAt(0);
 
                 if(a.CanPerformAbility(this)) {
                     TinyMessengerHub.Instance.Publish<Msg.PerformActiveAbility>(new Msg.PerformActiveAbility(a, _Id));

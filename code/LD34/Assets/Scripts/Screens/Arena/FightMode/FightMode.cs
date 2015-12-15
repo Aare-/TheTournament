@@ -20,48 +20,46 @@ class FightMode : MonoBehaviour {
         OpponentAttacksManager.LoadAttacks(GameController.Instance.player.Opponent);
 
         GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 0);
-        StartCoroutine(ResolvingFight());
+
+
+        TinyTokenManager.Instance.Register<Msg.RightPressed>("FIGHT_MODE" + GetInstanceID() + "RIGHT_PRESSED", (m) => { 
+            StartCoroutine(DoFightStep()); 
+        });
+        TinyTokenManager.Instance.Register<Msg.LeftPressed>("FIGHT_MODE" + GetInstanceID() + "LEFT_PRESSED", (m) => {
+            StartCoroutine(DoFightStep()); 
+        });
     }
 
-    public void OnDisable() {
+    IEnumerator  DoFightStep() {
+        TinyMessengerHub.Instance.Publish<Msg.PrepareToPerformAttack>(new Msg.PrepareToPerformAttack());
+        TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());
+        yield return new WaitForSeconds(0.5f);
 
-    }
+        if (GameController.Instance.player.FightingGladiator.Life <= 0) {
+            Unregister();            
 
-    IEnumerator ResolvingFight() {        
-
-        while (true) {            
-            OpponentAttacksManager.PreparextAttack();
-            AllyAttacksManager.PreparextAttack();
-
-            yield return new WaitForSeconds(0.1f);
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.FightingGladiator._Id));
+            GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 1);
             
-            OpponentAttacksManager.NextAttack();
-            AllyAttacksManager.NextAttack();
+        } else if (GameController.Instance.player.Opponent.Life <= 0) {
+            Unregister();            
 
-            TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());            
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.Opponent._Id));
+            GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 2);
 
-            yield return new WaitForSeconds(0.7f);
+            
+        } else if (!OpponentAttacksManager.HasNextAttack() && !AllyAttacksManager.HasNextAttack()) {
+            Unregister();            
 
-            if (GameController.Instance.player.FightingGladiator.Life <= 0) {
-                TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.FightingGladiator._Id));
-
-                GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 1);
-
-                break;
-            }
-            if (GameController.Instance.player.Opponent.Life <= 0) {
-                TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.Opponent._Id));
-
-                GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 2);
-
-                break;
-            }
-            if (!OpponentAttacksManager.HasNextAttack() && !AllyAttacksManager.HasNextAttack()) {
-                GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 3);
-
-                break;
-            }
+            GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 3);            
         }
+    }
 
+    void Unregister() {
+        TinyTokenManager.Instance.Unregister<Msg.RightPressed>("FIGHT_MODE" + GetInstanceID() + "RIGHT_PRESSED");
+        TinyTokenManager.Instance.Unregister<Msg.LeftPressed>("FIGHT_MODE" + GetInstanceID() + "LEFT_PRESSED");
+    }
+    public void OnDisable() {
+        Unregister();
     }
 }

@@ -25,9 +25,6 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< HEAD
-    m_Controller: {fileID: 0}
-=======
     m_Controller: {fileID: 9100000}
   - m_Name: reroll
     m_Type: 9
@@ -35,19 +32,21 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
->>>>>>> 9036dc90ba5f17acf811f89c9909ce87a889fd96
   - m_Name: game_over
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
+=======
   - m_Name: tactics_rereolls
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: -1
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+>>>>>>> d60c3810260c8cb87a76a6bff1277022cb6ee0dd
   - m_Name: fight_resolved
     m_Type: 3
     m_DefaultFloat: 0
@@ -58,13 +57,8 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-<<<<<<< HEAD
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-=======
-    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
->>>>>>> 9036dc90ba5f17acf811f89c9909ce87a889fd96
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -78,6 +72,30 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &11404038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668b57b759dd04c4ea9b5f9966002b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11409792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2f5925c1254a41a53b31638d9eda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - fateOfTheLooser
 --- !u!114 &11414268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - menu_screen
---- !u!114 &11416462
+--- !u!114 &11429458
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -99,24 +117,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
+  m_Script: {fileID: 11500000, guid: 69e627be5107be5418e251727e44ce85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabsToLoad:
-  - fightMode
---- !u!114 &11420484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b93beab44aec2649970c482d85cc646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabsToLoad:
-  - fateOfTheLooser
 --- !u!114 &11436994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,6 +133,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - chooseGladiator
+--- !u!114 &11447672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2f5925c1254a41a53b31638d9eda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - fightMode
 --- !u!114 &11474486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +200,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - chooseTactics
+--- !u!114 &11499010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2f5925c1254a41a53b31638d9eda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabsToLoad:
+  - chooseTactics
 --- !u!1101 &110106804
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -192,10 +221,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: right
+    m_ConditionEvent: select_performed
     m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: tactics_rereolls
+  - m_ConditionMode: 6
+    m_ConditionEvent: fight_resolved
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110278120}
@@ -382,33 +411,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &110165184
-AnimatorStateTransition:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: tactics_rereolls
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: right
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 110236252}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1101 &110179756
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -502,30 +504,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &110195522
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: tactics_rereolls
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 110278120}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: .899999976
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1101 &110196314
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -533,9 +511,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: tactics_rereolls
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: fight_resolved
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110236252}
   m_Solo: 0
@@ -681,11 +659,9 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 110165184}
   - {fileID: 110106804}
-  - {fileID: 110195522}
   m_StateMachineBehaviours:
-  - {fileID: 11497612}
+  - {fileID: 11499010}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -787,7 +763,7 @@ AnimatorState:
   - {fileID: 110124768}
   - {fileID: 110196314}
   m_StateMachineBehaviours:
-  - {fileID: 11416462}
+  - {fileID: 11447672}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -887,7 +863,7 @@ AnimatorState:
   - {fileID: 110196476}
   - {fileID: 110187204}
   m_StateMachineBehaviours:
-  - {fileID: 11420484}
+  - {fileID: 11409792}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -922,7 +898,8 @@ AnimatorStateMachine:
     data:
       first: {fileID: 110799590}
       second: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 11404038}
   m_AnyStatePosition: {x: 60, y: -108, z: 0}
   m_EntryPosition: {x: 60, y: -156, z: 0}
   m_ExitPosition: {x: 360, y: 216, z: 0}
@@ -956,12 +933,12 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions:
     data:
-      first: {fileID: 110775828}
-      second: []
-    data:
       first: {fileID: 110764708}
       second:
       - {fileID: 110925382}
+    data:
+      first: {fileID: 110775828}
+      second: []
     data:
       first: {fileID: 110799590}
       second: []
@@ -1003,6 +980,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours:
   - {fileID: 11493596}
+  - {fileID: 11429458}
   m_AnyStatePosition: {x: 120, y: -300, z: 0}
   m_EntryPosition: {x: 120, y: -252, z: 0}
   m_ExitPosition: {x: 120, y: -348, z: 0}

@@ -113,13 +113,13 @@ public abstract class Ability {
         set { }
     }
     
-    public bool IsSmirkingAgainst(Ability b) {
-        if (Color == b.Color) return false;
+    public bool IsSmirkingAgainst(AbilityColor b) {
+        if (Color == b) return false;
         if (Color == AbilityColor.Neutral) return false;
-        if (b.Color == AbilityColor.Neutral) return true;
-        if (Color == AbilityColor.Blue && b.Color == AbilityColor.Red) return true;
-        if (Color == AbilityColor.Green && b.Color == AbilityColor.Blue) return true;
-        if (Color == AbilityColor.Red && b.Color == AbilityColor.Green) return true;
+        if (b == AbilityColor.Neutral) return true;
+        if (Color == AbilityColor.Blue && b == AbilityColor.Red) return true;
+        if (Color == AbilityColor.Green && b == AbilityColor.Blue) return true;
+        if (Color == AbilityColor.Red && b == AbilityColor.Green) return true;
 
         return false;
     }

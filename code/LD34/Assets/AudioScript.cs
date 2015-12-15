@@ -6,6 +6,7 @@ public class AudioScript : MonoBehaviour
 {
     public AudioSource[] audiosFight;
     public AudioSource[] audiosMenu;
+    public AudioSource[] audiosSuppressed;
     private AudioSource[] _actualPlaylist;
     private AudioSource _playingClip;
     private AudioSource _nextClip;
@@ -46,16 +47,27 @@ public class AudioScript : MonoBehaviour
 
     public void SetFightPlaylist()
     {
-        _musicIndex = 0;
-        _actualPlaylist = audiosFight;
-        PlayNextClip();
+        SetPlaylist(audiosFight);
     }
 
     public void SetMenuPlaylist()
     {
-        _musicIndex = 0;
-        _actualPlaylist = audiosMenu;
-        PlayNextClip();
+        SetPlaylist(audiosMenu);
+    }
+
+    public void SetSuppresedPlaylist()
+    {
+        SetPlaylist(audiosSuppressed);
+    }
+
+    private void SetPlaylist(AudioSource[] playlist)
+    {
+        if (_actualPlaylist != playlist)
+        {
+            _musicIndex = 0;
+            _actualPlaylist = playlist;
+            PlayNextClip();
+        }
     }
 
     public void PlayPlaylist()
@@ -97,8 +109,8 @@ public class AudioScript : MonoBehaviour
             {
                 clip1.volume -= fadeStep;
                 clip2.volume += fadeStep;
-                Debug.Log(clip1.clip.name + " volume: " + clip1.volume);
-                Debug.Log(clip2.clip.name + " volume: " + clip2.volume);
+                //Debug.Log(clip1.clip.name + " volume: " + clip1.volume);
+                //Debug.Log(clip2.clip.name + " volume: " + clip2.volume);
                 yield return new WaitForSeconds(fadeDelayTime);
             }
             clip1.Stop();
@@ -112,7 +124,7 @@ public class AudioScript : MonoBehaviour
         while (audio.volume < 1.0f)
         {
             audio.volume += fadeStep;
-            Debug.Log(audio.clip.name + " volume: " + audio.volume);
+            //Debug.Log(audio.clip.name + " volume: " + audio.volume);
             yield return new WaitForSeconds(fadeDelayTime);
         }
     }
@@ -122,7 +134,7 @@ public class AudioScript : MonoBehaviour
         while (audio.volume > 0)
         {
             audio.volume -= fadeStep;
-            Debug.Log(audio.clip.name + " volume: " + audio.volume);
+            //Debug.Log(audio.clip.name + " volume: " + audio.volume);
             yield return new WaitForSeconds(fadeDelayTime);
         }
         audio.Stop();

@@ -337,4 +337,19 @@ public class Msg {
         #endregion
     }
 
+    public class AbilitySmirked : TinyMessenger.ITinyMessage {
+
+        public int SmirkGladiatorTargetId;
+
+        #region Implementation
+        public AbilitySmirked(int smirkGladiatorTargetId) {
+            SmirkGladiatorTargetId = smirkGladiatorTargetId;
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
+
 }

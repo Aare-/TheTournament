@@ -20,13 +20,28 @@ public class AttacksManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    
+        TinyTokenManager.Instance.Register<Msg.PrepareToPerformAttack>("ATTACKS_MANAGER_" + GetInstanceID() + "PREPARE_TO_ATTACK",
+            (m) => {
+                if (HasNextAttack()) {
+                    AttackIcon.gameObject.SetActive(true);
+                    ActiveAbility a = _ActionsCache[0];
+                    AttackIcon.SetAbility(a);
+                    AttackName.text = a.Name;
+
+                    Destroy(AttackQueue.transform.GetChild(0).gameObject);                    
+                } else {
+                    AttackIcon.gameObject.SetActive(false);
+                }
+            });
+        TinyTokenManager.Instance.Register<Msg.PerformAttack>("ATTACKS_MANAGER_" + GetInstanceID() + "PERFORM_ATTACK",
+            (m) => {
+                
+            });
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void OnDestroy() {
+        TinyTokenManager.Instance.Unregister<Msg.PrepareToPerformAttack>("ATTACKS_MANAGER_" + GetInstanceID() + "PREPARE_TO_ATTACK");
+        TinyTokenManager.Instance.Unregister<Msg.PerformAttack>("ATTACKS_MANAGER_" + GetInstanceID() + "PERFORM_ATTACK");
+    }
 
     public void LoadAttacks(Gladiator g) {
         _ActionsCache = g.AttackQueue;
@@ -42,26 +57,6 @@ public class AttacksManager : MonoBehaviour {
             action.SetAbility(a);
 
             action.transform.SetParent(AttackQueue.transform, false);
-        }
-    }
-    public void PreparextAttack() {
-        if (HasNextAttack()) {
-            
-        }
-    }
-    public void NextAttack() {
-        if (HasNextAttack()) {
-            AttackIcon.gameObject.SetActive(true);
-
-            ActiveAbility a = _ActionsCache[0];
-            _ActionsCache.Remove(a);
-            Destroy(AttackQueue.transform.GetChild(0).gameObject);            
-
-            AttackIcon.SetAbility(a);
-            AttackName.text = a.Name;
-            
-        } else {
-            AttackIcon.gameObject.SetActive(false);
         }
     }
     public bool HasNextAttack() {

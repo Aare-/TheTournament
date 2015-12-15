@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TinyMessenger;
 
-public class ActiveAbility : Ability {
+public abstract class ActiveAbility : Ability {
 
     int _AdrenalineCost;
 
@@ -20,9 +21,15 @@ public class ActiveAbility : Ability {
         _AdrenalineCost = adrenalineCost;
     }
 
-    public virtual void ExecuteOnOpponent(Gladiator gladiator) {
-        
+    public void ExecuteOnOpponent(Gladiator gladiator) {
+        if (IsSmirkingAgainst(gladiator.LastActiveColor)) {
+            TinyMessengerHub.Instance.Publish<Msg.AbilitySmirked>(new Msg.AbilitySmirked(gladiator._Id));
+            ExecuteOnOpponent(gladiator, true);
+        } else {
+            ExecuteOnOpponent(gladiator, false);
+        }
     }
+    protected abstract void ExecuteOnOpponent(Gladiator gladiator, bool isSmirked);
     public virtual void ExecuteOnAlly(Gladiator gladiator) {
         gladiator.Adrenaline += AdrenalineCost;
     }

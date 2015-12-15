@@ -285,6 +285,8 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683930366}
+<<<<<<< HEAD
+=======
 --- !u!82 &772217157 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 8284468, guid: 4bd380b7513c4e84d91804e086d2054f,
@@ -311,12 +313,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audiosFight:
-  - {fileID: 0}
+  - {fileID: 641162659}
   - {fileID: 788365762}
   - {fileID: 772217157}
   audiosMenu:
   - {fileID: 1274358607}
-  audiosSuppressed: []
   fadeStep: .100000001
   fadeDelayTime: .200000003
 --- !u!4 &1034398593 stripped
@@ -423,6 +424,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+>>>>>>> d60c3810260c8cb87a76a6bff1277022cb6ee0dd
 --- !u!1 &1476804184
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,9 +588,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingLife: 100
   LifeBoostPerLevel: 20
-  StartingAdrenaline: 30
+  StartingAdrenaline: 50
   AdrenalineBoostPerLevel: 10
-  AdrenalineBoostPerNeutralAbility: 2
+  AdrenalineBoostPerNeutralAbility: 5
   AbilitiesColors:
   - AbilityColor: 0
     Color: {r: .345588207, g: .345588207, b: .345588207, a: 1}
