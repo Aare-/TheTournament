@@ -6,6 +6,7 @@ public class AudioScript : MonoBehaviour
 {
     public AudioSource[] audiosFight;
     public AudioSource[] audiosMenu;
+    public AudioSource[] audiosSuppressed;
     private AudioSource[] _actualPlaylist;
     private AudioSource _playingClip;
     private AudioSource _nextClip;
@@ -46,20 +47,25 @@ public class AudioScript : MonoBehaviour
 
     public void SetFightPlaylist()
     {
-        if (_actualPlaylist != audiosFight)
-        {
-            _musicIndex = 0;
-            _actualPlaylist = audiosFight;
-            PlayNextClip();
-        }
+        SetPlaylist(audiosFight);
     }
 
     public void SetMenuPlaylist()
     {
-        if (_actualPlaylist != audiosMenu)
+        SetPlaylist(audiosMenu);
+    }
+
+    public void SetSuppresedPlaylist()
+    {
+        SetPlaylist(audiosSuppressed);
+    }
+
+    private void SetPlaylist(AudioSource[] playlist)
+    {
+        if (_actualPlaylist != playlist)
         {
             _musicIndex = 0;
-            _actualPlaylist = audiosMenu;
+            _actualPlaylist = playlist;
             PlayNextClip();
         }
     }
