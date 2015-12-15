@@ -59,8 +59,7 @@ public class AttacksManager : MonoBehaviour {
 
             AttackIcon.SetAbility(a);
             AttackName.text = a.Name;
-
-            TinyMessengerHub.Instance.Publish<Msg.PerformActiveAbility>(new Msg.PerformActiveAbility(a, _MyId));
+            
         } else {
             AttackIcon.gameObject.SetActive(false);
         }

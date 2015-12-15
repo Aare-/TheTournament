@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Timers;
 
 public class GladiatorHolder : MonoBehaviour {
 
@@ -21,6 +22,8 @@ public class GladiatorHolder : MonoBehaviour {
     void OnDestroy() {
         TinyTokenManager.Instance.Unregister<Msg.GladiatorHealthChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "HEALTH_CHANGED");
         TinyTokenManager.Instance.Unregister<Msg.GladiatorAdrenalineChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "ADRENALINE_CHANGED");
+        TinyTokenManager.Instance.Unregister<Msg.DealDamage>("GLADIATOR_HOLDER_" + GetInstanceID() + "DAMAGE_RECEIVED");
+        TinyTokenManager.Instance.Unregister<Msg.NotEnughAdrenaline>("GLADIATOR_HOLDER_" + GetInstanceID() + "NOT_ENOUGH_ADRENALINE");             
     }
 
     public void LoadGladiator(Gladiator g) {        
@@ -52,5 +55,43 @@ public class GladiatorHolder : MonoBehaviour {
                 }
                 
             });
+        TinyTokenManager.Instance.Register<Msg.NotEnughAdrenaline>("GLADIATOR_HOLDER_" + GetInstanceID() + "NOT_ENOUGH_ADRENALINE",
+            (m) => {
+                if (m.GladiatorId == _GladiatorId) {
+                    _Damage.gameObject.SetActive(true);
+                    Text t = _Damage.GetComponent<Text>();
+                    t.text = "NOT ENOUGH ADRENALINE!";
+
+                    t.color = new Color(1.0f, 1.0f, 0.4f, 1.0f);
+
+                    StartCoroutine(FadeOut(t));
+                }
+
+            });
+        TinyTokenManager.Instance.Register<Msg.DealDamage>("GLADIATOR_HOLDER_" + GetInstanceID() + "DAMAGE_RECEIVED",
+            (m) => {
+                if (m.GladiatorID == _GladiatorId) {
+                    _Damage.gameObject.SetActive(true);
+                    Text t = _Damage.GetComponent<Text>();
+                    t.text = "-" + m.Damage;
+
+                    t.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+
+                    StartCoroutine(FadeOut(t));
+                }
+
+            });
+    }
+
+    IEnumerator FadeOut(Text t) {
+        float timeLeft = 0.5f;
+
+        while (timeLeft > 0) {
+            yield return new WaitForEndOfFrame();
+            timeLeft -= Time.deltaTime;
+
+            float percent = Mathf.Clamp01(timeLeft / 0.5f);
+            t.color = new Color(t.color.r, t.color.g, t.color.b, percent);
+        }
     }
 }

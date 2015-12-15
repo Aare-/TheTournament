@@ -161,6 +161,21 @@ public class Msg {
             }
         }
         #endregion
+    }   
+
+    public class NotEnughAdrenaline : TinyMessenger.ITinyMessage {
+
+        public int GladiatorId;
+        
+        #region Implementation
+        public NotEnughAdrenaline(int gladiatorId) {
+            GladiatorId = gladiatorId;
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
     }
 
     public class ArrowClicked : TinyMessenger.ITinyMessage {
@@ -233,13 +248,13 @@ public class Msg {
         #endregion
     }
 
-    public class ShowDamage : TinyMessenger.ITinyMessage
+    public class DealDamage : TinyMessenger.ITinyMessage
     {
         public int GladiatorID;
         public float Damage;
 
         #region Implementation
-        public ShowDamage(int gladiatorID, float damage)
+        public DealDamage(int gladiatorID, float damage)
         {
             GladiatorID = gladiatorID;
             Damage = damage;

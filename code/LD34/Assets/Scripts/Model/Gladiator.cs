@@ -139,7 +139,11 @@ public class Gladiator {
         TinyTokenManager.Instance.Register<Msg.PrepareToPerformAttack>("GLADIATOR_" + _Id + "_PREPARE_TO_PERFORM_ATTACK", OnPrepareToPerformAttack);
         TinyTokenManager.Instance.Register<Msg.PerformActiveAbility>("GLADIATOR_" + _Id + "_ABILITY", OnPerformAbility);
         TinyTokenManager.Instance.Register<Msg.GladiatorDefeated>("GLADIATOR_" + _Id + "_GLADIATOR_DEFEATED", OnGladiatorDefeated);        
-        TinyTokenManager.Instance.Register<Msg.GladiatorKilled>("GLADIATOR_" + _Id + "_ON_KILLED", OnKilled);        
+        TinyTokenManager.Instance.Register<Msg.GladiatorKilled>("GLADIATOR_" + _Id + "_ON_KILLED", OnKilled);
+        TinyTokenManager.Instance.Register<Msg.DealDamage>("GLADIATOR_" + _Id + "_DEAL_DAMAGE", 
+            (m) => {
+                if (m.GladiatorID == _Id) Life -= m.Damage;                
+            });        
     }    
 
     #region Event handlers
@@ -167,7 +171,11 @@ public class Gladiator {
                 ActiveAbility a = AttackQueue[0];
                 AttackQueue.RemoveAt(0);
 
-                TinyMessengerHub.Instance.Publish<Msg.PerformActiveAbility>(new Msg.PerformActiveAbility(a, _Id));                
+                if(a.CanPerformAbility(this)) {
+                    TinyMessengerHub.Instance.Publish<Msg.PerformActiveAbility>(new Msg.PerformActiveAbility(a, _Id));
+                } else {
+                    TinyMessengerHub.Instance.Publish<Msg.NotEnughAdrenaline>(new Msg.NotEnughAdrenaline(_Id));
+                }
             }
         }
     }
@@ -191,11 +199,12 @@ public class Gladiator {
             TinyTokenManager.Instance.Unregister<Msg.PerformActiveAbility>("GLADIATOR_" + _Id + "_ABILITY");
             TinyTokenManager.Instance.Unregister<Msg.PerformAttack>("GLADIATOR_" + _Id + "_PERFORM_ATTACK");
             TinyTokenManager.Instance.Unregister<Msg.PrepareToPerformAttack>("GLADIATOR_" + _Id + "_PREPARE_TO_PERFORM_ATTACK");
+            TinyTokenManager.Instance.Unregister<Msg.DealDamage>("GLADIATOR_" + _Id + "_DEAL_DAMAGE");
         }
     }
     #endregion
 
-    public List<ActiveAbility> GetNewAttackQueue() {
+    private List<ActiveAbility> GetNewAttackQueue() {
         if (_AttackQueue == null)
             _AttackQueue = new List<ActiveAbility>();
         _AttackQueue.Clear();
@@ -252,7 +261,7 @@ public class Gladiator {
         }
 
         //TODO: show UI tha tallow to choose
-        Ability.GetRandomAbilities(3, abilities[0].Level, abilities[0].Color);
+        //Ability.GetRandomAbilities(3, abilities[0].Level, abilities[0].Color);
 
         Level++;
     }

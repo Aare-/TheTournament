@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TinyMessenger;
 using UnityEngine;
 
 class FightMode : MonoBehaviour {
@@ -37,14 +38,20 @@ class FightMode : MonoBehaviour {
             OpponentAttacksManager.NextAttack();
             AllyAttacksManager.NextAttack();
 
+            TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());            
+
             yield return new WaitForSeconds(0.7f);
 
             if (GameController.Instance.player.FightingGladiator.Life <= 0) {
+                TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.FightingGladiator._Id));
+
                 GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 1);
 
                 break;
             }
             if (GameController.Instance.player.Opponent.Life <= 0) {
+                TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.Opponent._Id));
+
                 GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 2);
 
                 break;

@@ -19,14 +19,24 @@ public class GladiatorAllyFactory : GladiatorFactory {
         Array colorValues = Enum.GetValues(typeof(Ability.AbilityColor));
 
         gladiator.ActiveAbilities.Clear();
-        for (int i = 0; i < 3; i++ )
-            gladiator.ActiveAbilities.Add(new HeavyAttack(
-                (Ability.AbilityColor)colorValues.GetValue(UnityEngine.Random.Range(0, colorValues.Length))
-                ));
+
+
+        #region Generating active abilities
+        gladiator.ActiveAbilities.Clear();
+
+        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
+            gladiator.ActiveAbilities.Add(a);                 
+        foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral()))
+            gladiator.ActiveAbilities.Add(a);                   
+        #endregion
+
+        #region Generating passive abilities
+        gladiator.PassiveAbilities.Clear();        
         
         gladiator.PassiveAbilities.Clear();
-        gladiator.PassiveAbilities.Add(new AdrenalineRush());
-
+        foreach (PassiveAbility a in Ability.GetRandomAbilities<PassiveAbility>(1, 1, Ability.AbilityColor.Neutral))
+            gladiator.PassiveAbilities.Add(a);
+        #endregion
 
         return gladiator;
     }    

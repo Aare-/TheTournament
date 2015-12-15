@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TinyMessenger;
 
 public class ChoosingTactics : MonoBehaviour {
 
@@ -56,8 +57,10 @@ public class ChoosingTactics : MonoBehaviour {
         roolInProgress = true;
         rerolled--;
         RerollsCounter.text = (rerolled + 1) + "/" + GameController.Instance.TacticRerolls;
+        
+        TinyMessengerHub.Instance.Publish<Msg.StartFightRound>(new Msg.StartFightRound(GameController.Instance.player.FightingGladiator._Id));
+        TinyMessengerHub.Instance.Publish<Msg.StartFightRound>(new Msg.StartFightRound(GameController.Instance.player.Opponent._Id));
 
-        GameController.Instance.player.FightingGladiator.GetNewAttackQueue();
         ListOfSkills.gameObject.DeleteAllChildreen();
         List<ActiveAbility> abilities = GameController.Instance.player.FightingGladiator.AttackQueue;
 
@@ -87,8 +90,7 @@ public class ChoosingTactics : MonoBehaviour {
                 yield return new WaitForSeconds(LaunchFightTime);
 
                 roolInProgress = false;
-
-                RandOpponentAttacks();
+                
                 GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 0);
                 GameController.Instance.EnableTrigger(GameController.TRIGGER_SELECT);
             } else {
@@ -103,13 +105,10 @@ public class ChoosingTactics : MonoBehaviour {
 
         yield return new WaitForSeconds(LaunchFightTime);
 
-        RandOpponentAttacks();
+        
         GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 0);
         GameController.Instance.EnableTrigger(GameController.TRIGGER_SELECT);
-    }
-    void RandOpponentAttacks() {
-        GameController.Instance.player.Opponent.GetNewAttackQueue();
-    }
+    }    
     protected void OnDisable() {
 
     }
