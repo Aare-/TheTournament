@@ -288,4 +288,38 @@ public class Msg {
         #endregion
     }
 
+    public class GladiatorHealthChanged : TinyMessenger.ITinyMessage {
+
+        public int GladiatorId;
+        public float NewPercentValue;
+
+        #region Implementation
+        public GladiatorHealthChanged(int gladiatorId, float percent) {
+            GladiatorId = gladiatorId;
+            NewPercentValue = percent;
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
+
+    public class GladiatorAdrenalineChanged : TinyMessenger.ITinyMessage {
+
+        public int GladiatorId;
+        public float NewPercentValue;
+
+        #region Implementation
+        public GladiatorAdrenalineChanged(int gladiatorId, float percent) {
+            GladiatorId = gladiatorId;
+            NewPercentValue = percent;
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
+
 }

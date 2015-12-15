@@ -53,9 +53,7 @@ public class GladiatorController : MonoBehaviour {
     public void Start() {        
         TinyTokenManager.Instance.Register<Msg.PerformActiveAbility>(            
             "GLADIATOR_CONTROLLER_"+GetInstanceID() + "PERFORM_ACTIVE",
-            (m) => {
-                Debug.Log("Perform Ability: " + m.ExecutingGladiatorId + " : " + _Id);
-
+            (m) => {                
                 if (_Id != -1 && _Id == m.ExecutingGladiatorId) {
                     TinyMessengerHub.Instance.Publish<Msg.SetGladiatorState> (
                         new Msg.SetGladiatorState(
@@ -66,8 +64,7 @@ public class GladiatorController : MonoBehaviour {
         TinyTokenManager.Instance.Register<Msg.SetGladiatorState>(
             "GLADIATOR_CONTROLLER_" + GetInstanceID() + "_SET_GLADIATOR_STATE",
             (m) => {
-                if (_Id != -1 && _Id == m.GladiatorId) {
-                    Debug.Log("Switch State! "+m.NewState);
+                if (_Id != -1 && _Id == m.GladiatorId) {                    
                     SwitchState(m.NewState);
                 }
             });
