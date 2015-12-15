@@ -10,6 +10,7 @@ public class GladiatorHolder : MonoBehaviour {
 
     public ProgressBarr Health;
     public ProgressBarr Adrenaline;
+    int _GladiatorId;
 	
 	void Start () {
 	            
@@ -25,6 +26,7 @@ public class GladiatorHolder : MonoBehaviour {
     public void LoadGladiator(Gladiator g) {        
         #region Loading Passive abilities list
 
+        _GladiatorId = g._Id;
         GladiatorController c = Instantiate(GameController.Instance.GetPrefabForGladiator(g)).GetComponent <GladiatorController>();
         c.gameObject.transform.position = new Vector3(0, 40, 0);
         c.Id = g._Id;
@@ -37,11 +39,18 @@ public class GladiatorHolder : MonoBehaviour {
 
         TinyTokenManager.Instance.Register<Msg.GladiatorHealthChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "HEALTH_CHANGED",
             (m) => {
-                Health.Percent = m.NewPercentValue;
+                if (m.GladiatorId == _GladiatorId) {
+                    Health.Percent = m.NewPercentValue;
+                    Debug.Log("New Health Percent: " + m.NewPercentValue + " 4: " + _GladiatorId);
+                }
             });
         TinyTokenManager.Instance.Register<Msg.GladiatorAdrenalineChanged>("GLADIATOR_HOLDER_" + GetInstanceID() + "ADRENALINE_CHANGED",
             (m) => {
-                Adrenaline.Percent = m.NewPercentValue;
+                if (m.GladiatorId == _GladiatorId) {
+                    Adrenaline.Percent = m.NewPercentValue;                    
+                    Debug.Log("New Adrenaline Percent: " + m.NewPercentValue+" 4: "+_GladiatorId);
+                }
+                
             });
     }
 }

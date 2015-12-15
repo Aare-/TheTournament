@@ -17,9 +17,8 @@ public class ProgressBarr : MonoBehaviour {
         }
         set {
             RectTransform t = Foreground.GetComponent<RectTransform>();
-            RectTransform b = Background.GetComponent<RectTransform>();
 
-            t.sizeDelta = new Vector2((float)b.sizeDelta.x * value, b.sizeDelta.y);
+            t.localScale = new Vector3(Mathf.Clamp01(value), 1.0f, 1.0f);
 
             _Percent = value;
         }
