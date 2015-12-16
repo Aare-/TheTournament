@@ -28,6 +28,7 @@ public class GladiatorOpponentFactory : GladiatorFactory {
 
         #region Generating active abilities
         gladiator.ActiveAbilities.Clear();
+        gladiator.Level = 1;
 
         if (GameController.Instance.player.NumberOfVictories < 5) {
             foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
@@ -47,6 +48,8 @@ public class GladiatorOpponentFactory : GladiatorFactory {
                 }        
 
         } else if (GameController.Instance.player.NumberOfVictories < 20) {
+            gladiator.Level = 2;
+
             foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
                 gladiator.ActiveAbilities.Add(a);
 
@@ -57,6 +60,8 @@ public class GladiatorOpponentFactory : GladiatorFactory {
                     gladiator.ActiveAbilities.Add(a);
                 }        
         } else if (GameController.Instance.player.NumberOfVictories < 30) {
+            gladiator.Level = 3;
+
             foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
                 gladiator.ActiveAbilities.Add(a);
 
