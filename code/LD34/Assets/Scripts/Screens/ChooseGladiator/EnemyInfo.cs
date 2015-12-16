@@ -13,6 +13,8 @@ public class EnemyInfo : MonoBehaviour {
     public GameObject AvatarContainer;
     public GameObject AbilitiesList;
     public Text Name;
+    public Text Health;
+    public Text Adr;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,8 @@ public class EnemyInfo : MonoBehaviour {
 
     public void SetGladiatorInfo(Gladiator info) {
         Name.text = info.Name;
+        Health.text = "HP: " + info.BaseLife;
+        Adr.text = "ADR: " + info.BaseAdrenaline;
 
         #region Setting Avatar
         AvatarContainer.DeleteAllChildreen();

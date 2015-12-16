@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
@@ -16,7 +15,7 @@ public class GladiatorAllyFactory : GladiatorFactory {
         
         gladiator.Flavour = _Flavours[UnityEngine.Random.Range(0, _Flavours.Count())];
 
-        Array colorValues = Enum.GetValues(typeof(Ability.AbilityColor));
+        System.Array colorValues = System.Enum.GetValues(typeof(Ability.AbilityColor));
 
         gladiator.ActiveAbilities.Clear();
 
@@ -25,17 +24,18 @@ public class GladiatorAllyFactory : GladiatorFactory {
         gladiator.ActiveAbilities.Clear();
 
         foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
-            gladiator.ActiveAbilities.Add(a);                         
+            gladiator.ActiveAbilities.Add(a);
         foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral()))
-            gladiator.ActiveAbilities.Add(new RangedAttack(1, "OVERKILL", Ability.AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 50, 60));                   
+            gladiator.ActiveAbilities.Add(a);
+        
         #endregion
 
         #region Generating passive abilities
-        gladiator.PassiveAbilities.Clear();        
-        
         gladiator.PassiveAbilities.Clear();
-        foreach (PassiveAbility a in Ability.GetRandomAbilities<PassiveAbility>(1, 1, Ability.AbilityColor.Neutral))
-            gladiator.PassiveAbilities.Add(a);
+        if (Random.Range(0, 1f) < GameController.Instance.ChanceOfPassiveAbility) {
+            foreach (PassiveAbility a in Ability.GetRandomAbilities<PassiveAbility>(1, 1, Ability.AbilityColor.Neutral))
+                gladiator.PassiveAbilities.Add(a);
+        }
         #endregion
 
         return gladiator;

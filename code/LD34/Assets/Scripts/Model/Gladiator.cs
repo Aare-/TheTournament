@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TinyMessenger;
@@ -74,21 +73,21 @@ public class Gladiator {
     public int Level {
         get { return _Level; }
         set {
-            _Level = Math.Min(3, value); //TODO: zmien jak dojdzie kolejna ewolucja
+            _Level = Mathf.Min(3, value); //TODO: zmien jak dojdzie kolejna ewolucja
         }
     }
     public float Life {
         get { return _Life; }
         set {
-            _Life = value;
-            TinyMessengerHub.Instance.Publish<Msg.GladiatorHealthChanged>(new Msg.GladiatorHealthChanged(_Id, _Life / BaseLife));            
+            _Life = Mathf.Clamp(value, 0, BaseLife);
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorHealthChanged>(new Msg.GladiatorHealthChanged(_Id, new Vector2(_Life,  BaseLife)));            
         }
     }
     public float Adrenaline {
         get { return _Adrenaline; }
-        set {
-            _Adrenaline = value;
-            TinyMessengerHub.Instance.Publish<Msg.GladiatorAdrenalineChanged>(new Msg.GladiatorAdrenalineChanged(_Id, _Adrenaline / BaseAdrenaline));
+        set {            
+            _Adrenaline = Mathf.Clamp(value, 0, BaseAdrenaline);
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorAdrenalineChanged>(new Msg.GladiatorAdrenalineChanged(_Id, new Vector2(_Adrenaline,  BaseAdrenaline)));
         }
     }
     public List<ActiveAbility> ActiveAbilities {
@@ -152,16 +151,23 @@ public class Gladiator {
             _Life = BaseLife;
             _Adrenaline = BaseAdrenaline;
             _Shields = 0;
+
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorHealthChanged>(new Msg.GladiatorHealthChanged(_Id, new Vector2(_Life, BaseLife)));
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorAdrenalineChanged>(new Msg.GladiatorAdrenalineChanged(_Id, new Vector2(_Adrenaline, BaseAdrenaline)));
         }
     }
     void OnFightRoundStarted(Msg.StartFightRound m) {
         if (m.GladiatorId == _Id) {
             GetNewAttackQueue();
+
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorHealthChanged>(new Msg.GladiatorHealthChanged(_Id, new Vector2(_Life, BaseLife)));
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorAdrenalineChanged>(new Msg.GladiatorAdrenalineChanged(_Id, new Vector2(_Adrenaline, BaseAdrenaline)));
         }
     }
     void OnPrepareToPerformAttack(Msg.PrepareToPerformAttack m) {
         if (_IsFighting && _AttackQueue.Count > 0) {            
-            _LastActiveColor = _AttackQueue[0].Color;            
+            _LastActiveColor = _AttackQueue[0].Color;
+            Debug.Log("ACT:COL: " + _LastActiveColor);
         }
     }
     void OnPerformAttack(Msg.PerformAttack m) {
@@ -173,16 +179,20 @@ public class Gladiator {
                 if(a.CanPerformAbility(this)) {
                     TinyMessengerHub.Instance.Publish<Msg.PerformActiveAbility>(new Msg.PerformActiveAbility(a, _Id));
                 } else {
+
                     TinyMessengerHub.Instance.Publish<Msg.NotEnughAdrenaline>(new Msg.NotEnughAdrenaline(_Id));
                 }
             }
         }
     }
     void OnPerformAbility(Msg.PerformActiveAbility m) {
-        if (m.ExecutingGladiatorId == _Id)
+        if (m.ExecutingGladiatorId == _Id) {
+
             m.Ability.ExecuteOnAlly(this);
-        else if (_IsFighting)
-            m.Ability.ExecuteOnOpponent(this);        
+        } else if (_IsFighting) {            
+             
+            m.Ability.ExecuteOnOpponent(this);
+        }
     }
     void OnGladiatorDefeated(Msg.GladiatorDefeated m) {
         if (_IsFighting) {
@@ -209,8 +219,19 @@ public class Gladiator {
         _AttackQueue.Clear();
 
         int queueLength = AttackQueueLength;
-        for (int i = 0; i < queueLength; i++)
-            _AttackQueue.Add(_ActiveAbilities[UnityEngine.Random.Range(0, _ActiveAbilities.Count)]);
+        for (int i = 0; i < queueLength; i++) {
+            ActiveAbility a = _ActiveAbilities[0];
+
+            float sum = 0;
+            for(int j = 0; j< _ActiveAbilities.Count; j++) {
+                float val = _ActiveAbilities[j].Color == Ability.AbilityColor.Neutral ? 1.0f : GameController.Instance.ChanceOfColourSkill;
+                if(Random.Range(0, 1.0f) <= val / (sum + val)) 
+                    a = _ActiveAbilities[j];
+                sum += val;
+            }
+
+            _AttackQueue.Add(a);
+        }
 
         return _AttackQueue;
     }

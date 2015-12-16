@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public class Msg {
     public class StartNewGame : TinyMessenger.ITinyMessage {        
@@ -287,12 +288,12 @@ public class Msg {
     public class GladiatorHealthChanged : TinyMessenger.ITinyMessage {
 
         public int GladiatorId;
-        public float NewPercentValue;
+        public Vector2  NewValue;
 
         #region Implementation
-        public GladiatorHealthChanged(int gladiatorId, float percent) {
+        public GladiatorHealthChanged(int gladiatorId, Vector2 newValue) {
             GladiatorId = gladiatorId;
-            NewPercentValue = percent;
+            NewValue = newValue;
         }
 
         public object Sender {
@@ -304,12 +305,12 @@ public class Msg {
     public class GladiatorAdrenalineChanged : TinyMessenger.ITinyMessage {
 
         public int GladiatorId;
-        public float NewPercentValue;
+        public Vector2 NewValue;
 
         #region Implementation
-        public GladiatorAdrenalineChanged(int gladiatorId, float percent) {
+        public GladiatorAdrenalineChanged(int gladiatorId, Vector2 newValue) {
             GladiatorId = gladiatorId;
-            NewPercentValue = percent;
+            NewValue = newValue;
         }
 
         public object Sender {

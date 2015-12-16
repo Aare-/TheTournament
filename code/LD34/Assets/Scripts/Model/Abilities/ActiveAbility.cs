@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TinyMessenger;
+using UnityEngine;
 
 public abstract class ActiveAbility : Ability {
 
@@ -22,6 +23,8 @@ public abstract class ActiveAbility : Ability {
     }
 
     public void ExecuteOnOpponent(Gladiator gladiator) {
+        Debug.Log("T: " + Color + " vs: " + gladiator.LastActiveColor + " r: " + IsSmirkingAgainst(gladiator.LastActiveColor));
+
         if (IsSmirkingAgainst(gladiator.LastActiveColor)) {
             TinyMessengerHub.Instance.Publish<Msg.AbilitySmirked>(new Msg.AbilitySmirked(gladiator._Id));
             ExecuteOnOpponent(gladiator, true);
@@ -34,7 +37,9 @@ public abstract class ActiveAbility : Ability {
         gladiator.Adrenaline += AdrenalineCost;
     }
     public bool CanPerformAbility(Gladiator g) {
-        if (Color != AbilityColor.Neutral && g.Adrenaline < AdrenalineCost)
+        if (Color == AbilityColor.Neutral)
+            return true;
+        if (g.Adrenaline < Math.Abs(AdrenalineCost))
             return false;
         return true;
     }

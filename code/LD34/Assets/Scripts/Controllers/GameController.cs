@@ -8,7 +8,6 @@ public partial class GameController : Singleton<GameController> {
 
     public Player player;
     GladiatorOpponentFactory _OpponentFactory;
-
     
 
     public int GetNewId() {

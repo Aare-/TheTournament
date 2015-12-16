@@ -15,126 +15,114 @@ public abstract class Ability {
         new Ability[] {
             #region Level 1 Active Abilities
                 #region Neutral
-                new RangedAttack(1, "Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 5, 
-                    5, 10), 
-                new RangedAttack(1, "Fast Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 2, 
-                    8, 10), 
-                new RangedAttack(1, "Gun Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 5, 
-                    7, 14), 
-                new RangedAttack(1, "Fast Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 2, 
-                    10, 14), 
+                new RangedAttack(1, "Deal 2 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, GameController.Instance.AdrenalineBoostPerNeutralAbility, 
+                    2, 2),
+                new RangedAttack(1, "Deal 1-3 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, GameController.Instance.AdrenalineBoostPerNeutralAbility, 
+                    1, 3),
                 #endregion
 
                 #region Green
-                new RangedAttack(1, "Acid Shoot", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 10, 
-                    4, 8), 
-                new RangedAttack(1, "Melting Smash", AbilityColor.Green, GladiatorController.AnimationState.Meele, 5, 
-                    2, 4), 
+                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, 5, 
+                    3, 3),
+                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 5, 
+                    2, 4),
                 #endregion
 
                 #region Red
-                new RangedAttack(1, "Lava Shoot", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 10, 
-                    4, 8), 
-                new RangedAttack(1, "Fire Cut", AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 
-                    2, 4), 
+                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 
+                    3, 3),
+                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 5, 
+                    2, 4),
                 #endregion
 
                 #region Blue
-                new RangedAttack(1, "Electro Shoot", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 10, 
-                    4, 8), 
-                new RangedAttack(1, "Zapp", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 5, 
-                    2, 4), 
+                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 5, 
+                    3, 3),
+                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 5, 
+                    2, 4),
                 #endregion
 
             #endregion
 
             #region Level 1 Passive Abilities
-            new AdrenalineRush(),
-            new SuperVitality()
+            new AdrenalineRush(1, 5),
+            new SuperVitality(1, 10)
             #endregion
         
         },
         new Ability[] {
             #region Level 2 Active Abilities
                 #region Neutral
-                new RangedAttack(2, "Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 5, 
-                    5, 10), 
-                new RangedAttack(2, "Fast Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 2, 
-                    8, 10), 
-                new RangedAttack(2, "Gun Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 5, 
-                    7, 14), 
-                new RangedAttack(2, "Fast Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 2, 
-                    10, 14), 
+                new RangedAttack(2, "Deal 4 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, GameController.Instance.AdrenalineBoostPerNeutralAbility * 2, 
+                    4, 4),
+                new RangedAttack(2, "Deal 3-6 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, GameController.Instance.AdrenalineBoostPerNeutralAbility * 2, 
+                    3, 6),
                 #endregion
 
                 #region Green
-                new RangedAttack(2, "Acid Shoot", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 10, 
-                    4, 8), 
-                new RangedAttack(2, "Melting Smash", AbilityColor.Green, GladiatorController.AnimationState.Meele, 5, 
-                    2, 4), 
+                new RangedAttack(2, "Deal 7 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, 6, 
+                    7, 7), 
+                new RangedAttack(2, "Deal 6-8 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 6, 
+                    6, 8),  
                 #endregion
 
                 #region Red
-                new RangedAttack(2, "Lava Shoot", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 10, 
-                    50, 100), 
-                new RangedAttack(2, "Fire Cut", AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 
-                    50, 100), 
+                new RangedAttack(2, "Deal 7 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, 6, 
+                    7, 7), 
+                new RangedAttack(2, "Deal 6-8 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 6, 
+                    6, 8),  
                 #endregion
 
                 #region Blue
-                new RangedAttack(2, "Electro Shoot", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 10, 
-                    4, 8), 
-                new RangedAttack(2, "Zapp", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 5, 
-                    2, 4), 
+                new RangedAttack(2, "Deal 7 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 6, 
+                    7, 7), 
+                new RangedAttack(2, "Deal 6-8 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 6, 
+                    6, 8), 
                 #endregion
 
             #endregion
 
             #region Level 2 Passive Abilities
-            new AdrenalineRush(),
-            new SuperVitality()
+            new AdrenalineRush(2, 10),
+            new SuperVitality(2, 20)
             #endregion
         
         },
         new Ability[] {
             #region Level 3 Active Abilities
                 #region Neutral
-                new RangedAttack(3, "Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 5, 
-                    5, 10), 
-                new RangedAttack(3, "Fast Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 2, 
-                    8, 10), 
-                new RangedAttack(3, "Gun Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 5, 
-                    7, 14), 
-                new RangedAttack(3, "Fast Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 2, 
-                    10, 14), 
+                new RangedAttack(3, "Deal 8 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, GameController.Instance.AdrenalineBoostPerNeutralAbility * 3, 
+                    8, 8),
+                new RangedAttack(3, "Deal 6-10 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, GameController.Instance.AdrenalineBoostPerNeutralAbility * 3, 
+                    6, 10),
                 #endregion
 
                 #region Green
-                new RangedAttack(3, "Acid Shoot", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 10, 
-                    4, 8), 
-                new RangedAttack(3, "Melting Smash", AbilityColor.Green, GladiatorController.AnimationState.Meele, 5, 
-                    2, 4), 
+                new RangedAttack(3, "Deal 15 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 7, 
+                    15, 15),
+                new RangedAttack(3, "Deal 14-16 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, 7, 
+                    14, 16), 
                 #endregion
 
                 #region Red
-                new RangedAttack(3, "Lava Shoot", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 10, 
-                    50, 100), 
-                new RangedAttack(3, "Fire Cut", AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 
-                    50, 100), 
+                new RangedAttack(3, "Deal 15 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 7, 
+                    15, 15), 
+                new RangedAttack(3, "Deal 14-16 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, 7, 
+                    14, 16),  
                 #endregion
 
                 #region Blue
-                new RangedAttack(3, "Electro Shoot", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 10, 
-                    4, 8), 
-                new RangedAttack(3, "Zapp", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 5, 
-                    2, 4), 
+                new RangedAttack(3, "Deal 15 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 7, 
+                    15, 15), 
+                new RangedAttack(3, "Deal 14-16 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 7, 
+                    14, 16), 
                 #endregion
 
             #endregion
 
             #region Level 3 Passive Abilities
-            new AdrenalineRush(),
-            new SuperVitality()
+            new AdrenalineRush(3, 15),
+            new SuperVitality(3, 30)
             #endregion
         
         }

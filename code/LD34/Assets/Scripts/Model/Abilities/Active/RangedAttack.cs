@@ -16,7 +16,7 @@ public class RangedAttack : ActiveAbility {
     protected override void ExecuteOnOpponent(Gladiator gladiator, bool isSmirked) {
         float damageValue = Random.Range(_MinDamage, _MaxDamage);
         if (isSmirked)
-            damageValue = Mathf.Floor(damageValue * 1.5f);
+            damageValue = Mathf.Floor(damageValue * GameController.Instance.SmirkBoost);
 
         TinyMessengerHub.Instance.Publish<Msg.DealDamage>(new Msg.DealDamage(gladiator._Id, damageValue));
     }    

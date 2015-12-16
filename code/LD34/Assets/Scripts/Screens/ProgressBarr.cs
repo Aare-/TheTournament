@@ -8,19 +8,21 @@ using UnityEngine.UI;
 public class ProgressBarr : MonoBehaviour {
     public Image Background;
     public Image Foreground;
+    public Text Nmr;
 
-    private float _Percent;
+    private Vector2 _Value;
 
-    public float Percent {
+    public Vector2 Value {
         get {
-            return _Percent;
+            return _Value;
         }
         set {
             RectTransform t = Foreground.GetComponent<RectTransform>();
 
-            t.localScale = new Vector3(Mathf.Clamp01(value), 1.0f, 1.0f);
+            Nmr.text = value.x + "/" + value.y;
+            t.localScale = new Vector3(Mathf.Clamp01(value.x / value.y), 1.0f, 1.0f);
 
-            _Percent = value;
+            _Value = value;
         }
     }
 }

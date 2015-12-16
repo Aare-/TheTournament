@@ -6,16 +6,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 class ArenaManager : MonoBehaviour {
+    public static int RoundCounter;
 
     [Header("Game Objecct Link")]
     public GladiatorHolder AllyGladiatorHolder;
     public GladiatorHolder OpponenetGladiatorHolder;
 
     public void Awake() {
+        RoundCounter = 0;
+
         AllyGladiatorHolder.LoadGladiator(GameController.Instance.player.FightingGladiator);
         OpponenetGladiatorHolder.LoadGladiator(GameController.Instance.player.Opponent);
     }
-    public void Start() {        
+    public void Start() {
+        
         TinyTokenManager.Instance.Register<Msg.GladiatorDefeated>("ARENA_MANAGER" + GetInstanceID() + "DEFEATED",
             (m) => {                
                 Destroy(AllyGladiatorHolder.gameObject);
