@@ -5,17 +5,23 @@ using System.Linq;
 using System.Text;
 using TinyMessenger;
 using UnityEngine;
+using UnityEngine.UI;
 
 class FightMode : MonoBehaviour {
 
+    public Text RoundCounter;
+    int counter = 0;
     public AttacksManager OpponentAttacksManager;
     public AttacksManager AllyAttacksManager;
+
+    public AudioSource Hit;
 
     public void Awake() {
 
     }
 
     public void Start() {
+        counter = 0;
         AllyAttacksManager.LoadAttacks(GameController.Instance.player.FightingGladiator);
         OpponentAttacksManager.LoadAttacks(GameController.Instance.player.Opponent);
 
@@ -29,11 +35,17 @@ class FightMode : MonoBehaviour {
             StartCoroutine(DoFightStep()); 
         });
         TinyMessengerHub.Instance.Publish<Msg.HideOneArrowKey>(new Msg.HideOneArrowKey(-1, true));
+        
     }
 
     IEnumerator  DoFightStep() {
+        counter++;
+
+        RoundCounter.text = "Round " + counter;
+
         TinyMessengerHub.Instance.Publish<Msg.PrepareToPerformAttack>(new Msg.PrepareToPerformAttack());
         TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());
+        
 
         yield return new WaitForSeconds(0.6f);
 

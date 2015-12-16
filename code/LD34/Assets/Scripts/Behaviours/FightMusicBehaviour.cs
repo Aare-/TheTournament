@@ -12,7 +12,7 @@ public class FightMusicBehaviour : StateMachineBehaviour
     public virtual void OnStateMachineExit(Animator animator, int stateMachinePathHash)
     {
         Debug.Log("OnStateMachineExit");
-        FindObjectOfType<AudioScript>().SetMenuPlaylist();
+        FindObjectOfType<AudioScript>().SetSuppresedPlaylist();
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

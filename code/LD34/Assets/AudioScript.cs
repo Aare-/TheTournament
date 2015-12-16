@@ -6,7 +6,6 @@ public class AudioScript : MonoBehaviour
 {
     public AudioSource[] audiosFight;
     public AudioSource[] audiosMenu;
-    public AudioSource[] audiosSuppressed;
     private AudioSource[] _actualPlaylist;
     private AudioSource _playingClip;
     private AudioSource _nextClip;
@@ -18,19 +17,20 @@ public class AudioScript : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        _actualPlaylist = audiosMenu;
-        _playingClip = _actualPlaylist[0];
-        StartCoroutine("FadeInAudio", _playingClip);
+        
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (_playingClip == null) return;
+
         if (_playingClip.time + 5 > _playingClip.clip.length)
         {
             PlayNextClip();
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.K))
         {
             PlayNextClip();
@@ -42,10 +42,15 @@ public class AudioScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             SetMenuPlaylist();
-        }
+        }*/
     }
 
-    public void SetFightPlaylist() {
+    public void SetFightPlaylist() {        
+        foreach (AudioSource a in audiosFight) {
+            a.volume = 1.0f;
+            AudioLowPassFilter f = a.GetComponent<AudioLowPassFilter>();
+            f.cutoffFrequency = 20000;
+        }
         SetPlaylist(audiosFight);
     }
 
@@ -55,8 +60,16 @@ public class AudioScript : MonoBehaviour
     }
 
     public void SetSuppresedPlaylist()
-    {
-        SetPlaylist(audiosSuppressed);
+    {        
+        foreach (AudioSource a in audiosFight) {
+            AudioLowPassFilter f = a.GetComponent<AudioLowPassFilter>();
+            a.volume = 0.25f;
+            
+            //f.lowpassResonanceQ = 
+            f.cutoffFrequency = 3000;
+        }
+        SetPlaylist(audiosFight);
+        //SetPlaylist(audiosSuppressed);
     }
 
     private void SetPlaylist(AudioSource[] playlist)
@@ -77,14 +90,17 @@ public class AudioScript : MonoBehaviour
     private void PlayNextClip() {
         _nextClip = GetNextClip();
         StopAllCoroutines();
-        
-            StartCoroutine(SmoothClipChange(_playingClip, _nextClip));
+
+        if(_playingClip != null) _playingClip.Stop();
+
+            //StartCoroutine(SmoothClipChange(_playingClip, _nextClip));
         
         _playingClip = _nextClip;
+        _playingClip.Play();
     }
 
     private AudioSource GetNextClip()
-    {        
+    {
         _musicIndex = (_musicIndex + 1) % _actualPlaylist.Length;
         return _actualPlaylist[_musicIndex];
     }

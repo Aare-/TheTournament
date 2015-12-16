@@ -54,7 +54,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: LevelUp
     m_Type: 9
@@ -198,6 +198,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabsToLoad:
   - menu_screen
+--- !u!114 &11425566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef78760c02c41d64ca0a03bdfa2234af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11429458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -825,6 +836,7 @@ AnimatorState:
   - {fileID: 110119212}
   m_StateMachineBehaviours:
   - {fileID: 11414268}
+  - {fileID: 11425566}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
