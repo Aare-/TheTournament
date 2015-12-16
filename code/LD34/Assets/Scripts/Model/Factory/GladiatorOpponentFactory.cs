@@ -29,7 +29,7 @@ public class GladiatorOpponentFactory : GladiatorFactory {
         #region Generating active abilities
         gladiator.ActiveAbilities.Clear();
 
-        if (GameController.Instance.player.NumberOfVictories < 3) {
+        if (GameController.Instance.player.NumberOfVictories < 2) {
             foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
                 gladiator.ActiveAbilities.Add(a);
         } else if (GameController.Instance.player.NumberOfVictories < 6) {

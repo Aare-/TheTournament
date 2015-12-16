@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 11449364}
+  Active: {fileID: 21300000, guid: 78a4c66c7c422ca44afe1526b63d3ab6, type: 3}
+  Passive: {fileID: 21300000, guid: eb15eb2aaff5c8a4c82e45bd0151b678, type: 3}
 --- !u!114 &11403332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -347,6 +349,7 @@ MonoBehaviour:
   RoundCounter: {fileID: 11403332}
   OpponentAttacksManager: {fileID: 11438660}
   AllyAttacksManager: {fileID: 11431374}
+  Hit: {fileID: 0}
 --- !u!114 &11431374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,6 +419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 11410700}
+  Active: {fileID: 21300000, guid: 78a4c66c7c422ca44afe1526b63d3ab6, type: 3}
+  Passive: {fileID: 21300000, guid: eb15eb2aaff5c8a4c82e45bd0151b678, type: 3}
 --- !u!114 &11449364
 MonoBehaviour:
   m_ObjectHideFlags: 1

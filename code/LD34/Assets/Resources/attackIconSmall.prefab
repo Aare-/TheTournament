@@ -57,6 +57,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 11493200}
+  Active: {fileID: 21300000, guid: 78a4c66c7c422ca44afe1526b63d3ab6, type: 3}
+  Passive: {fileID: 21300000, guid: eb15eb2aaff5c8a4c82e45bd0151b678, type: 3}
 --- !u!222 &22264644
 CanvasRenderer:
   m_ObjectHideFlags: 1
