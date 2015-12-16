@@ -21,12 +21,9 @@ public class FateOfTheLooser : Fadeable {
     public GridLayoutGroup LooserSkillsList;
     List<Ability> _LooserList;
 
-    private int _SelectedAbility = 0;
-	// Use this for initialization
+    private int _SelectedAbility = 0;	
 
-    void Awake() {
-        //CrusherLeft.gameObject.SetActive(false);
-        //CrusherRight.gameObject.SetActive(false);
+    void Awake() {        
     }
 	void Start () {
         GameController.Instance.player.NumberOfVictories++;
@@ -56,15 +53,20 @@ public class FateOfTheLooser : Fadeable {
         _LooserList = new List<Ability>();
         foreach (PassiveAbility p in GameController.Instance.player.Opponent.PassiveAbilities) {
             _LooserList.Add(p);
-            ActionDetails action = Instantiate(ActionDetailsPrefab);
-            action.transform.SetParent(LooserSkillsList.transform, false);
-            action.SetAbility(p);
         }
         foreach (ActiveAbility a in GameController.Instance.player.Opponent.ActiveAbilities) {
             _LooserList.Add(a);
+        }
+        //removing passive abilities that player already posses
+        foreach (PassiveAbility p in GameController.Instance.player.FightingGladiator.PassiveAbilities) {
+            if(_LooserList.Contains(p))
+                _LooserList.Remove(p);
+        }
+
+        foreach (Ability p in _LooserList) {            
             ActionDetails action = Instantiate(ActionDetailsPrefab);
             action.transform.SetParent(LooserSkillsList.transform, false);
-            action.SetAbility(a);
+            action.SetAbility(p);
         }
         #endregion
 

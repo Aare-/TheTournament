@@ -81,11 +81,7 @@ public class Gladiator {
         get { return _Life; }
         set {
             _Life = value;
-            TinyMessengerHub.Instance.Publish<Msg.GladiatorHealthChanged>(new Msg.GladiatorHealthChanged(_Id, _Life / BaseLife));
-
-            if (_Life <= 0) {
-                TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(_Id));
-            }
+            TinyMessengerHub.Instance.Publish<Msg.GladiatorHealthChanged>(new Msg.GladiatorHealthChanged(_Id, _Life / BaseLife));            
         }
     }
     public float Adrenaline {

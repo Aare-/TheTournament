@@ -33,12 +33,12 @@ class FightMode : MonoBehaviour {
 
     IEnumerator  DoFightStep() {
         TinyMessengerHub.Instance.Publish<Msg.PrepareToPerformAttack>(new Msg.PrepareToPerformAttack());
-        TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());        
+        TinyMessengerHub.Instance.Publish<Msg.PerformAttack>(new Msg.PerformAttack());
+
+        yield return new WaitForSeconds(0.6f);
 
         if (GameController.Instance.player.FightingGladiator.Life <= 0) {
             Unregister();
-
-            yield return new WaitForSeconds(0.2f);
 
             TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.FightingGladiator._Id));
             GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 1);
@@ -46,21 +46,15 @@ class FightMode : MonoBehaviour {
         } else if (GameController.Instance.player.Opponent.Life <= 0) {
             Unregister();
 
-            yield return new WaitForSeconds(0.2f);
-
             TinyMessengerHub.Instance.Publish<Msg.GladiatorDefeated>(new Msg.GladiatorDefeated(GameController.Instance.player.Opponent._Id));
             GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 2);
 
             
         } else if (!OpponentAttacksManager.HasNextAttack() && !AllyAttacksManager.HasNextAttack()) {
             Unregister();
-
-            yield return new WaitForSeconds(0.2f);
             
             GameController.Instance.SetStateInt(GameController.FIGHT_RESOLVED, 3);
-        } else {
-            yield return new WaitForSeconds(0.5f);
-        }
+        } 
     }
 
     void Unregister() {

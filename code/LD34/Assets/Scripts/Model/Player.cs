@@ -79,6 +79,10 @@ public class Player {
             posToAddAt++;
         }
 
+        //Converting to the ally type
+        gladiator.Level = 1;
+        gladiator.Flavour = Gladiator.GladiatorFlavour.Dude; //TODO: add dudessa
+
         _Party[posToAddAt] = gladiator;
     }
 }
