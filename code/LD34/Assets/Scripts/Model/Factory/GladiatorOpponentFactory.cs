@@ -29,44 +29,54 @@ public class GladiatorOpponentFactory : GladiatorFactory {
         #region Generating active abilities
         gladiator.ActiveAbilities.Clear();
 
-        if (GameController.Instance.player.NumberOfVictories < 2) {
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
+        if (GameController.Instance.player.NumberOfVictories < 5) {
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
                 gladiator.ActiveAbilities.Add(a);
-        } else if (GameController.Instance.player.NumberOfVictories < 6) {
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.AbilityColor.Neutral))
-                gladiator.ActiveAbilities.Add(a);
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 2), 1, Ability.GetRandomColorNotNeutral())) {
-                gladiator.ActiveAbilities.Add(a);
-            }        
-        } else if (GameController.Instance.player.NumberOfVictories < 10) {
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 2), 1, Ability.AbilityColor.Neutral))
-                gladiator.ActiveAbilities.Add(a);
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 2), 1, Ability.GetRandomColorNotNeutral())) {
-                gladiator.ActiveAbilities.Add(a);
-            }        
-        } else if (GameController.Instance.player.NumberOfVictories < 15) {
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 2), 1, Ability.AbilityColor.Neutral))
-                gladiator.ActiveAbilities.Add(a);
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 2, Ability.GetRandomColorNotNeutral())) {
-                gladiator.ActiveAbilities.Add(a);
-            }        
-        } else if (GameController.Instance.player.NumberOfVictories < 20) {
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 2), Random.Range(1, 2), Ability.AbilityColor.Neutral))
-                gladiator.ActiveAbilities.Add(a);
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, Random.Range(1, 2), Ability.GetRandomColorNotNeutral())) {
-                gladiator.ActiveAbilities.Add(a);
-            }
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, Random.Range(1, 2), Ability.GetRandomColorNotNeutral())) {
-                gladiator.ActiveAbilities.Add(a);
-            }   
-        } else if (GameController.Instance.player.NumberOfVictories < 30) {
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(2, Random.Range(1, 2), Ability.AbilityColor.Neutral))
-                gladiator.ActiveAbilities.Add(a);
-            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(2, 3), 2, Ability.GetRandomColorNotNeutral())) {
-                gladiator.ActiveAbilities.Add(a);
-            }
-        }        
 
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral()))
+                gladiator.ActiveAbilities.Add(a);
+        } else if (GameController.Instance.player.NumberOfVictories < 10) {
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
+                gladiator.ActiveAbilities.Add(a);
+
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral())) 
+                gladiator.ActiveAbilities.Add(a);
+            if (Random.Range(0.0f, 1.0f) < 0.5f)
+                foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 1, Ability.GetRandomColorNotNeutral())) {
+                    gladiator.ActiveAbilities.Add(a);
+                }        
+
+        } else if (GameController.Instance.player.NumberOfVictories < 20) {
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
+                gladiator.ActiveAbilities.Add(a);
+
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1,3), 1, Ability.GetRandomColorNotNeutral()))
+                gladiator.ActiveAbilities.Add(a);
+            if (Random.Range(0.0f, 1.0f) < 0.7f)
+                foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 2, Ability.GetRandomColorNotNeutral())) {
+                    gladiator.ActiveAbilities.Add(a);
+                }        
+        } else if (GameController.Instance.player.NumberOfVictories < 30) {
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
+                gladiator.ActiveAbilities.Add(a);
+
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 2, Ability.GetRandomColorNotNeutral()))
+                gladiator.ActiveAbilities.Add(a);
+            if (Random.Range(0.0f, 1.0f) < 0.5f)
+                foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 2, Ability.GetRandomColorNotNeutral())) {
+                    gladiator.ActiveAbilities.Add(a);
+                }        
+        } else {
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
+                gladiator.ActiveAbilities.Add(a);
+
+            foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(2,3), 2, Ability.GetRandomColorNotNeutral()))
+                gladiator.ActiveAbilities.Add(a);
+            if (Random.Range(0.0f, 1.0f) < 0.5f)
+                foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 3, Ability.GetRandomColorNotNeutral())) {
+                    gladiator.ActiveAbilities.Add(a);
+                }        
+        }    
         #endregion
 
         #region Generating passive abilities

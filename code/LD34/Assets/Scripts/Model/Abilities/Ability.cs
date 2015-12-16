@@ -22,30 +22,30 @@ public abstract class Ability {
                 #endregion
 
                 #region Green
-                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, 5, 
+                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
                     3, 3),
-                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 5, 
+                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
                     2, 4),
                 #endregion
 
                 #region Red
-                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 
+                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
                     3, 3),
-                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 5, 
+                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
                     2, 4),
                 #endregion
 
                 #region Blue
-                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 5, 
+                new RangedAttack(1, "Deal 3 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
                     3, 3),
-                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 5, 
+                new RangedAttack(1, "Deal 2-4 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
                     2, 4),
                 #endregion
 
             #endregion
 
             #region Level 1 Passive Abilities
-            new AdrenalineRush(1, 5),
+            new AdrenalineRush(1, GameController.Instance.BaseAttackQueueLength * 1),
             new SuperVitality(1, 10)
             #endregion
         
@@ -55,35 +55,35 @@ public abstract class Ability {
                 #region Neutral
                 new RangedAttack(2, "Deal 4 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, GameController.Instance.AdrenalineBoostPerNeutralAbility * 2, 
                     4, 4),
-                new RangedAttack(2, "Deal 3-6 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, GameController.Instance.AdrenalineBoostPerNeutralAbility * 2, 
-                    3, 6),
+                new RangedAttack(2, "Deal 3-5 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, GameController.Instance.AdrenalineBoostPerNeutralAbility * 2, 
+                    3, 5),
                 #endregion
 
                 #region Green
-                new RangedAttack(2, "Deal 7 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, 6, 
-                    7, 7), 
-                new RangedAttack(2, "Deal 6-8 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 6, 
-                    6, 8),  
+                new RangedAttack(2, "Deal 5 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
+                    5, 5), 
+                new RangedAttack(2, "Deal 4-6 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
+                    4, 6),  
                 #endregion
 
                 #region Red
-                new RangedAttack(2, "Deal 7 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, 6, 
-                    7, 7), 
-                new RangedAttack(2, "Deal 6-8 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 6, 
-                    6, 8),  
+                new RangedAttack(2, "Deal 5 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
+                    5, 5), 
+                new RangedAttack(2, "Deal 4-6 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
+                    4, 6),  
                 #endregion
 
                 #region Blue
-                new RangedAttack(2, "Deal 7 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 6, 
-                    7, 7), 
-                new RangedAttack(2, "Deal 6-8 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 6, 
-                    6, 8), 
+                new RangedAttack(2, "Deal 5 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
+                    5, 5), 
+                new RangedAttack(2, "Deal 4-6 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
+                    4, 6), 
                 #endregion
 
             #endregion
 
             #region Level 2 Passive Abilities
-            new AdrenalineRush(2, 10),
+            new AdrenalineRush(2, GameController.Instance.BaseAttackQueueLength * 2),
             new SuperVitality(2, 20)
             #endregion
         
@@ -91,37 +91,37 @@ public abstract class Ability {
         new Ability[] {
             #region Level 3 Active Abilities
                 #region Neutral
-                new RangedAttack(3, "Deal 8 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, GameController.Instance.AdrenalineBoostPerNeutralAbility * 3, 
-                    8, 8),
-                new RangedAttack(3, "Deal 6-10 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, GameController.Instance.AdrenalineBoostPerNeutralAbility * 3, 
-                    6, 10),
+                new RangedAttack(3, "Deal 6 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, GameController.Instance.AdrenalineBoostPerNeutralAbility * 3, 
+                    6, 6),
+                new RangedAttack(3, "Deal 5-7 DMG", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, GameController.Instance.AdrenalineBoostPerNeutralAbility * 3, 
+                    5, 7),
                 #endregion
 
                 #region Green
-                new RangedAttack(3, "Deal 15 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 7, 
-                    15, 15),
-                new RangedAttack(3, "Deal 14-16 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, 7, 
-                    14, 16), 
+                new RangedAttack(3, "Deal 7 DMG", AbilityColor.Green, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
+                    7, 7),
+                new RangedAttack(3, "Deal 6-8 DMG", AbilityColor.Green, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
+                    6, 8), 
                 #endregion
 
                 #region Red
-                new RangedAttack(3, "Deal 15 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 7, 
-                    15, 15), 
-                new RangedAttack(3, "Deal 14-16 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, 7, 
-                    14, 16),  
+                new RangedAttack(3, "Deal 7 DMG", AbilityColor.Red, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
+                    7, 7),
+                new RangedAttack(3, "Deal 6-8 DMG", AbilityColor.Red, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
+                    6, 8),  
                 #endregion
 
                 #region Blue
-                new RangedAttack(3, "Deal 15 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 7, 
-                    15, 15), 
-                new RangedAttack(3, "Deal 14-16 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 7, 
-                    14, 16), 
+                new RangedAttack(3, "Deal 7 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, GameController.Instance.BaseAttackQueueLength, 
+                    7, 7),
+                new RangedAttack(3, "Deal 6-8 DMG", AbilityColor.Blue, GladiatorController.AnimationState.Meele, GameController.Instance.BaseAttackQueueLength, 
+                    6, 8),  
                 #endregion
 
             #endregion
 
             #region Level 3 Passive Abilities
-            new AdrenalineRush(3, 15),
+            new AdrenalineRush(3, GameController.Instance.BaseAttackQueueLength * 3),
             new SuperVitality(3, 30)
             #endregion
         
