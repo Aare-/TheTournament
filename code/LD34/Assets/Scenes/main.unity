@@ -274,7 +274,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22486194, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22486194, guid: c54913c2eaae40e45abb0755ab61c174, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -593,6 +593,7 @@ MonoBehaviour:
   StartingAdrenaline: 30
   AdrenalineBoostPerLevel: 10
   AdrenalineBoostPerNeutralAbility: 2
+  LevelUpAtAbilityC: 2
   AbilitiesColors:
   - AbilityColor: 0
     Color: {r: .345588207, g: .345588207, b: .345588207, a: 1}
@@ -625,7 +626,7 @@ MonoBehaviour:
     Flavour: 5
     Level: -1
   PartySlotsSize: 4
-  StartPartySize: 1
+  StartPartySize: 3
   TacticRerolls: 4
   BaseAttackQueueLength: 5
   BlockInput: 0

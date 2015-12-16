@@ -363,4 +363,16 @@ public class Msg {
         }
         #endregion
     }
+
+    public class UpgradeFinished : TinyMessenger.ITinyMessage {        
+
+        #region Implementation
+        public UpgradeFinished() {            
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }
 }

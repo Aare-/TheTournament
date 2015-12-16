@@ -54,8 +54,90 @@ public abstract class Ability {
             #endregion
         
         },
-        new Ability[] {},
-        new Ability[] {}
+        new Ability[] {
+            #region Level 2 Active Abilities
+                #region Neutral
+                new RangedAttack(2, "Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 5, 
+                    5, 10), 
+                new RangedAttack(2, "Fast Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 2, 
+                    8, 10), 
+                new RangedAttack(2, "Gun Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 5, 
+                    7, 14), 
+                new RangedAttack(2, "Fast Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 2, 
+                    10, 14), 
+                #endregion
+
+                #region Green
+                new RangedAttack(2, "Acid Shoot", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 10, 
+                    4, 8), 
+                new RangedAttack(2, "Melting Smash", AbilityColor.Green, GladiatorController.AnimationState.Meele, 5, 
+                    2, 4), 
+                #endregion
+
+                #region Red
+                new RangedAttack(2, "Lava Shoot", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 10, 
+                    50, 100), 
+                new RangedAttack(2, "Fire Cut", AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 
+                    50, 100), 
+                #endregion
+
+                #region Blue
+                new RangedAttack(2, "Electro Shoot", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 10, 
+                    4, 8), 
+                new RangedAttack(2, "Zapp", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 5, 
+                    2, 4), 
+                #endregion
+
+            #endregion
+
+            #region Level 2 Passive Abilities
+            new AdrenalineRush(),
+            new SuperVitality()
+            #endregion
+        
+        },
+        new Ability[] {
+            #region Level 3 Active Abilities
+                #region Neutral
+                new RangedAttack(3, "Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 5, 
+                    5, 10), 
+                new RangedAttack(3, "Fast Slash", AbilityColor.Neutral, GladiatorController.AnimationState.Meele, 2, 
+                    8, 10), 
+                new RangedAttack(3, "Gun Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 5, 
+                    7, 14), 
+                new RangedAttack(3, "Fast Shoot", AbilityColor.Neutral, GladiatorController.AnimationState.Shoot, 2, 
+                    10, 14), 
+                #endregion
+
+                #region Green
+                new RangedAttack(3, "Acid Shoot", AbilityColor.Green, GladiatorController.AnimationState.Shoot, 10, 
+                    4, 8), 
+                new RangedAttack(3, "Melting Smash", AbilityColor.Green, GladiatorController.AnimationState.Meele, 5, 
+                    2, 4), 
+                #endregion
+
+                #region Red
+                new RangedAttack(3, "Lava Shoot", AbilityColor.Red, GladiatorController.AnimationState.Shoot, 10, 
+                    50, 100), 
+                new RangedAttack(3, "Fire Cut", AbilityColor.Red, GladiatorController.AnimationState.Meele, 5, 
+                    50, 100), 
+                #endregion
+
+                #region Blue
+                new RangedAttack(3, "Electro Shoot", AbilityColor.Blue, GladiatorController.AnimationState.Shoot, 10, 
+                    4, 8), 
+                new RangedAttack(3, "Zapp", AbilityColor.Blue, GladiatorController.AnimationState.Meele, 5, 
+                    2, 4), 
+                #endregion
+
+            #endregion
+
+            #region Level 3 Passive Abilities
+            new AdrenalineRush(),
+            new SuperVitality()
+            #endregion
+        
+        }
     };
 
     public static T[] GetRandomAbilities<T>(int count, int level, AbilityColor color) where T : Ability {

@@ -12,6 +12,7 @@ public partial class GameController : Singleton<GameController> {
     public float StartingAdrenaline = 50;
     public float AdrenalineBoostPerLevel = 10;
     public float AdrenalineBoostPerNeutralAbility = 5;
+    public int LevelUpAtAbilityC = 2;
     public List<AbilityColorColorContainer> AbilitiesColors;
 
     [Header("Gladiator Flavours")]

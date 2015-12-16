@@ -113,8 +113,8 @@ public class GladiatorController : MonoBehaviour {
             case AnimationState.Meele: _NextState = AnimationState.Idle; break;
             case AnimationState.Shoot: _NextState = AnimationState.Idle; break;
             case AnimationState.Upgrade: _NextState = AnimationState.PerformUpgrade; break;
-            case AnimationState.PerformUpgrade: 
-                //TODO: upgrade to the next tier if possible
+            case AnimationState.PerformUpgrade:
+                TinyMessengerHub.Instance.Publish<Msg.UpgradeFinished>(new Msg.UpgradeFinished());
                 break;
         }
     }

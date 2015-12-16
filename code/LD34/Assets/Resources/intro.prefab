@@ -258,17 +258,17 @@ MonoBehaviour:
   - {fileID: 11478718}
   roles:
   - Design & Code
+  - Art & Concepts
+  - Music & Sound Effects
   - Code
   - Code Assistant
-  - Art & Design
-  - Music & Sound Effects
   - UML Diagrams
   twitters:
   - '@FilipLoster'
-  - '@KamilSpisak'
-  - '@KamilPoreba'
   - '@DanielSltys'
   - '@KubaNizynski'
+  - '@KamilSpisak'
+  - '@KamilPoreba'
   - '@KubaPeksa'
   animationTime: .300000012
   FadeInTime: 1
@@ -644,7 +644,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: twitters.Array.data[4]
-      value: '@kuba_n91'
+      value: '@KamilPoreba'
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: CharacterChangeTime
@@ -657,6 +657,34 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: AnimateTime
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: roles.Array.data[3]
+      value: Code
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: roles.Array.data[1]
+      value: Art & Concepts
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: roles.Array.data[2]
+      value: Music & Sound Effects
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: roles.Array.data[4]
+      value: Code Assistant
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: twitters.Array.data[3]
+      value: '@KamilSpisak'
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: twitters.Array.data[1]
+      value: '@DanielSltys'
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: twitters.Array.data[2]
+      value: '@KubaNizynski'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

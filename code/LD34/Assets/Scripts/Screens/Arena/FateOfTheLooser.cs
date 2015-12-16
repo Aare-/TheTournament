@@ -31,6 +31,7 @@ public class FateOfTheLooser : Fadeable {
 	void Start () {
         GameController.Instance.player.NumberOfVictories++;
 
+        #region Creating Gladiator
         Gladiator g = GameController.Instance.player.Opponent;
         GladiatorController c = Instantiate(GameController.Instance.GetPrefabForGladiator(g)).GetComponent<GladiatorController>();
         c.gameObject.transform.position = new Vector3(0, 40, 0);
@@ -40,6 +41,7 @@ public class FateOfTheLooser : Fadeable {
         }
         c.transform.SetParent(LooserContainer.transform, false);
         c.SwitchState(GladiatorController.AnimationState.Kneeling);
+        #endregion
 
         if (GameController.Instance.player.CanAddToParty()) {
             FreeSlot.gameObject.SetActive(false);
@@ -137,9 +139,12 @@ public class FateOfTheLooser : Fadeable {
                 Unregister();
 
                 GameController.Instance.player.FightingGladiator.LearnNewAbility(_LooserList[_SelectedAbility]);
-                //TODO: add skill to character - check for the level up
 
-                StartCoroutine(KillSkillSelected());
+                if (GameController.Instance.player.FightingGladiator.LastLevelUpedAbility != null) {
+                    GameController.Instance.EnableTrigger("upgrade");
+                } else {                    
+                    StartCoroutine(KillSkillSelected());
+                }                
             });
     }
     void SelectAbilityOnTheList(int ability) {

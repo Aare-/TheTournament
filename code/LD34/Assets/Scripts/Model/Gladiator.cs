@@ -74,7 +74,7 @@ public class Gladiator {
     public int Level {
         get { return _Level; }
         set {
-            _Level = value;
+            _Level = Math.Min(3, value); //TODO: zmien jak dojdzie kolejna ewolucja
         }
     }
     public float Life {
@@ -125,6 +125,8 @@ public class Gladiator {
         }
         set { }
     }
+
+    public ActiveAbility LastLevelUpedAbility = null;
     #endregion
 
     public Gladiator() {
@@ -216,56 +218,66 @@ public class Gladiator {
         return _AttackQueue;
     }
     public void LearnNewAbility(Ability a) {
+        if (a == null) return;
+
         if ((a is ActiveAbility))
             _ActiveAbilities.Add((ActiveAbility)a);        
         if ((a is PassiveAbility))
-            _PassiveAbilities.Add((PassiveAbility)a);        
+            _PassiveAbilities.Add((PassiveAbility)a);
+
+        Debug.Log("NEW ABILITY LEARNED");
+        TestForLevelUp();
     }
-    public void IsLevelUp() {
-        /*
-         List<Ability> _AllAbilities = new List<Ability>();
+    void TestForLevelUp() {
+        Debug.Log("TEST 4 LEVEL UP");
+
+        List<ActiveAbility> _AllAbilities = new List<ActiveAbility>();
         foreach (var b in _ActiveAbilities)
             _AllAbilities.Add(b);
-        foreach (var p in _PassiveAbilities)
-            _AllAbilities.Add(p);
 
         _AllAbilities.Sort(CompareByColorAndLevel);
+
+        if (_AllAbilities.Count <= 0) return;
 
         int counter = 0;
         int position = 0;
         int lastLevel = _AllAbilities[0].Level;
         Ability.AbilityColor lastColor = _AllAbilities[0].Color;
-        foreach(var b in _AllAbilities) {
-            if (b.Level != lastLevel || b.Color != lastColor)
-                counter = 0;
-            else
-                counter++;
-            if (counter >= 3) {
-                List<Ability> abilitiesToUpgrade = new List<Ability>();
-                for (int i = 0; i < 3; i++)
-                    abilitiesToUpgrade.Add(_AllAbilities[position - i]);
+        Debug.Log("SEARCHING: ");
+        foreach (var b in _AllAbilities) {
+            Debug.Log("L: "+b.Level+" C: "+b.Color+" C: "+counter);
 
+            if (b.Level != lastLevel || b.Color != lastColor) {
+                counter = 1;
+                lastColor = b.Color;
+                lastLevel = b.Level;
+            } else
+                counter++;
+
+            if (counter >= GameController.Instance.LevelUpAtAbilityC) {
+                List<ActiveAbility> abilitiesToUpgrade = new List<ActiveAbility>();
+                for (int i = 0; i < GameController.Instance.LevelUpAtAbilityC; i++)
+                    abilitiesToUpgrade.Add(_AllAbilities[position - i]);
+                
                 LevelUp(abilitiesToUpgrade);
 
-                break;
+                return;
             }
 
             position++;
-        }
-         * */
+        } 
     }
-    private void LevelUp(List<Ability> abilities) {
-        foreach (var a in abilities) {
-            if((a is ActiveAbility))
-                _ActiveAbilities.Remove((ActiveAbility)a);
-            else
-                _PassiveAbilities.Remove((PassiveAbility)a);
-        }
+    private void LevelUp(List<ActiveAbility> abilities) {
+        Debug.Log("LEVELING UP!!!: "+abilities.Count+" : "+abilities[0]);
 
-        //TODO: show UI tha tallow to choose
-        //Ability.GetRandomAbilities(3, abilities[0].Level, abilities[0].Color);
+        foreach (var a in abilities) 
+            _ActiveAbilities.Remove(a);                    
+        
+        ActiveAbility newAbility = Ability.GetRandomAbilities<ActiveAbility>(1, abilities[0].Level + 1, abilities[0].Color)[0];
+        LastLevelUpedAbility = newAbility;
+        
 
-        Level++;
+        LearnNewAbility(newAbility);
     }
 
     private static int CompareByColorAndLevel(Ability x, Ability y) {
