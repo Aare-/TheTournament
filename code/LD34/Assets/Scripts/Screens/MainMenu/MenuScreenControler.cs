@@ -55,5 +55,6 @@ public class MenuScreenControler : Fadeable {
         TinyMessengerHub.Instance.Publish<Msg.StartNewGame>(new Msg.StartNewGame());
 
         GameController.Instance.EnableTrigger("startGame");
+        GameController.Instance.SetStateBool("game_over", false);
     }
 }

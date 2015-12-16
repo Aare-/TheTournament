@@ -11,6 +11,7 @@ public class LevelUp : Fadeable {
     [Header("GameObjects")]
     public GameObject CharacterHolder;
     public GridLayoutGroup NewSKill;
+    public GridLayoutGroup OldSkills;
 
     GladiatorController oldGC;
 
@@ -54,6 +55,12 @@ public class LevelUp : Fadeable {
         ActionDetails ab = (ActionDetails)Instantiate(_AbilityHolder);
         ab.transform.SetParent(NewSKill.transform, false);
         ab.SetAbility(GameController.Instance.player.FightingGladiator.LastLevelUpedAbility);
+
+        foreach (ActiveAbility a in GameController.Instance.player.FightingGladiator.EvolvedAbilities) {
+            ActionDetails abb = (ActionDetails)Instantiate(_AbilityHolder);
+            abb.transform.SetParent(OldSkills.transform, false);
+            abb.SetAbility(a);
+        }
 
         GameController.Instance.player.FightingGladiator.LastLevelUpedAbility = null;
 

@@ -123,6 +123,7 @@ public class Gladiator {
     }
 
     public ActiveAbility LastLevelUpedAbility = null;
+    public List<ActiveAbility> EvolvedAbilities = null;
     #endregion
 
     public Gladiator() {
@@ -220,16 +221,15 @@ public class Gladiator {
             _ActiveAbilities.Add((ActiveAbility)a);        
         if ((a is PassiveAbility))
             _PassiveAbilities.Add((PassiveAbility)a);
-
-        Debug.Log("NEW ABILITY LEARNED");
+        
         TestForLevelUp();
     }
-    void TestForLevelUp() {
-        Debug.Log("TEST 4 LEVEL UP");
+    void TestForLevelUp() {        
 
         List<ActiveAbility> _AllAbilities = new List<ActiveAbility>();
         foreach (var b in _ActiveAbilities)
-            _AllAbilities.Add(b);
+            if(b.Color != Ability.AbilityColor.Neutral)
+                _AllAbilities.Add(b);
 
         _AllAbilities.Sort(CompareByColorAndLevel);
 
@@ -238,10 +238,8 @@ public class Gladiator {
         int counter = 0;
         int position = 0;
         int lastLevel = _AllAbilities[0].Level;
-        Ability.AbilityColor lastColor = _AllAbilities[0].Color;
-        Debug.Log("SEARCHING: ");
-        foreach (var b in _AllAbilities) {
-            Debug.Log("L: "+b.Level+" C: "+b.Color+" C: "+counter);
+        Ability.AbilityColor lastColor = _AllAbilities[0].Color;        
+        foreach (var b in _AllAbilities) {            
 
             if (b.Level != lastLevel || b.Color != lastColor) {
                 counter = 1;
@@ -263,12 +261,12 @@ public class Gladiator {
             position++;
         } 
     }
-    private void LevelUp(List<ActiveAbility> abilities) {
-        Debug.Log("LEVELING UP!!!: "+abilities.Count+" : "+abilities[0]);
+    private void LevelUp(List<ActiveAbility> abilities) {        
 
         foreach (var a in abilities) 
-            _ActiveAbilities.Remove(a);                    
-        
+            _ActiveAbilities.Remove(a);
+
+        EvolvedAbilities = abilities;
         ActiveAbility newAbility = Ability.GetRandomAbilities<ActiveAbility>(1, abilities[0].Level + 1, abilities[0].Color)[0];
         LastLevelUpedAbility = newAbility;
         

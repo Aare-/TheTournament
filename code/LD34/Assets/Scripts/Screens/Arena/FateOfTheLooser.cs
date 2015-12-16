@@ -21,11 +21,14 @@ public class FateOfTheLooser : Fadeable {
     public GridLayoutGroup LooserSkillsList;
     List<Ability> _LooserList;
 
-    private int _SelectedAbility = 0;	
+    private int _SelectedAbility = 0;
+    bool abilityLimitReached = false;
 
     void Awake() {        
     }
 	void Start () {
+        if (GameController.Instance.player == null) return;
+
         GameController.Instance.player.NumberOfVictories++;
 
         #region Creating Gladiator
@@ -40,11 +43,19 @@ public class FateOfTheLooser : Fadeable {
         c.SwitchState(GladiatorController.AnimationState.Kneeling);
         #endregion
 
+        FreeSlot.text = "";
         if (GameController.Instance.player.CanAddToParty()) {
             FreeSlot.gameObject.SetActive(false);
         } else {
             FreeSlot.gameObject.SetActive(true);
             FreeSlot.text = "You don't have free slots in your party to fit new gladiator";
+        }
+        abilityLimitReached = false;
+        if(GameController.Instance.player.FightingGladiator.PassiveAbilities.Count + GameController.Instance.player.FightingGladiator.ActiveAbilities.Count >=
+            GameController.Instance.MaxAbilitiesPerGladiator) {
+                FreeSlot.gameObject.SetActive(true);
+                abilityLimitReached = true;
+                FreeSlot.text += "\nAbility limit reached: " + GameController.Instance.MaxAbilitiesPerGladiator;
         }
 
         _SelectedAbility = 0;
@@ -72,10 +83,11 @@ public class FateOfTheLooser : Fadeable {
 
         TinyTokenManager.Instance.Register<Msg.LeftPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "LEFT",
             (m) => {
-                if (GameController.Instance.player.CanAddToParty()) {
-                    Unregister();
-                    HandsContainer.gameObject.SetActive(false);
-                    StartCoroutine(FateSpare());
+                Unregister();
+                HandsContainer.gameObject.SetActive(false);
+                StartCoroutine(FateSpare());
+
+                if (GameController.Instance.player.CanAddToParty()) {                    
                     GameController.Instance.player.AddToParty(GameController.Instance.player.Opponent);
                 }
             });
@@ -113,41 +125,47 @@ public class FateOfTheLooser : Fadeable {
         Destroy(LooserContainer);
         yield return new WaitForSeconds(0.5f);
 
-        TinyMessengerHub.Instance.Publish<Msg.HideArrowKeys>(new Msg.HideArrowKeys(false));
+        if (abilityLimitReached) {
+            StartCoroutine(KillSkillSelected());
 
-        SkillsListLabel.text = "";
-        YouWon.text = "Select skill to learn";
 
-        _SelectedAbility = 0;
-        SelectAbilityOnTheList(_SelectedAbility);
+        } else {
+            TinyMessengerHub.Instance.Publish<Msg.HideArrowKeys>(new Msg.HideArrowKeys(false));
 
-        TinyTokenManager.Instance.Register<Msg.LeftPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "LEFT",
-           (m) => {
-               Debug.Log("Selecting skill left");
-               _SelectedAbility--;
-               if (_SelectedAbility < 0) _SelectedAbility = LooserSkillsList.transform.childCount - 1;
+            SkillsListLabel.text = "";
+            YouWon.text = "Select skill to learn";
 
-               SelectAbilityOnTheList(_SelectedAbility);
-           });
-        TinyTokenManager.Instance.Register<Msg.RightPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "RIGHT",
-            (m) => {
-                _SelectedAbility++;
-                if (_SelectedAbility >= LooserSkillsList.transform.childCount) _SelectedAbility = 0;
+            _SelectedAbility = 0;
+            SelectAbilityOnTheList(_SelectedAbility);
 
-                SelectAbilityOnTheList(_SelectedAbility);
-            });
-        TinyTokenManager.Instance.Register<Msg.SelectPerformed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "SELECTED",
-            (m) => {
-                Unregister();
+            TinyTokenManager.Instance.Register<Msg.LeftPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "LEFT",
+               (m) => {
+                   Debug.Log("Selecting skill left");
+                   _SelectedAbility--;
+                   if (_SelectedAbility < 0) _SelectedAbility = LooserSkillsList.transform.childCount - 1;
 
-                GameController.Instance.player.FightingGladiator.LearnNewAbility(_LooserList[_SelectedAbility]);
+                   SelectAbilityOnTheList(_SelectedAbility);
+               });
+            TinyTokenManager.Instance.Register<Msg.RightPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "RIGHT",
+                (m) => {
+                    _SelectedAbility++;
+                    if (_SelectedAbility >= LooserSkillsList.transform.childCount) _SelectedAbility = 0;
 
-                if (GameController.Instance.player.FightingGladiator.LastLevelUpedAbility != null) {
-                    GameController.Instance.EnableTrigger("upgrade");
-                } else {                    
-                    StartCoroutine(KillSkillSelected());
-                }                
-            });
+                    SelectAbilityOnTheList(_SelectedAbility);
+                });
+            TinyTokenManager.Instance.Register<Msg.SelectPerformed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "SELECTED",
+                (m) => {
+                    Unregister();
+
+                    GameController.Instance.player.FightingGladiator.LearnNewAbility(_LooserList[_SelectedAbility]);
+
+                    if (GameController.Instance.player.FightingGladiator.LastLevelUpedAbility != null) {
+                        GameController.Instance.EnableTrigger("upgrade");
+                    } else {
+                        StartCoroutine(KillSkillSelected());
+                    }
+                });
+        }
     }
     void SelectAbilityOnTheList(int ability) {
         for (int i = 0; i < LooserSkillsList.transform.childCount; i++)
