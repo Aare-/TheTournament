@@ -14,7 +14,9 @@ public partial class GameController : Singleton<GameController> {
         return ++_LastGenId;
     }
 
-    protected void Awake() {        
+    protected void Awake() {
+        Screen.SetResolution(320, 568, false);
+
         _OpponentFactory = new GladiatorOpponentFactory();
         
         TinyTokenManager.Instance.Register<Msg.GameOver>(GetInstanceID() + "qweqweWGAME_OVER", (m) => {
