@@ -22,8 +22,7 @@ public abstract class ActiveAbility : Ability {
         _AdrenalineCost = adrenalineCost;
     }
 
-    public void ExecuteOnOpponent(Gladiator gladiator) {
-        Debug.Log("T: " + Color + " vs: " + gladiator.LastActiveColor + " r: " + IsSmirkingAgainst(gladiator.LastActiveColor));
+    public void ExecuteOnOpponent(Gladiator gladiator) {        
 
         if (IsSmirkingAgainst(gladiator.LastActiveColor)) {
             TinyMessengerHub.Instance.Publish<Msg.AbilitySmirked>(new Msg.AbilitySmirked(gladiator._Id));

@@ -167,7 +167,6 @@ public class Gladiator {
     void OnPrepareToPerformAttack(Msg.PrepareToPerformAttack m) {
         if (_IsFighting && _AttackQueue.Count > 0) {            
             _LastActiveColor = _AttackQueue[0].Color;
-            Debug.Log("ACT:COL: " + _LastActiveColor);
         }
     }
     void OnPerformAttack(Msg.PerformAttack m) {

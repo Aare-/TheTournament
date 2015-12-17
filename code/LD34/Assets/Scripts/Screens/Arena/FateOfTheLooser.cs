@@ -79,26 +79,10 @@ public class FateOfTheLooser : Fadeable {
             action.transform.SetParent(LooserSkillsList.transform, false);
             action.SetAbility(p);
         }
-        #endregion
-
-        TinyTokenManager.Instance.Register<Msg.LeftPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "LEFT",
-            (m) => {
-                Unregister();
-                HandsContainer.gameObject.SetActive(false);
-                StartCoroutine(FateSpare());
-
-                if (GameController.Instance.player.CanAddToParty()) {                    
-                    GameController.Instance.player.AddToParty(GameController.Instance.player.Opponent);
-                }
-            });
-        TinyTokenManager.Instance.Register<Msg.RightPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "RIGHT",
-            (m) => {
-                Unregister();
-                HandsContainer.gameObject.SetActive(false);                
-                StartCoroutine(FateKill());
-            });
+        #endregion                
 
         TinyMessengerHub.Instance.Publish<Msg.HideArrowKeys>(new Msg.HideArrowKeys(true));
+        StartCoroutine(DecideFait());
 	}
     void Unregister() {
         TinyTokenManager.Instance.Unregister<Msg.LeftPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "LEFT");
@@ -108,6 +92,29 @@ public class FateOfTheLooser : Fadeable {
     void Crush() {        
         iTween.MoveBy(CrusherRight.gameObject, new Vector3(-2.82f, 0), 0.5f);
         iTween.MoveBy(CrusherLeft.gameObject, new Vector3(2.82f, 0), 0.5f);        
+    }
+
+    IEnumerator DecideFait() {
+        HandsContainer.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
+
+        HandsContainer.gameObject.SetActive(true);
+        TinyTokenManager.Instance.Register<Msg.LeftPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "LEFT",
+            (m) => {
+                Unregister();
+                HandsContainer.gameObject.SetActive(false);
+                StartCoroutine(FateSpare());
+
+                if (GameController.Instance.player.CanAddToParty()) {
+                    GameController.Instance.player.AddToParty(GameController.Instance.player.Opponent);
+                }
+            });
+        TinyTokenManager.Instance.Register<Msg.RightPressed>("FATE_OF_THE_LOOSER" + GetInstanceID() + "RIGHT",
+            (m) => {
+                Unregister();
+                HandsContainer.gameObject.SetActive(false);
+                StartCoroutine(FateKill());
+            });
     }
     IEnumerator FateSpare() {
         FreeSlot.gameObject.SetActive(true);
