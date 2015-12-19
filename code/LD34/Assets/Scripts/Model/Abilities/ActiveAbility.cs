@@ -32,8 +32,7 @@ public abstract class ActiveAbility : Ability {
         }
     }
     protected abstract void ExecuteOnOpponent(Gladiator gladiator, bool isSmirked);
-    public virtual void ExecuteOnAlly(Gladiator gladiator) {
-        gladiator.Adrenaline += AdrenalineCost;
+    public virtual void ExecuteOnAlly(Gladiator gladiator) {                
     }
     public bool CanPerformAbility(Gladiator g) {
         if (Color == AbilityColor.Neutral)

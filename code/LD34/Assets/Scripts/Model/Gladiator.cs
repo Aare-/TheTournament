@@ -74,7 +74,7 @@ public class Gladiator {
     public int Level {
         get { return _Level; }
         set {
-            _Level = Mathf.Min(3, value); //TODO: zmien jak dojdzie kolejna ewolucja
+            _Level = Mathf.Min(GameController.Instance.MaxLevel, value);
         }
     }
     public float Life {
@@ -177,8 +177,15 @@ public class Gladiator {
                 _AttackQueue.RemoveAt(0);
 
                 if(a.CanPerformAbility(this)) {
+                    if (a.Color == Ability.AbilityColor.Neutral)
+                        Adrenaline = Adrenaline + 1;
+                    else {
+                        Adrenaline = Adrenaline + a.AdrenalineCost;
+                    }                    
+
                     TinyMessengerHub.Instance.Publish<Msg.PerformActiveAbility>(new Msg.PerformActiveAbility(a, _Id));
-                } else {
+                } else {                    
+                    Adrenaline = Adrenaline + 1;
 
                     TinyMessengerHub.Instance.Publish<Msg.NotEnughAdrenaline>(new Msg.NotEnughAdrenaline(_Id));
                 }

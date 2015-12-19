@@ -14,6 +14,7 @@ public partial class GameController : Singleton<GameController> {
     public int AdrenalineBoostPerNeutralAbility = 5;
     public int LevelUpAtAbilityC = 2;
     public int MaxAbilitiesPerGladiator = 6;
+    public int MaxLevel = 4;
     public float SmirkBoost = 1.5f;
     public float ChanceOfColourSkill = 0.75f;
     public List<AbilityColorColorContainer> AbilitiesColors;

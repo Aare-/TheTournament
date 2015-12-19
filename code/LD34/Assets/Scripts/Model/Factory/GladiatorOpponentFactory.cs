@@ -18,8 +18,11 @@ public class GladiatorOpponentFactory : GladiatorFactory {
             return 1;
         if (GameController.Instance.player.NumberOfVictories < 30)
             return 2;
+        if (GameController.Instance.player.NumberOfVictories < 45)
+            return 3;
+
         
-        return 3;
+        return 4;
     }
 
     public override Gladiator Generate() {
@@ -48,7 +51,7 @@ public class GladiatorOpponentFactory : GladiatorFactory {
                     gladiator.ActiveAbilities.Add(a);
                 }        
 
-        } else if (GameController.Instance.player.NumberOfVictories < 20) {
+        } else if (GameController.Instance.player.NumberOfVictories < 15) {
             gladiator.Level = 2;
 
             foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
@@ -60,7 +63,7 @@ public class GladiatorOpponentFactory : GladiatorFactory {
                 foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(1, 2, Ability.GetRandomColorNotNeutral())) {
                     gladiator.ActiveAbilities.Add(a);
                 }        
-        } else if (GameController.Instance.player.NumberOfVictories < 30) {
+        } else if (GameController.Instance.player.NumberOfVictories < 25) {
             gladiator.Level = 3;
 
             foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
@@ -73,6 +76,8 @@ public class GladiatorOpponentFactory : GladiatorFactory {
                     gladiator.ActiveAbilities.Add(a);
                 }        
         } else {
+            gladiator.Level = 4;
+
             foreach (ActiveAbility a in Ability.GetRandomAbilities<ActiveAbility>(Random.Range(1, 3), 1, Ability.AbilityColor.Neutral))
                 gladiator.ActiveAbilities.Add(a);
 
