@@ -10,7 +10,8 @@ public class AudioScript : MonoBehaviour
     private AudioSource _playingClip;
     private AudioSource _nextClip;
 
-    [Header("Ustawienia")] public float fadeStep = 0.1f;
+    [Header("Settings")] 
+    public float fadeStep = 0.1f;
     public float fadeDelayTime = 0.2f;
     private int _musicIndex = 0;
 
@@ -105,15 +106,6 @@ public class AudioScript : MonoBehaviour
         return _actualPlaylist[_musicIndex];
     }
 
-    //private void SmoothClipChange(AudioSource clip1, AudioSource clip2)
-    //{
-    //    if (clip1 != clip2)
-    //    {
-    //        StartCoroutine("FadeOutAudio", clip1);
-    //        StartCoroutine("FadeInAudio", clip2);
-    //    }
-    //}
-
     public IEnumerator SmoothClipChange(AudioSource clip1, AudioSource clip2)
     {
         if (clip1 != clip2)
@@ -125,8 +117,6 @@ public class AudioScript : MonoBehaviour
             {
                 clip1.volume -= fadeStep;
                 clip2.volume += fadeStep;
-                //Debug.Log(clip1.clip.name + " volume: " + clip1.volume);
-                //Debug.Log(clip2.clip.name + " volume: " + clip2.volume);
                 yield return new WaitForSeconds(fadeDelayTime);
             }
             clip1.Stop();

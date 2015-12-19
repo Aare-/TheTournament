@@ -99,6 +99,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &152642
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 480592}
+  - 82: {fileID: 8223622}
+  m_Layer: 0
+  m_Name: AudioSource2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &195978
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +142,7 @@ GameObject:
   - 4: {fileID: 414202}
   - 82: {fileID: 8250926}
   m_Layer: 0
-  m_Name: AudioSource2
+  m_Name: AudioSource3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420154}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &420154
 Transform:
   m_ObjectHideFlags: 1
@@ -184,6 +200,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484042}
+  - {fileID: 480592}
   - {fileID: 414202}
   m_Father: {fileID: 410348}
   m_RootOrder: 4
@@ -223,6 +240,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 410348}
   m_RootOrder: 1
+--- !u!4 &480592
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 420154}
+  m_RootOrder: 1
 --- !u!4 &484042
 Transform:
   m_ObjectHideFlags: 1
@@ -246,6 +275,77 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24347476, guid: d56bac6431bbb38408fb55c2e7070c1d,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 5af7431f378a3054089c89c768ea24f3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8223622
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152642}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24337586, guid: d56bac6431bbb38408fb55c2e7070c1d,
+    type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -743,9 +843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4542a56c690034ca89f4740c5fd081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main: {fileID: 0}
-  glad1: {fileID: 8267150}
-  glad2: {fileID: 8250926}
   click: {fileID: 8300000, guid: 9ec602637c37f28468e893fcb2a3d570, type: 3}
   sword: {fileID: 8300000, guid: b0d510a33f1276d4486a4f9fd556a2ce, type: 3}
   gun: {fileID: 8300000, guid: a5255cc2fc701dd4480dc24ac6b03384, type: 3}
@@ -754,7 +851,8 @@ MonoBehaviour:
   aplause: {fileID: 8300000, guid: 4a69d4abcb91c7849ab2817bbc26cba2, type: 3}
   oww: {fileID: 8300000, guid: 1c34c62fd06fe5642afab6ac6aceb7fa, type: 3}
   notEnughAdrenaline: {fileID: 8300000, guid: 2cd7f3694d264334db1e334b724e8d77, type: 3}
-  upgradeSound: {fileID: 8300000, guid: 516f6a3958457bf4bb09e0e822f96132, type: 3}
+  upgrade: {fileID: 8300000, guid: 516f6a3958457bf4bb09e0e822f96132, type: 3}
+  clampSmash: {fileID: 0}
 --- !u!114 &11447540
 MonoBehaviour:
   m_ObjectHideFlags: 1

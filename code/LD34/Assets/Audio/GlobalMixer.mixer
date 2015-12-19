@@ -33,15 +33,15 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: dccd6e6c060c4da458b52c717550342f
   m_Children:
-  - {fileID: 24347476}
   - {fileID: 24343684}
+  - {fileID: 24347476}
   - {fileID: 24337586}
   - {fileID: 24388494}
   m_Volume: 0893522481244f34897bf3c645aad1a9
   m_Pitch: 1d05fe77bc863bc44b81a1911ccd58e6
   m_Effects:
   - {fileID: 24400002}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 8
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -58,7 +58,7 @@ AudioMixerGroupController:
   m_Pitch: 923781aef6ecdb54a80cb7c47119abb4
   m_Effects:
   - {fileID: 24493684}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 5
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -75,7 +75,7 @@ AudioMixerGroupController:
   m_Pitch: 06614c08ce4221d459f43ac7453e71c5
   m_Effects:
   - {fileID: 24454020}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 6
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -92,7 +92,7 @@ AudioMixerGroupController:
   m_Pitch: 749ad18b4eed74b4183d40e2f68d3221
   m_Effects:
   - {fileID: 24450426}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 3
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
