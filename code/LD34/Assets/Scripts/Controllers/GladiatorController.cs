@@ -18,18 +18,17 @@ public class GladiatorController : MonoBehaviour {
         Upgrade,
         Kneeling,
         PerformUpgrade
-    }    
+    }
 
+    #region Properties
+    [Header("Animations")]
     [SerializeField]
-    private List<AnimationFrame> _IdleAnimation;
+    private string _PathToAtlas;
     [SerializeField]
-    private List<AnimationFrame> _MeeleAttackAnimation;
+    private string _AtlasName;  
     [SerializeField]
-    private List<AnimationFrame> _ShootAttackAnimation;
-    [SerializeField]
-    private List<AnimationFrame> _UpgradeAnimation;
-    [SerializeField]
-    private List<AnimationFrame> _Kneeling;
+    List<AnimationSequenceHolder> _AnimationSequences;
+    #endregion
 
     AnimationState _CurrentState = AnimationState.Idle;
     AnimationState _NextState = AnimationState.Idle;
@@ -47,6 +46,11 @@ public class GladiatorController : MonoBehaviour {
     #endregion
 
     public void Awake() {
+        foreach (AnimationSequenceHolder h in _AnimationSequences) {
+            h.Sequence.AtlasName = _AtlasName;
+            h.Sequence.PathToAtlas = _PathToAtlas;
+        }
+
         _SpriteImage = GetComponent<Image>();
         SwitchState(AnimationState.Idle);
     }
@@ -77,13 +81,9 @@ public class GladiatorController : MonoBehaviour {
     public void Update() {
         List<AnimationFrame> list = null;
 
-        switch (_CurrentState) {
-            case AnimationState.Idle: list = _IdleAnimation; break;
-            case AnimationState.Meele: list = _MeeleAttackAnimation; break;
-            case AnimationState.Shoot: list = _ShootAttackAnimation; break;
-            case AnimationState.Upgrade: list = _UpgradeAnimation; break;
-            case AnimationState.Kneeling: list = _Kneeling; break;
-        }
+        foreach (AnimationSequenceHolder h in _AnimationSequences)
+            if (h.State == _CurrentState)
+                list = h.Sequence.Frames;                    
 
         if (list != null && list.Count() > 0) {
             frameTime += Time.deltaTime;
@@ -117,5 +117,11 @@ public class GladiatorController : MonoBehaviour {
                 TinyMessengerHub.Instance.Publish<Msg.UpgradeFinished>(new Msg.UpgradeFinished());
                 break;
         }
+    }
+
+    [Serializable]
+    public class AnimationSequenceHolder {
+        public AnimationState State;
+        public AnimationSequence Sequence;        
     }
 }

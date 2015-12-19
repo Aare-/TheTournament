@@ -37,7 +37,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300214, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
+  m_Sprite: {fileID: 21300110, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -56,67 +56,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5dc5bb4fa22204bba2c683e3dbc6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IdleAnimation:
-  - Frame: {fileID: 21300214, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300096, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300098, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300100, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300102, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  _MeeleAttackAnimation:
-  - Frame: {fileID: 21300170, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300104, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300106, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300108, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300110, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  _ShootAttackAnimation:
-  - Frame: {fileID: 21300172, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300216, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300112, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300114, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300116, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  _UpgradeAnimation:
-  - Frame: {fileID: 21300062, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300064, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300066, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300068, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300212, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300068, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300212, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300068, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300212, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .300000012
-  - Frame: {fileID: 21300070, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300072, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300074, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  - Frame: {fileID: 21300076, guid: a4ad44ab9a7d0864692bf079cf31b067, type: 3}
-    FrameTime: .100000001
-  _Kneeling: []
+  _PathToAtlas: spriteSheets
+  _AtlasName: characters
+  _AnimationSequences:
+  - State: 0
+    Sequence:
+      _StartingNumber: 59
+      _Length: 5
+      PathToAtlas: 
+      AtlasName: 
+  - State: 1
+    Sequence:
+      _StartingNumber: 64
+      _Length: 5
+      PathToAtlas: 
+      AtlasName: 
+  - State: 2
+    Sequence:
+      _StartingNumber: 69
+      _Length: 5
+      PathToAtlas: 
+      AtlasName: 
+  - State: 3
+    Sequence:
+      _StartingNumber: 32
+      _Length: 9
+      PathToAtlas: 
+      AtlasName: 
 --- !u!222 &22298922
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -156,6 +122,10 @@ Prefab:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: _IdleAnimation.Array.data[0].Frame
       value: 
       objectReference: {fileID: 21300214, guid: a4ad44ab9a7d0864692bf079cf31b067,
@@ -183,7 +153,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300214, guid: a4ad44ab9a7d0864692bf079cf31b067,
+      objectReference: {fileID: 21300110, guid: a4ad44ab9a7d0864692bf079cf31b067,
         type: 3}
     - target: {fileID: 0}
       propertyPath: _MeeleAttackAnimation.Array.data[0].Frame
@@ -347,6 +317,58 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _UpgradeAnimation.Array.data[13].FrameTime
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[1].State
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[2].State
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[3].State
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _PathToAtlas
+      value: spriteSheets
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AtlasName
+      value: characters
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[3].Sequence._StartingNumber
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[3].Sequence._Length
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[0].Sequence._StartingNumber
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[0].Sequence._Length
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[1].Sequence._StartingNumber
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[1].Sequence._Length
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[2].Sequence._StartingNumber
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _AnimationSequences.Array.data[2].Sequence._Length
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

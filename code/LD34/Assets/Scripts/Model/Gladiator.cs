@@ -13,7 +13,8 @@ public class Gladiator {
         Red,
         Blue,
         Green,
-        Orange
+        Orange,
+        Purple
     }
 
     #region Data

@@ -6,8 +6,8 @@ using UnityEngine;
 public class GladiatorAllyFactory : GladiatorFactory {
 
     Gladiator.GladiatorFlavour[] _Flavours = new Gladiator.GladiatorFlavour[] {
-        Gladiator.GladiatorFlavour.Dude//,
-        //Gladiator.GladiatorFlavour.Dudesse
+        Gladiator.GladiatorFlavour.Dude,
+        Gladiator.GladiatorFlavour.Dudesse
     };
 
     public override Gladiator Generate() {

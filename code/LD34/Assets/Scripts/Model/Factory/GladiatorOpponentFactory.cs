@@ -10,6 +10,7 @@ public class GladiatorOpponentFactory : GladiatorFactory {
         Gladiator.GladiatorFlavour.Green,
         Gladiator.GladiatorFlavour.Orange,
         Gladiator.GladiatorFlavour.Red,
+        Gladiator.GladiatorFlavour.Purple
     };
 
     int GetPassiveAbilityLevel() {
