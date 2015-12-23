@@ -2,8 +2,17 @@
 using System.Collections;
 using System.Linq;
 
-public class AudioScript : MonoBehaviour
-{
+public class AudioScript : MonoBehaviour {
+    public enum Sounds {
+        Click,
+        Hit,
+        Shoot,
+        Defeat,
+        Victory
+    };
+
+    public AudioSource clickSound;
+
     public AudioSource[] audiosFight;
     public AudioSource[] audiosMenu;
     private AudioSource[] _actualPlaylist;
@@ -16,9 +25,15 @@ public class AudioScript : MonoBehaviour
     private int _musicIndex = 0;
 
     // Use this for initialization
-    private void Start()
-    {
-        
+    private void Start() {
+        TinyTokenManager.Instance.Register<Msg.PlaySound>("AUDIO_SCRIPT" + GetInstanceID(), (m) => {
+            switch (m.SoundId) {
+                case Sounds.Click:
+                    clickSound.Play();
+
+                    break;
+            }
+        });
     }
 
     // Update is called once per frame

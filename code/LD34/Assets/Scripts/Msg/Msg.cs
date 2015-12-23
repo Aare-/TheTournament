@@ -376,4 +376,19 @@ public class Msg {
         }
         #endregion
     }
+
+    public class PlaySound : TinyMessenger.ITinyMessage {
+
+        public AudioScript.Sounds SoundId;
+
+        #region Implementation
+        public PlaySound(AudioScript.Sounds soundId) {
+            SoundId = soundId;
+        }
+
+        public object Sender {
+            get { return null; }
+        }
+        #endregion
+    }    
 }
