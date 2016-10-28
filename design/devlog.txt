@@ -1,1 +1,25 @@
 - przerobic system walki na "sloty"
+
+- karty eventow niespodzianki (moga byc dobre, moga nie)
+- walka:
+	- reshuffle kartry (daje energie danego koloru)
+	- uzycie karty
+- niektore karty sie "combuja" i dodaja nowe karty polaczone do decka
+- odkryte kombinacje sa widoczne
+
+
+Karty:
+
+- Zdrowie
+- Akcja na reshuffle
+- Akcja na play
+- Akcja na discard
+
+Odrzucenie karty ktora posiada zdrowie powoduje zmniejszenie ilosci maksymalnego zdrowia o wartosc na karcie
+Karty ataku zadaja obrazenia z paska zdrowia
+Nie ma healowania, jest tylko powiekszanie maksymalnej wartosci zdrowia
+
+Karty z ewolucjami, maja rozne wfekty w zaleznosci od poziomu ewolucji.
+Zagranie karty 
+
+Choose to skip X cards for their reshuffle effects
