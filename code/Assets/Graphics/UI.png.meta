@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 81d02c9f16e8ae24d8da216141ffb7c6
+timeCreated: 1450092617
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bg
+    21300002: UI_1
+    21300004: thumb_down
+    21300006: thumb_up
+    21300008: crusher
+    21300010: shadow
+    21300012: UI_6
+    21300014: UI_7
+    21300016: UI_8
+    21300018: UI_9
+    21300020: UI_10
+    21300022: UI_11
+    21300024: UI_12
+    21300026: UI_13
+    21300028: UI_14
+    21300030: UI_15
+    21300032: UI_16
+    21300034: UI_17
+    21300036: UI_18
+    21300038: UI_19
+    21300040: UI_20
+    21300042: UI_21
+    21300044: UI_22
+    21300046: UI_23
+    21300048: UI_24
+    21300050: UI_25
+    21300052: UI_26
+    21300054: UI_27
+    21300056: UI_28
+    21300058: UI_29
+    21300060: UI_30
+    21300062: UI_31
+    21300064: UI_32
+    21300066: UI_33
+    21300068: UI_34
+    21300070: UI_35
+    21300072: UI_36
+    21300074: UI_37
+    21300076: UI_38
+    21300078: UI_39
+    21300080: UI_40
+    21300082: UI_41
+    21300084: UI_42
+    21300086: UI_43
+    21300088: UI_44
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bg
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 525
+        width: 256
+        height: 382
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UI_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 388
+        width: 256
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: thumb_down
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 312
+        width: 88
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: thumb_up
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 312
+        width: 88
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crusher
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 76
+        width: 216
+        height: 233
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shadow
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 50
+        width: 52
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
